@@ -10,48 +10,44 @@
 
 {% block content %}
 <div class="content-body">
-    <div class="emps-content">
-        <div class="emps-title">
-            <span class="back-emp-btn">
-                <!-- <img src="{{ url_for('static', filename='images/left_icon.png') }}">-->
-            </span>
-            <span class="hospital-emps"> Employee Directory </span>
+    <div class="controls">
+        <div class="search-container">
+            <button class="left-icon-btn">
+                <img src="{{ url_for('static', filename='images/search_icon.png') }}" alt="Left Icon">
+            </button>
+            <input type="text" id="search-bar" class="search-bar" placeholder="Search..." onkeyup="filterEmployees()">
+            <button class="filter-btn" onclick="toggleDropdown()">
+                <img src="{{ url_for('static', filename='images/filter_icon.png') }}" alt="Filter Icon">
+            </button>
+            
+            <!-- Dropdown Menu -->
+            <div id="employee-filter-dropdown" class="employee-dropdown employee-add" style="display: none;">
+                <h4>Filter by:</h4>
+                <div class="employee-dropdown-columns">
+                    <div class="employee-left-column">
+                        <!-- Content for left column -->
+                        <p>Department</p>
+                        <p>Status</p>
+                        <p>Position</p>
+                    </div>
+                    <div class="employee-divider"></div> <!-- Divider -->
+                    <div class="employee-right-column">
+                        <!-- Content for right column -->
+                        <p>Radiology</p>
+                        <p>Cardiology</p>
+                    </div>
+                </div>
+            </div>
         </div>
         
-<!-- Employee Search Bar -->
-<div class="emp-search">
-    <span class="emp-search-icon-left">
-        <img src="{{ url_for('static', filename='images/search_icon.png') }}" alt="Search Icon">
-    </span>
-    <input type="text" placeholder="Search Employees..." class="emp-search-input">
-    <span class="emp-search-icon-right">
-        <img src="{{ url_for('static', filename='images/updown_icon.png') }}" alt="Right Icon">
-    </span>
-
-    <!-- Dropdown Container -->
-    <div class="emp-dropdown" onclick="toggleDropdown()">
-        <div class="emp-dropdown-placeholder" id="emp-dropdown-placeholder">
-            <span>Filter by:</span> <!-- Placeholder text -->
-            <span class="emp-filter-icon">
-                <img src="{{ url_for('static', filename='images/filter_icon.png') }}" alt="Filter Icon">
-            </span>
-        </div>
-        <div class="emp-dropdown-content" onclick="preventDropdownClose(event)">
-            <!-- Filter by title -->
-            <div class="emp-dropdown-title">Filter by:</div>
-            
-            <div class="emp-left">
-                <!-- Content for the left column -->
-                <p class="emp-item" onclick="showRightColumnContent('Department')">Department</p>
-                <p class="emp-item" onclick="showRightColumnContent('Status')">Status</p>
-                <p class="emp-item" onclick="showRightColumnContent('Employment Type')">Employment Type</p>
-                <p class="emp-item" onclick="showRightColumnContent('Position')">Position</p>
-            </div>
-            <div class="emp-right" id="emp-right-content">
-                <!-- Content for the right column -->
-                <p>Select a filter</p>
-            </div>
-        </div>
+        
+        
+        <a href="{{ url_for('emp_info') }}" class="add-employee-btn1">
+                Add Employee 
+            <span>+</span>
+        </a>
+        
+        </button>
     </div>
 </div>
 
@@ -69,49 +65,29 @@
             </tr>
         </thead>
         <tbody>
-            {% for employee in employees %}
             <tr>
                 <td>
-                    {{ employee.last_name }},
-                    {{ employee.first_name }}
-                    {% if employee.middle_name %}
-                        {{ employee.middle_name }}
-                    {% endif %}
-                    {% if employee.ext_name %}
-                        {{ employee.ext_name }}
-                    {% endif %}
+                    Chua,
+                    Joshua
                 </td>
-                <td>{{ employee.position }}</td>
-                <td>{{ employee.department }}</td>
-                <td>{{ employee.employment_type }}</td>
+                <td>Nurse</td>
+                <td>ER</td>
+                <td>Active</td>
                 <td>
-                    <span class="status {{ employee.status|lower }}" 
+                    <span class="status" 
                           onclick="toggleStatus(this)">
-                          {{ employee.status }}
                     </span>
                 </td>
                 <td>
-                        <a href="{{ url_for('emp_view', employee_id=employee.employee_id) }}" class="view-btn">View</a>
+                        <a href="{{ url_for('emp_view', employee_id=1) }}" class="view-btn">View</a>
                         <button class="edit-btn">Edit</button>
                         <button class="delete-btn">Delete</button>
                     </td>
                 </tr>
-                
-                {% endfor %}
             </tbody>
         </table>
     </div>
 </div>
-
-<!-- Confirmation Modal for Delete -->
-<div id="delete-confirmation-modal" class="delete-modal" style="display:none;">
-    <div class="delete-content">
-        <p id="delete-confirmation-message">Are you sure you want to delete this employee? This action cannot be undone.</p>
-        <button class="delete-confirm" onclick="confirmDelete()">Yes, Delete</button>
-        <button class="delete-cancel" onclick="closeDeleteModal()">Cancel</button>
-    </div>
-</div>
-
 <!-- New Modal for "View Only" Personal and Employment Tabs -->
 <div id="viewOnlyEmployeeFormContainer" class="modal">
     <div class="modal-content">

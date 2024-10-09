@@ -19,13 +19,11 @@
 {% block content %}
 <div class="emp_view-background">
     <div class="employee_view-content">
-    <!-- Left Arrow Button with Title -->
-    <a href="{{ url_for('employee') }}" class="emp_view-back-button">
-        <img src="{{ url_for('static', filename='images/left_icon.png') }}" alt="Back Arrow">
-        <span class="emp_view-title-text">
-            View / <span class="emp_view-bold-text">Personal Information</span>
-        </span>
-    </a>
+        <!-- Left Arrow Button with Title -->
+        <a href="{{ url_for('employee') }}" class="emp_view-back-button">
+            <img src="{{ url_for('static', filename='images/left_icon.png') }}" alt="Back Arrow">
+            <span class="emp_view-title-text">Personal Information</span>
+        </a>
 
         <!-- Divider -->
         <div class="emp_view-custom-divider"></div>
@@ -43,7 +41,8 @@
                     <span>New Position</span>
                 </div>
                 <div class="emp_view-buttons">
-
+                    <a href="#" class="emp-view edit-employee" id="editButton">Edit</a>
+                    <a href="#" class="emp-view delete">Delete</a>
                 </div>
                 
             </div>
