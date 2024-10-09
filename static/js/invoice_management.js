@@ -100,7 +100,9 @@ function updateInvoices() {
 }
 
 // Toggle the insurance box visibility
-function toggleInsuranceBox(invoiceId) {
+function toggleInsuranceBox(invoiceId, event) {
+  event.preventDefault(); // Prevent the default action of the anchor tag
+
   // Hide all insurance boxes first
   const allInsuranceBoxes = document.querySelectorAll(".insurance-box");
   allInsuranceBoxes.forEach((box) => {
@@ -113,8 +115,18 @@ function toggleInsuranceBox(invoiceId) {
     insuranceBox.style.display =
       insuranceBox.style.display === "none" || insuranceBox.style.display === ""
         ? "block"
-        : "none";
+        : "none"; // Toggle visibility
   }
+
+  // Close insurance box when clicking outside
+  document.addEventListener("click", function (event) {
+    const isClickInside = insuranceBox.contains(event.target) || event.target.classList.contains("btn-insurance");
+    if (!isClickInside) {
+      insuranceBox.style.display = "none"; // Hide insurance box if click is outside
+      // Remove the event listener after hiding to prevent memory leaks
+      document.removeEventListener("click", arguments.callee);
+    }
+  });
 }
 
 // Handle coverage and reimbursement option selections

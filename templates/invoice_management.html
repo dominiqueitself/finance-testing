@@ -49,83 +49,163 @@
     </div>
 
     <!-- Invoice Management Table -->
-    <table class="invoice-table">
-        <thead>
-            <tr>
-                <th>Invoice ID</th>
-                <th>Patient Name</th>
-                <th>Date Issued</th>
-                <th>Status</th>
-                <th>Approval Status</th> 
-                <th>Total Amount</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>INP-INV-001</td>
-                <td>Elijah Katigbak</td>
-                <td>2024-10-09</td>
-                <td>Open</td>
-                <td>Pending</td>
-                <td>₱56000.00</td>
-                <td>
-                    <a href="{{ url_for('invoice_view')}}" class="btn-view">View</a>
-                    <a href="{{ url_for('invoice_edit')}}" class="btn-edit">Edit</a>
-                    <a href="{{ url_for('payment')}}" class="btn-payment" 
-                       data-status="Open" 
-                       data-approval="Pending">Make Payment</a>
-                    <a href="#" class="btn-insurance" 
-                       data-status="Open" 
-                       data-approval="Pending" 
-                       onclick="toggleInsuranceBox()">Apply Insurance</a>
-                
-                    <!-- Hidden insurance box for this specific invoice -->
-                    <div id="insurance-box" class="insurance-box">
-                        <h3>Apply Insurance</h3>
-                        <a href="{{ url_for('invoice_coverage')}}" 
-                           class="insurance-option" onclick="handleCoverage()">Coverage</a>
-                        <a href="{{ url_for('invoice_reimbursement') }}" 
-                           class="insurance-option reimbursement-option" 
-                           onclick="handleReimbursement()">Reimbursement</a>
-                    </div>
-                
-                    <a href="#" class="btn-void" onclick="openVoidModal()">Void</a>
-                </td>                             
-            </tr>
-            <tr>
-                <td>EXC-INV-001</td>
-                <td>John Benedict</td>
-                <td>2024-10-09</td>
-                <td>Paid</td>
-                <td>Approved</td>
-                <td>₱23000.00</td>
-                <td>
-                    <a href="{{ url_for('invoice_view')}}" class="btn-view">View</a>
-                    <a href="{{ url_for('invoice_edit')}}" class="btn-edit">Edit</a>
-                    <a href="{{ url_for('payment')}}" class="btn-payment" 
-                       data-status="Open" 
-                       data-approval="Pending">Make Payment</a>
-                    <a href="#" class="btn-insurance" 
-                       data-status="Open" 
-                       data-approval="Pending" 
-                       onclick="toggleInsuranceBox()">Apply Insurance</a>
-                
-                    <!-- Hidden insurance box for this specific invoice -->
-                    <div id="insurance-box" class="insurance-box">
-                        <h3>Apply Insurance</h3>
-                        <a href="{{ url_for('invoice_coverage')}}" 
-                           class="insurance-option" onclick="handleCoverage()">Coverage</a>
-                        <a href="{{ url_for('invoice_reimbursement') }}" 
-                           class="insurance-option reimbursement-option" 
-                           onclick="handleReimbursement()">Reimbursement</a>
-                    </div>
-                
-                    <a href="#" class="btn-void" onclick="openVoidModal()">Void</a>
-                </td>                             
-            </tr>
-        </tbody>
-    </table>
+<!-- Invoice Management Table -->
+<table class="invoice-table">
+    <thead>
+        <tr>
+            <th>Invoice ID</th>
+            <th>Patient Name</th>
+            <th>Date Issued</th>
+            <th>Status</th>
+            <th>Approval Status</th> 
+            <th>Total Amount</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>INV12345</td>
+            <td>Renz Paul Fababeir</td>
+            <td>2024-09-01</td>
+            <td>Open</td>
+            <td>Pending Approval</td>
+            <td>₱11,500.00</td>
+            <td>
+                <a href="{{ url_for('invoice_view') }}" class="btn-view">View</a>
+                <a href="#" class="btn-edit">Edit</a>
+                <a href="{{ url_for('payment') }}" class="btn-payment" data-status="Open" data-approval="Pending Approval">Make Payment</a>
+                <a href="#" class="btn-insurance" data-status="Open" data-approval="Pending Approval" onclick="toggleInsuranceBox('INV12345', event)">Apply Insurance</a>
+                <div id="insurance-box-INV12345" class="insurance-box">
+                    <h3>Apply Insurance</h3>
+                    <a href="#" class="insurance-option" onclick="handleCoverage()">Coverage</a>
+                    <a href="#" class="insurance-option reimbursement-option" onclick="handleReimbursement()">Reimbursement</a>
+                </div>
+                <a href="#" class="btn-void" onclick="openVoidModal()">Void</a>
+            </td>                             
+        </tr>
+        <tr>
+            <td>INV12346</td>
+            <td>Shane Steven Servas</td>
+            <td>2024-09-01</td>
+            <td>Fully Paid</td>
+            <td>Approved</td>
+            <td>₱11,500.00</td>
+            <td>
+                <a href="{{ url_for('invoice_view') }}" class="btn-view">View</a>
+                <a href="#" class="btn-edit">Edit</a>
+                <a href="{{ url_for('payment') }}" class="btn-payment" data-status="Fully Paid" data-approval="Approved">Make Payment</a>
+                <a href="#" class="btn-insurance" data-status="Partially Paid" data-approval="Approved" onclick="toggleInsuranceBox('INV12346', event)">Apply Insurance</a>
+                <div id="insurance-box-INV12346" class="insurance-box">
+                    <h3>Apply Insurance</h3>
+                    <a href="{{ url_for('invoice_coverage') }}" class="insurance-option" onclick="handleCoverage()">Coverage</a>
+                    <a href="{{ url_for('invoice_reimbursement') }}" class="insurance-option reimbursement-option" onclick="handleReimbursement()">Reimbursement</a>
+                </div>  
+                <a href="#" class="btn-void" onclick="openVoidModal()">Void</a>
+            </td>                             
+        </tr>
+        <tr>
+            <td>INV12347</td>
+            <td>Kyle Mendoza</td>
+            <td>2024-09-01</td>
+            <td>Voided</td>
+            <td>Rejected</td>
+            <td>₱11,500.00</td>
+            <td>
+                <a href="{{ url_for('invoice_view') }}" class="btn-view">View</a>
+                <a href="#" class="btn-edit">Edit</a>
+                <a href="{{ url_for('payment') }}" class="btn-payment" data-status="Voided" data-approval="Rejected">Make Payment</a>
+                <a href="#" class="btn-insurance" data-status="Voided" data-approval="Rejected" onclick="toggleInsuranceBox('INV12347', event)">Apply Insurance</a>
+                <div id="insurance-box-INV12347" class="insurance-box">
+                    <h3>Apply Insurance</h3>
+                    <a href="#" class="insurance-option" onclick="handleCoverage()">Coverage</a>
+                    <a href="#" class="insurance-option reimbursement-option" onclick="handleReimbursement()">Reimbursement</a>
+                </div>
+                <a href="#" class="btn-void" onclick="openVoidModal()">Void</a>
+            </td>                             
+        </tr>
+        <tr>
+            <td>INV12348</td>
+            <td>Joshua Chua</td>
+            <td>2024-09-01</td>
+            <td>Open</td>
+            <td>Approved</td>
+            <td>₱20,000.00</td>
+            <td>
+                <a href="{{ url_for('invoice_view') }}" class="btn-view">View</a>
+                <a href="#" class="btn-edit">Edit</a>
+                <a href="{{ url_for('payment') }}" class="btn-payment" data-status="Open" data-approval="Approved">Make Payment</a>
+                <a href="#" class="btn-insurance" data-status="Partially Paid" data-approval="Approved" onclick="toggleInsuranceBox('INV12348', event)">Apply Insurance</a>
+                <div id="insurance-box-INV12348" class="insurance-box">
+                    <h3>Apply Insurance</h3>
+                    <a href="{{ url_for('invoice_coverage') }}" class="insurance-option" onclick="handleCoverage()">Coverage</a>
+                    <a href="{{ url_for('invoice_reimbursement') }}" class="insurance-option reimbursement-option" onclick="handleReimbursement()">Reimbursement</a>
+                </div>  
+                <a href="#" class="btn-void" onclick="openVoidModal()">Void</a>
+            </td>                             
+        </tr>
+        <tr>
+            <td>INV12349</td>
+            <td>Julianne Dominique Torres</td>
+            <td>2024-09-02</td>
+            <td>Open</td>
+            <td>Rejected</td>
+            <td>₱15,000.00</td>
+            <td>
+                <a href="{{ url_for('invoice_view') }}" class="btn-view">View</a>
+                <a href="{{ url_for('invoice_edit') }}" class="btn-edit">Edit</a>
+                <a href="{{ url_for('payment') }}" class="btn-payment" data-status="Open" data-approval="Rejected">Make Payment</a>
+                <a href="#" class="btn-insurance" data-status="Open" data-approval="Rejected" onclick="toggleInsuranceBox('INV12349', event)">Apply Insurance</a>
+                <div id="insurance-box-INV12349" class="insurance-box">
+                    <h3>Apply Insurance</h3>
+                    <a href="{{ url_for('invoice_coverage') }}" class="insurance-option" onclick="handleCoverage()">Coverage</a>
+                    <a href="{{ url_for('invoice_reimbursement') }}" class="insurance-option reimbursement-option" onclick="handleReimbursement()">Reimbursement</a>
+                </div>
+                <a href="#" class="btn-void" onclick="openVoidModal()">Void</a>
+            </td>                             
+        </tr>
+        <tr>
+            <td>INV12350</td>
+            <td>Cherry Doromal</td>
+            <td>2024-09-03</td>
+            <td>Partially Paid</td>
+            <td>Approved</td>
+            <td>₱8,000.00</td>
+            <td>
+                <a href="{{ url_for('invoice_view') }}" class="btn-view">View</a>
+                <a href="#" class="btn-edit">Edit</a>
+                <a href="{{ url_for('payment') }}" class="btn-payment" data-status="Partially Paid" data-approval="Approved">Make Payment</a>
+                <a href="#" class="btn-insurance" data-status="Partially Paid" data-approval="Approved" onclick="toggleInsuranceBox('INV12350', event)">Apply Insurance</a>
+                <div id="insurance-box-INV12350" class="insurance-box">
+                    <h3>Apply Insurance</h3>
+                    <a href="{{ url_for('invoice_coverage') }}" class="insurance-option" onclick="handleCoverage()">Coverage</a>
+                    <a href="{{ url_for('invoice_reimbursement') }}" class="insurance-option reimbursement-option" onclick="handleReimbursement()">Reimbursement</a>
+                </div>                
+                <a href="#" class="btn-void" onclick="openVoidModal()">Void</a>
+            </td>                             
+        </tr>
+        <tr>
+            <td>INV34512</td>
+            <td>Robert Doromal</td>
+            <td>2024-09-06</td>
+            <td>Voided</td>
+            <td>Approved</td>
+            <td>₱5,000.00</td>
+            <td>
+                <a href="{{ url_for('invoice_view') }}" class="btn-view">View</a>
+                <a href="#" class="btn-edit">Edit</a>
+                <a href="{{ url_for('payment') }}" class="btn-payment" data-status="Voided" data-approval="Approved">Make Payment</a>
+                <a href="#" class="btn-insurance" data-status="Voided" data-approval="Approved" onclick="toggleInsuranceBox('INV34512', event)">Apply Insurance</a>
+                <div id="insurance-box-INV34512" class="insurance-box">
+                    <h3>Apply Insurance</h3>
+                    <a href="#" class="insurance-option" onclick="handleCoverage()">Coverage</a>
+                    <a href="#" class="insurance-option reimbursement-option" onclick="handleReimbursement()">Reimbursement</a>
+                </div>
+                <a href="#" class="btn-void" onclick="openVoidModal()">Void</a>
+            </td>                             
+        </tr>
+    </tbody>
+</table>
+
     
 <!-- Confirmation Modal for Void -->
 <div id="void-confirmation-modal" class="void-confirmation-modal" style="display:none;">

@@ -133,15 +133,10 @@ def insurance_view():
 def audit():
     return render_template('audit_trails.html')
 
-# Serve static employee info page
-@app.route('/emp-info')
-def emp_info():
-    return render_template('employee_info.html')
-
-# Serve static employee view page
-@app.route('/emp-view/<int:employee_id>')
-def emp_view(employee_id):
-    return render_template('employee_view.html')
+# Serve static employee view info page
+@app.route('/emp-view')
+def emp_view():
+    return render_template('employee_view.html')      
 
 # Serve static insurance provider page
 @app.route('/insurance-provider')
@@ -173,6 +168,9 @@ def invoice_reimbursement():
 def emp_edit():
     return render_template('employee_edit.html')
 
+@app.route('/logout')
+def logout():
+    return redirect(url_for('login'))
 
 if __name__ == '__main__':
     app.run(debug=True)

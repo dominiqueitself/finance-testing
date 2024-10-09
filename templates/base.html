@@ -22,87 +22,69 @@
             <div class="user-dropdown">
                 <img src="{{ url_for('static', filename='images/User_icon.png') }}" alt="User Icon">
                 <div class="triangle"></div>
-                <div class="dropdown-content">
-                    <a href="#">
-                        Profile
-                        <img src="{{ url_for('static', filename='images/profile_icon.png') }}" alt="Profile Icon" class="dropdown-icon">
-                    </a>
-                    <a href="{{ url_for('login') }}">
-                        Logout
-                        <img src="{{ url_for('static', filename='images/logout_icon.png') }}" alt="Logout Icon" class="dropdown-icon">
-                    </a>
+                <div class="profile-dropdown-content">
+                    <a href="#">Profile <img src="{{ url_for('static', filename='images/profile_icon.png') }}" alt="Profile Icon" class="dropdown-icon"></a>
+                    <a href="{{ url_for('logout') }}">Logout<img src="{{ url_for('static', filename='images/logout_icon.png') }}" alt="Logout Icon" class="dropdown-icon"></a>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- New Top Bar -->
-    <div class="top-bar">
-        <div class="top-nav">
-            <a href="{{ url_for('dashboard') }}">Dashboard</a>
-            <a href="{{ url_for('employee') }}">Employees</a>
-            <a href="{{ url_for('room') }}">Rooms</a>
-            <a href="{{ url_for('services') }}">Services</a>
+<!-- New Top Bar -->
+<div class="top-bar">
+    <div class="top-nav">
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('employee') }}">Employees</a>
+        <a href="{{ url_for('services') }}">Services</a>
 
-            <div class="dropdown">
-                <button class="dropbtn">Wards</button>
-                <div class="dropdown-content">
-                    <a href="{{ url_for('room') }}">Medical Ward</a>
-                </div>
+        <div class="dropdown">
+            <button class="dropbtn">Wards</button>
+            <div class="dropdown-content">
+                <a href="{{ url_for('medical_ward') }}">Medical Ward</a>
+                <a href="{{ url_for('radiology') }}">Radiology Ward</a>
             </div>
+        </div>
 
-            <!-- Dropdown for Patients -->
-            <div class="dropdown">
-                <button class="dropbtn">Patients</button>
-                <div class="dropdown-content">
-                    <a href="{{ url_for('hospital_patients') }}">Hospital Patients</a>
-                    <a href="{{ url_for('external_customers') }}">External Customers</a>
-                </div>
+        <!-- Dropdown for Patients -->
+        <div class="dropdown">
+            <button class="dropbtn">Patients</button>
+            <div class="dropdown-content">
+                <a href="{{ url_for('hospital_patients') }}">Hospital Patients</a>
+                <a href="{{ url_for('external_customers') }}">External Customers</a> 
             </div>
+        </div>
 
-            <!-- Dropdown for Invoices -->
-            <div class="dropdown">
-                <button class="dropbtn">Invoices</button>
-                <div class="dropdown-content">
-                    <div class="submenu">
-                        <span class="submenu-title">Invoice Management</span>
-                        <div class="submenu-content">
-                            <a href="{{ url_for('invoice_management') }}">Lists</a>
-                            <a href="#">Search</a>
-                        </div>
+        <!-- Dropdown for Invoices -->
+        <div class="dropdown">
+            <button class="dropbtn">Invoices</button>
+            <div class="dropdown-content">
+                <div class="submenu">
+                    <span class="submenu-title">Invoice Management <span class="submenu-icon">&gt;</span></span>
+                    <div class="submenu-content">
+                        <a href="{{ url_for('invoice_management') }}">Lists</a>
+                        <a href="#">Search</a>
                     </div>
-                    <a href="{{ url_for('submitted_invoices') }}">Submitted Invoices</a> 
                 </div>
+                <a href="{{ url_for('submitted_invoices') }}">Submitted Invoices</a>
             </div>
-            
-            <!-- Dropdown for Insurance -->
-            <div class="dropdown">
-                <button class="dropbtn">Insurance</button>
-                <div class="dropdown-content">
-                    <div class="submenu">
-                        <span class="submenu-title">Claims Management</span>
-                        <div class="submenu-content">
-                            <a href="{{ url_for('insurance') }}">Lists</a>
-                            <a href="#">Search</a>
-                        </div>
-                    </div>
-                    <a href="{{ url_for('insurance_provider') }}">Insurance Providers</a> 
-                </div>
-            </div>
+        </div>
 
-            <!-- Updated Dropdown for Finance
-            <div class="dropdown">
-                <button class="dropbtn">Finance</button>
-                <div class="dropdown-content">
-                    <a href="{{ url_for('hospital_invoices') }}">Hospital Invoices</a> 
-                    <a href="{{ url_for('external_invoices') }}">External Invoices</a> 
-                    <a href="{{ url_for('payment') }}">Payment</a>
-                    <a href="{{ url_for('insurance') }}">Insurance Claims</a>
-                    <a href="{{ url_for('audit') }}">Audit Trails</a>
+        <!-- Dropdown for Insurance -->
+        <div class="dropdown">
+            <button class="dropbtn">Insurance</button>
+            <div class="dropdown-content">
+                <div class="submenu">
+                    <span class="submenu-title">Claims Management <span class="submenu-icon">&gt;</span></span>
+                    <div class="submenu-content">
+                        <a href="{{ url_for('insurance') }}">Lists</a>
+                        <a href="#">Search</a>
+                    </div>
                 </div>
-            </div> -->
+                <a href="{{ url_for('insurance_provider') }}">Insurance Providers</a>
+            </div>
         </div>
     </div>
+</div>
 
     <!-- Main Content Area -->
     <div class="main-content">
