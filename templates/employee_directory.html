@@ -76,6 +76,7 @@
                 <td>
                     <span class="status" 
                           onclick="toggleStatus(this)">
+                          Full-Time
                     </span>
                 </td>
                 <td>
@@ -84,6 +85,46 @@
                         <button class="delete-btn">Delete</button>
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                        Servas,
+                        Shane Steven
+                    </td>
+                    <td>Doctor</td>
+                    <td>Cardiology</td>
+                    <td>Active</td>
+                    <td>
+                        <span class="status" 
+                              onclick="toggleStatus(this)">
+                              Full-Time
+                        </span>
+                    </td>
+                    <td>
+                            <a href="{{ url_for('emp_view', employee_id=1) }}" class="view-btn">View</a>
+                            <button class="edit-btn">Edit</button>
+                            <button class="delete-btn">Delete</button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Mendoza,
+                            Kyle
+                        </td>
+                        <td>IT Head</td>
+                        <td>IT</td>
+                        <td>Resigned</td>
+                        <td>
+                            <span class="status" 
+                                  onclick="toggleStatus(this)">
+                                  Full-Time
+                            </span>
+                        </td>
+                        <td>
+                                <a href="{{ url_for('emp_view', employee_id=1) }}" class="view-btn">View</a>
+                                <button class="edit-btn">Edit</button>
+                                <button class="delete-btn">Delete</button>
+                            </td>
+                        </tr>
             </tbody>
         </table>
     </div>

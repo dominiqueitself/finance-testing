@@ -53,19 +53,33 @@
             </tr>
         </thead>
         <tbody>
-            {% for department in departments %}
             <tr>
-                <td>{{ department.department_id }}</td>
+                <td>CARD001</td>
                 <td>
-                    <a href="#" class="department-link" data-department="{{ department.department_name }}" data-id="{{ department.department_id }}" data-head="{{ department.dept_head }}" data-contact="{{ department.contact }}" data-location="{{ department.dept_location }}" data-email="{{ department.email }}">
-                        {{ department.department_name }}
-                    </a>
+                    Cardiology
                 </td>
-                <td>{{ department.dept_head }}</td>
-                <td>{{ department.dept_location }}</td>
-                <td>{{ department.contact }}</td>
+                <td>Lisa Mendez</td>
+                <td>2nd Floor</td>
+                <td>09873648190</td>
             </tr>
-            {% endfor %}
+            <tr>
+                <td>OPTH001</td>
+                <td>
+                    Opthalmology
+                </td>
+                <td>John Cruz</td>
+                <td>2nd Floor</td>
+                <td>09873991033</td>
+            </tr>
+            <tr>
+                <td>OBGY001</td>
+                <td>
+                    Obstetrician-Gynecology
+                </td>
+                <td>Alicia Brown</td>
+                <td>2nd Floor</td>
+                <td>098731172640</td>
+            </tr>
         </tbody>        
     </table>
 </div>

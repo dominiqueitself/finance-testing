@@ -37,14 +37,24 @@
             </tr>
         </thead>
         <tbody>
-            {% for customer in external_customers %}
             <tr>
-                <td>{{ customer.id }}</td>
-                <td>{{ customer.full_name }}</td>
-                <td>{{ customer.contact_number }}</td>
-                <td><a href="{{ url_for('external_invoices', customer_id=customer.id) }}" class="btn-generate-invoice">Generate Invoice</a></td>
+                <td>EXTC001</td>
+                <td>John Benedict</td>
+                <td>09563188742</td>
+                <td><a href="{{ url_for('external_invoices')}}" class="btn-generate-invoice">Generate Invoice</a></td>
             </tr>
-            {% endfor %}
+            <tr>
+                <td>EXTC002</td>
+                <td>Angel Cruz</td>
+                <td>09539821733</td>
+                <td><a href="{{ url_for('external_invoices')}}" class="btn-generate-invoice">Generate Invoice</a></td>
+            </tr>
+            <tr>
+                <td>EXTC003</td>
+                <td>Johnny Warren</td>
+                <td>09563100392</td>
+                <td><a href="{{ url_for('external_invoices')}}" class="btn-generate-invoice">Generate Invoice</a></td>
+            </tr>
         </tbody>
     </table>
 </div>
