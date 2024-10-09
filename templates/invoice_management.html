@@ -62,32 +62,30 @@
             </tr>
         </thead>
         <tbody>
-            {% for invoice in invoices %}
-            <!-- Each invoice row -->
             <tr>
-                <td>{{ invoice['invoice_id'] }}</td>
-                <td>{{ invoice['customer_name'] }}</td>
-                <td>{{ invoice['invoice_date'] }}</td>
-                <td>{{ invoice['payment_status'] }}</td>
-                <td>{{ invoice['approval_status'] }}</td>
-                <td>₱{{ invoice['amount'] | round(2) }}</td>
+                <td>INP-INV-001</td>
+                <td>Elijah Katigbak</td>
+                <td>2024-10-09</td>
+                <td>Open</td>
+                <td>Pending</td>
+                <td>₱56000.00</td>
                 <td>
-                    <a href="{{ url_for('invoice_view', invoice_id=invoice['invoice_id']) }}" class="btn-view">View</a>
-                    <a href="{{ url_for('invoice_edit', invoice_id=invoice['invoice_id']) }}" class="btn-edit">Edit</a>
-                    <a href="{{ url_for('payment', invoice_id=invoice['invoice_id']) }}" class="btn-payment" 
-                       data-status="{{ invoice['payment_status'] }}" 
-                       data-approval="{{ invoice['approval_status'] }}">Make Payment</a>
+                    <a href="{{ url_for('invoice_view')}}" class="btn-view">View</a>
+                    <a href="{{ url_for('invoice_edit')}}" class="btn-edit">Edit</a>
+                    <a href="{{ url_for('payment')}}" class="btn-payment" 
+                       data-status="Open" 
+                       data-approval="Pending">Make Payment</a>
                     <a href="#" class="btn-insurance" 
-                       data-status="{{ invoice['payment_status'] }}" 
-                       data-approval="{{ invoice['approval_status'] }}" 
-                       onclick="toggleInsuranceBox('{{ invoice['invoice_id'] }}')">Apply Insurance</a>
+                       data-status="Open" 
+                       data-approval="Pending" 
+                       onclick="toggleInsuranceBox()">Apply Insurance</a>
                 
                     <!-- Hidden insurance box for this specific invoice -->
-                    <div id="insurance-box-{{ invoice['invoice_id'] }}" class="insurance-box">
+                    <div id="insurance-box" class="insurance-box">
                         <h3>Apply Insurance</h3>
-                        <a href="{{ url_for('invoice_coverage', invoice_id=invoice['invoice_id']) }}" 
+                        <a href="{{ url_for('invoice_coverage')}}" 
                            class="insurance-option" onclick="handleCoverage()">Coverage</a>
-                        <a href="{{ url_for('invoice_reimbursement', invoice_id=invoice['invoice_id']) }}" 
+                        <a href="{{ url_for('invoice_reimbursement') }}" 
                            class="insurance-option reimbursement-option" 
                            onclick="handleReimbursement()">Reimbursement</a>
                     </div>
@@ -95,8 +93,37 @@
                     <a href="#" class="btn-void" onclick="openVoidModal()">Void</a>
                 </td>                             
             </tr>
-
-            {% endfor %}
+            <tr>
+                <td>EXC-INV-001</td>
+                <td>John Benedict</td>
+                <td>2024-10-09</td>
+                <td>Paid</td>
+                <td>Approved</td>
+                <td>₱23000.00</td>
+                <td>
+                    <a href="{{ url_for('invoice_view')}}" class="btn-view">View</a>
+                    <a href="{{ url_for('invoice_edit')}}" class="btn-edit">Edit</a>
+                    <a href="{{ url_for('payment')}}" class="btn-payment" 
+                       data-status="Open" 
+                       data-approval="Pending">Make Payment</a>
+                    <a href="#" class="btn-insurance" 
+                       data-status="Open" 
+                       data-approval="Pending" 
+                       onclick="toggleInsuranceBox()">Apply Insurance</a>
+                
+                    <!-- Hidden insurance box for this specific invoice -->
+                    <div id="insurance-box" class="insurance-box">
+                        <h3>Apply Insurance</h3>
+                        <a href="{{ url_for('invoice_coverage')}}" 
+                           class="insurance-option" onclick="handleCoverage()">Coverage</a>
+                        <a href="{{ url_for('invoice_reimbursement') }}" 
+                           class="insurance-option reimbursement-option" 
+                           onclick="handleReimbursement()">Reimbursement</a>
+                    </div>
+                
+                    <a href="#" class="btn-void" onclick="openVoidModal()">Void</a>
+                </td>                             
+            </tr>
         </tbody>
     </table>
     

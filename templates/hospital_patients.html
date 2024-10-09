@@ -65,26 +65,38 @@
             </tr>
         </thead>
         <tbody>
-            {% for patient in patients %}
             <tr>
-                <td>{{ patient.patient_id }}</td>
-                <td>{{ patient.name }}</td>
-                <td>{{ patient.patient_type }}</td>
-                <td>{{ patient.contact_number }}</td>
-                <td>{{ patient.family_contact }}</td> <!-- Assuming Family Contact is available -->
-                <td><a href="{{ url_for('hospital_invoices') }}?patient_id={{ patient.patient_id }}" class="btn-generate-invoice">Generate Invoice</a></td> <!-- Action column with the link -->
+                <td>INP001</td>
+                <td>Elijah Katigbak</td>
+                <td>In Patient</td>
+                <td>09665487590</td>
+                <td>09664522165</td> 
+                <td><a href="{{ url_for('hospital_invoices') }}" class="btn-generate-invoice">Generate Invoice</a></td> 
             </tr>
             <tr>
-                <td>{{ patient.patient_id }}</td>
-                <td>{{ patient.name }}</td>
-                <td>{{ patient.patient_type }}</td>
-                <td>{{ patient.contact_number }}</td>
-                <td>{{ patient.family_contact }}</td> <!-- Assuming Family Contact is available -->
-                <td><a href="{{ url_for('hospital_invoices') }}?patient_id={{ patient.patient_id }}" class="btn-generate-invoice">Generate Invoice</a></td> <!-- Action column with the link -->
+                <td>OTP001</td>
+                <td>Mary Rose</td>
+                <td>Out Patient</td>
+                <td>09768846412</td>
+                <td>09760909654</td> 
+                <td><a href="{{ url_for('hospital_invoices') }}" class="btn-generate-invoice">Generate Invoice</a></td> 
             </tr>
-
-            {% endfor %}
-            <!-- Additional patient rows can go here -->
+            <tr>
+                <td>INP002</td>
+                <td>Lisa Macy</td>
+                <td>In Patient</td>
+                <td>09734392038</td>
+                <td>09730221509</td> 
+                <td><a href="{{ url_for('hospital_invoices') }}" class="btn-generate-invoice">Generate Invoice</a></td> 
+            </tr>
+            <tr>
+                <td>OTP002</td>
+                <td>Joshua Hong</td>
+                <td>Out Patient</td>
+                <td>09438871187</td>
+                <td>09430012732</td> 
+                <td><a href="{{ url_for('hospital_invoices') }}" class="btn-generate-invoice">Generate Invoice</a></td> 
+            </tr>
         </tbody>
     </table>
 </div>
