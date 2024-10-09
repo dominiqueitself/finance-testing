@@ -1,0 +1,262 @@
+{% extends "base.html" %}
+
+{% block title %}Room Management{% endblock %}
+{% block header_title %}Room Management{% endblock %}
+
+{% block additional_css %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/medical_ward.css') }}">
+{% endblock %}
+
+{% block compact_sidebar %}
+<div class="compact-sidebar-item">
+    <a href="{{ url_for('dashboard') }}">
+        <img src="{{ url_for('static', filename='images/dashboard_icon.png') }}" alt="Dashboard Icon">
+        <span>Dashboard</span>
+    </a>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="room-avail-content">
+    <div class="room-cards-container">
+        <div class="room-card">
+            <div class="room-card-number">100</div>
+            <div class="room-card-text">
+                <h3>Total Available Rooms</h3>
+            </div>
+        </div>
+        <div class="room-card">
+            <div class="room-card-number">5</div>
+            <div class="room-card-text">
+                <h3>Room Under Maintenance</h3>
+            </div>
+        </div>
+        <div class="room-card">
+            <div class="room-card-number">95</div>
+            <div class="room-card-text">
+                <h3>Occupied Rooms</h3>
+            </div>
+        </div>
+    </div>
+
+<!-- Title -->
+<div class="rooms-content">
+    <div class="rooms-title">
+        <span class="back-room-btn">
+            <!-- <img src="{{ url_for('static', filename='images/left_icon.png') }}">-->
+        </span>
+    Room List / <span class="hospital-rooms"> Hospital Wards </span>
+    </div>
+    
+    <!-- Room Search Bar -->
+    <div class="room-search">
+        <span class="room-search-icon-left">
+            <img src="{{ url_for('static', filename='images/search_icon.png') }}" alt="Search Icon">
+        </span>
+        <input type="text" placeholder="Search Rooms..." class="room-search-input">
+        <span class="room-search-icon-right">
+            <img src="{{ url_for('static', filename='images/updown_icon.png') }}" alt="Right Icon">
+        </span>
+<!-- Dropdown Container -->
+<div class="room-dropdown" onclick="toggleDropdown()">
+    <div class="room-dropdown-placeholder" id="room-dropdown-placeholder">
+        <span>Filter by:</span> <!-- Placeholder text -->
+        <span class="room-filter-icon">
+            <img src="{{ url_for('static', filename='images/filter_icon.png') }}" alt="Filter Icon">
+        </span>
+    </div>
+    <div class="room-dropdown-content" onclick="preventDropdownClose(event)">
+        <!-- Filter by title -->
+        <div class="room-dropdown-title">Filter by:</div>
+        
+        <div class="room-left">
+            <!-- Content for the left column -->
+            <p class="room-item" onclick="showRightColumnContent('Floor')">Floor</p>
+            <p class="room-item" onclick="showRightColumnContent('Room Type')">Room Type</p>
+            <p class="room-item" onclick="showRightColumnContent('Status')">Status</p>
+        </div>
+        <div class="room-right" id="room-right-content">
+                  <!-- Content for the right column -->
+                  <p>Select a filter</p>
+             </div>
+         </div>
+    </div>
+</div>
+
+
+<!-- Table -->
+<div class="room-table-container">
+    <table class="room-table">
+        <thead>
+            <tr>
+                <th>Bed No.</th>
+                <th>Room No.</th>
+                <th>Floor No.</th>
+                <th>Room Type</th>
+                <th>Rate (Per Day)</th>
+                <th>Status</th>
+                <th class="actions-column">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>001</td>
+                <td>1</td>
+                <td class="room-type">Standard</td>
+                <td class="room-rate">PHP 300.00</td>
+                <td>Available</td>
+                <td class="actions-cell">
+                    <button class="action-button room-view-button">View</button>
+                    <button class="action-button room-edit-button" onclick="toggleEdit(this)">Edit</button>
+                    <button class="action-button room-delete-button" onclick="showConfirmationModal('001')">Empty</button>
+                </td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>001</td>
+                <td>1</td>
+                <td class="room-type">Standard</td>
+                <td class="room-rate">PHP 300.00</td>
+                <td>Available</td>
+                <td class="actions-cell">
+                    <button class="action-button room-view-button">View</button>
+                    <button class="action-button room-edit-button" onclick="toggleEdit(this)">Edit</button>
+                    <button class="action-button room-delete-button" onclick="showConfirmationModal('001')">Empty</button>
+                </td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>001</td>
+                <td>1</td>
+                <td class="room-type">Standard</td>
+                <td class="room-rate">PHP 300.00</td>
+                <td>Available</td>
+                <td class="actions-cell">
+                    <button class="action-button room-view-button">View</button>
+                    <button class="action-button room-edit-button" onclick="toggleEdit(this)">Edit</button>
+                    <button class="action-button room-delete-button" onclick="showConfirmationModal('001')">Empty</button>
+                </td>
+            </tr>
+            <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+</div>
+
+<!-- Confirmation Modal -->
+<div id="room-empty-modal" class="room-empty-modal" style="display:none;">
+    <div class="room-empty-content">
+        <p id="confirmation-message">Are you sure you want to discharge patient (Patient Name or ID) from this bed? This action cannot be undone</p>
+        <button class="room-empty-confirm" onclick="confirmDischarge()">Yes, Discharge</button>
+        <button class="room-empty-cancel" onclick="closeConfirmationModal()">Cancel</button>
+    </div>
+</div>
+
+
+
+
+<!-- Room Availability Modal Structure -->
+<div class="room-availability-modal" id="roomAvailabilityModal">
+    <div class="room-availability-modal-content">
+        <!-- Close icon before the title -->
+        <h2>
+            <span class="modify-room-title-icon">
+                <img src="{{ url_for('static', filename='images/left_icon.png') }}" alt="" class="close-icon" id="roomCloseIcon">
+            </span>
+            Modify Room
+        </h2>
+        <hr class="modal-divider"> 
+
+        <!-- New Column Layout -->
+        <div class="room-columns">
+            <div class="room-left-column">
+                <div class="room-details-container">
+                    <div class="door-icon-column">
+                        <img src="{{ url_for('static', filename='images/door_icon.png') }}" alt="Door Icon" class="door-icon">
+                    </div>
+                    <div class="room-info-column">
+                        <div class="bed-number">001</div>
+                        <div class="room-type">Standard</div>
+                    </div>
+                </div>
+
+                <!-- Occupied Fields -->
+               <div class="room-additional-info">
+                    <div class="status-field">
+
+                    </div>
+                    <div class="occupied-beds-field">
+                        <label for="occupied-beds">Occupied Beds:</label>
+                        <input type="text" id="occupied-beds" name="occupied-beds" placeholder="Number of Occupied beds" value="2" readonly>
+                    </div>
+                    </div>
+                </div>
+
+            <div class="room-middle-column">
+                <!-- Small Table for Beds and Patients -->
+                <div class="beds-patients-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Beds</th>
+                                <th>Patients</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-patient="Santos" data-details="Details for Santos">
+                                <td>001</td>
+                                <td>Santos</td>
+                            </tr>
+                            <tr data-patient="Cruz" data-details="Details for Cruz">
+                                <td>002</td>
+                                <td>Cruz</td>
+                            </tr>
+                            <tr data-patient="Aquino" data-details="Details for Aquino">
+                                <td>003</td>
+                                <td>Aquino</td>
+                            </tr>
+                            <tr data-patient="Villanueva" data-details="Details for Villanueva">
+                                <td>003</td>
+                                <td>Villanueva</td>
+                            </tr>
+                            <tr data-patient="Navarro" data-details="Details for Navarro">
+                                <td>003</td>
+                                <td>Navarro</td>
+                            </tr>
+                        </tr>
+                        <tr data-patient="Padilla" data-details="Details for Padilla">
+                            <td>004</td>
+                            <td>Padilla</td>
+                        </tr>
+                        <tr data-patient="Salazar" data-details="Details for Salazar">
+                            <td>005</td>
+                            <td>Salazar</td>
+                        </tr>
+                        <tr data-patient="Morale" data-details="Details for Morale">
+                            <td>006</td>
+                            <td>Morales</td>
+                        </tr>
+                            <!-- More rows as needed -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="room-right-column">
+                <div id="patient-details">
+                    <p id="patient-info">Patient Details</p>
+                    <input type="text" id="additional-info" placeholder="Status">
+                    <input type="text" id="extra-info1" placeholder="Bed Type">
+                    <input type="text" id="extra-info2" placeholder="Patient Type">
+                    <input type="text" id="extra-info3" placeholder="Days in the Room/Bed">
+                </div>
+            </div>
+            <div class="room-middle-divider"></div> <!-- Right Divider -->
+    </div>
+</div>
+
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/room_avail.js') }}"></script>
+{% endblock %}

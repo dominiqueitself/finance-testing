@@ -1,0 +1,178 @@
+.coverage-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Container Title CSS */
+.invoice-management-title {
+    font-size: 24px;
+    font-weight: 400;
+}
+.invoice-coverage-title {
+    font-size: 24px;
+    font-weight: 700;
+}
+/* Back Button Link Style */
+.back-btn-coverage {
+    display: inline-block; 
+    text-decoration: none; /
+}
+/* Back Button Icon Style */
+.back-coverage-btn {
+    width: 22px; 
+    height: 22px; 
+    vertical-align: middle; 
+    cursor: pointer;
+    margin-right: 7px; 
+}
+.back-coverage-btn:hover{
+    transform: scale(1.1); 
+}
+
+/* Layout for the two columns */
+.coverage-columns {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+/* Left column container */
+.left-coverage-column{
+    width: 46%; 
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+/* Style for the Insurance Summary Title */
+.coverage-summary-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    color: #333;
+    text-align: left;
+    padding-bottom: 5px;
+}
+
+/* Style for the labels of the text fields */
+.coverage-label {
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+    color: black; /* Darker color for better readability */
+}
+
+/* Style for the Patient/Customer ID input field */
+.coverage-patient-field {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+/* Style for the Patient/Customer Name input field */
+.coverage-name-field {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+/* Style for the Insurance Provider input field */
+.coverage-provider-field {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+
+/* Right column container */
+.right-coverage-column {
+    width: 46%; 
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+/* Css for Coverage Table  */
+.coverage-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-size: 14px;
+    background-color: #fff;
+}
+
+.coverage-table th, .coverage-table td {
+    border: 1px solid #b8b8b8;
+    padding: 8px;
+    text-align: center;
+}
+
+.coverage-table th {
+    padding: 17px;
+    background-color: #d9d9d9;
+    font-weight: bold;
+    color: black;
+}
+
+.coverage-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+.coverage-table td:nth-child(3) {
+    text-align: left;
+}
+.coverage-table td:nth-child(4) {
+    text-align: left;
+}
+
+.coverage-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.coverage-table td {
+    padding: 15px;
+    font-size: 13px;
+    color: black;
+}
+
+/* Style for the Apply Insurance Button */
+.button-container {
+    display: flex;
+    justify-content: flex-end; /* Align the button to the right */
+    margin-top: 20px;
+}
+
+.coverage-apply-btn {
+    padding: 10px 20px;
+    border: 1px solid #ff914d;
+    color: #ff914d;
+    border-radius: 18px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.coverage-apply-btn:hover {
+    color: white;
+    background-color:#ff914d;
+}
+

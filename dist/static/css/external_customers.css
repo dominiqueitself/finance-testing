@@ -1,0 +1,145 @@
+/* External Customers Styles */
+.external-customers {
+    max-width: 1200px; 
+    margin: 20px auto; 
+    padding: 20px;
+    background-color: #ffffff00; 
+    border: 1px solid #dddddd00;
+    border-radius: 1px;
+
+}
+
+.external-customers h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    margin-top: 0px;
+    display: flex;
+    align-items: center;
+}
+
+.ext-patient-list {
+    font-weight: normal;
+    margin-right: 5px; /* Add space after Patient List */
+}
+
+.external-customers-bold {
+    font-weight: bold;
+    margin-left: 5px; /* Add space before External Customers */
+}
+
+
+.ext-back-button {
+    margin-right: 10px;
+}
+
+.ext-back-button img {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.ext-patient-list {
+    font-weight: normal;
+}
+
+.external-customers-bold {
+    font-weight: bold;
+}
+
+
+/* External Search Bar Styles */
+.external-search {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.external-search-icon-left {
+    position: absolute;
+    left: 10px;
+    top: 54%;
+    transform: translateY(-50%);
+}
+
+.external-search-icon-right {
+    position: absolute;
+    right: 272px; 
+    top: 53%;
+    transform: translateY(-50%);
+    opacity: 0.5;
+}
+
+.external-search-icon-left img,
+.external-search-icon-right img {
+    width: 20px;
+    height: 20px;
+}
+
+.external-search-input {
+    width: 75%;
+    padding: 19px 30px 19px 30px; 
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 15px;
+}
+.external-search-input:focus{
+    border-width: 1px;
+    border-color: #a7a7a7;
+    box-shadow: 0 0 3px #818181;
+    outline: none;
+}
+
+
+.external-customers table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px; 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    background-color: #fff;
+}
+
+.external-customers table th,
+.external-customers table td {
+    color: black;
+    padding: 12px; 
+    text-align: center;
+    border: 1px solid #b8b8b8;
+}
+
+.external-customers table th {
+    background-color: #d9d9d9;
+    font-weight: bold;
+    padding: 15px;
+}
+.external-customers table td:nth-child(2){
+    text-align: left;
+}
+.external-customers table tr:hover {
+    background-color: #f1f1f1; 
+}
+
+/* CSS for Buttons */
+.btn-generate-invoice {
+    background-color: white;
+    color: #012d74;
+    border: 1px solid #012d74;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 18px;
+    text-decoration: none; 
+    display: inline-block; 
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-generate-invoice:hover {
+    background-color: #012d74;
+    color: #fff;
+
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+    .external-customers table {
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+
+{% block title %}Submitted Invoices{% endblock %}
+{% block header_title %}Submitted Invoices{% endblock %}
+
+{% block additional_css %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/submitted_invoices.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="submitted-invoices-container">
+    <h2>Invoices / <strong>Submitted Invoices</strong></h2>
+
+
+
+<!-- Submitted Search Bar -->
+<div class="submitted-search">
+  <span class="submitted-search-icon-left">
+      <img src="{{ url_for('static', filename='images/search_icon.png') }}" alt="Search Icon">
+  </span>
+  <input type="text" placeholder="Search Submitted..." class="submitted-search-input">
+  <span class="submitted-search-icon-right">
+      <img src="{{ url_for('static', filename='images/updown_icon.png') }}" alt="Right Icon">
+  </span>
+
+  <!-- Dropdown Container -->
+  <div class="submitted-dropdown" onclick="toggleDropdown()">
+      <div class="submitted-dropdown-placeholder" id="submitted-dropdown-placeholder">
+          <span>Filter by:</span> <!-- Placeholder text -->
+          <span class="submitted-filter-icon">
+              <img src="{{ url_for('static', filename='images/filter_icon.png') }}" alt="Filter Icon">
+          </span>
+      </div>
+      <div class="submitted-dropdown-content" onclick="preventDropdownClose(event)">
+          <!-- Filter by title -->
+          <div class="submitted-dropdown-title">Filter by:</div>
+          
+          <div class="submitted-left">
+              <!-- Content for the left column -->
+              <p class="submitted-item" onclick="showRightColumnContent('Date')">Date</p>
+              <p class="submitted-item" onclick="showRightColumnContent('Status')">Status</p>
+          </div>
+          <div class="submitted-right" id="submitted-right-content">
+              <!-- Content for the right column -->
+              <p>Select a filter</p>
+          </div>
+      </div>
+  </div>
+</div>
+
+      
+    
+    
+
+    <table class="submitted-invoices-table">
+        <thead>
+            <tr>
+                <th>Invoice ID</th>
+                <th>Submitted By</th>
+                <th>Date Submitted</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>INV-001</td>
+                <td>Michael Johnson</td>
+                <td>2024-09-01</td>
+                <td>Pending Approval</td>
+                <td>
+                    <a href="{{ url_for('sub_view', invoice_id='INV12345') }}" class="sub-btn-action sub-btn-view">View</a>
+                    <a href="#" class="sub-btn-action sub-btn-accept" onclick="openAcceptModal()">Approve</a>
+                    <a href="#" class="sub-btn-action sub-btn-reject" onclick="openRejectModal()">Reject</a>
+                </td>
+            </tr>
+            <tr>
+                <td>INV-002</td>
+                <td>Alice Williams</td>
+                <td>2024-09-03</td>
+                <td>Approved</td>
+                <td>
+                  <a
+                  href="{{ url_for('sub_view', invoice_id='INV12345') }}"class="sub-btn-action sub-btn-view">View</a>
+                <a
+                <a href="#" class="sub-btn-action sub-btn-accept" onclick="openAcceptModal()">Approve</a>
+                <a href="#" class="sub-btn-action sub-btn-reject" onclick="openRejectModal()">Reject</a>
+                </td>
+            </tr>
+            <tr>
+                <td>INV-003</td>
+                <td>David Brown</td>
+                <td>2024-09-05</td>
+                <td>Rejected</td>
+                <td>
+                  <a
+                  href="{{ url_for('sub_view', invoice_id='INV12345') }}"class="sub-btn-action sub-btn-view">View</a>
+                <a
+                <a href="#" class="sub-btn-action sub-btn-accept" onclick="openAcceptModal()">Approve</a>
+                <a href="#" class="sub-btn-action sub-btn-reject" onclick="openRejectModal()">Reject</a>
+                </td>
+            </tr>
+            
+            <!-- Confirmation Modal for Accept -->
+<div id="submit-accept-modal" class="submit-accept-modal" style="display:none;">
+    <div class="submit-accept-content">
+        <p id="accept-confirmation-message">Are you sure you want to approve this invoice?</p>
+        <button class="submit-accept-confirm" onclick="confirmAccept()">Yes, Approve</button>
+        <button class="submit-accept-cancel" onclick="closeAcceptModal()">Cancel</button>
+    </div>
+</div>
+
+<!-- Confirmation Modal for Reject -->
+<div id="submit-reject-modal" class="submit-reject-modal" style="display:none;">
+    <div class="submit-reject-content">
+        <p id="reject-confirmation-message">Are you sure you want to reject this invoice?</p>
+        <button class="submit-reject-confirm" onclick="openReasonModal()">Yes, Reject</button>
+        <button class="submit-reject-cancel" onclick="closeRejectModal()">Cancel</button>
+    </div>
+</div>
+
+<!-- Reason for Rejection Modal -->
+<div id="reason-reject-modal" class="reason-reject-modal" style="display:none;">
+    <div class="reason-reject-content">
+        <p>Please provide a reason for rejecting the invoice:</p>
+        <textarea id="rejection-reason" class="reject-reason-textarea" rows="4"></textarea>
+        <button class="reason-reject-confirm" onclick="confirmReasonReject()">Reject</button>
+        <button class="reason-reject-cancel" onclick="closeReasonModal()">Cancel</button>
+    </div>
+</div>
+
+            <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/submitted_invoices.js') }}"></script>
+{% endblock %}

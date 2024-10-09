@@ -1,0 +1,236 @@
+/* Improved Styles for Patients Table */
+.patients-content {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0px;
+    background-color: #ffffff00;
+    border: 1px solid #dddddd00;
+    border-radius: 1px;
+ 
+}
+
+/* Patient Title */
+.patients-title {
+    font-size: 24px;
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+/* Hospital Title */
+.patients-title .hospital-patients {
+    font-weight: bold;
+    margin-left: 5px;
+}
+
+/* Back Button Styles */
+.back-patient-btn {
+    margin-top: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.back-patient-btn img {
+    width: 24px;
+    height: auto;
+}
+
+/* Hospital Search Bar Styles */
+.hospital-search {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-bottom: 20px;
+  }
+  .hospital-search-icon-left {
+    position: absolute;
+    left: 10px;
+    top: 54%;
+    transform: translateY(-50%);
+  }
+  .hospital-search-icon-right {
+    position: absolute;
+    right: 272px; 
+    top: 53%;
+    transform: translateY(-50%);
+    opacity: 0.5;
+  }
+  .hospital-search-icon-left img,
+  .hospital-search-icon-right img {
+    width: 20px;
+    height: 20px;
+  }
+  .hospital-search-input {
+    width: 75%;
+    padding: 19px 30px 19px 30px; 
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 15px;
+  }
+  .hospital-search-input:focus{
+    border-width: 1px;
+    border-color: #a7a7a7;
+    box-shadow: 0 0 3px #818181;
+    outline: none;
+  }
+  
+  /* Dropdown Filter CSS */
+  .hospital-dropdown {
+    padding: 16px;
+    margin-left: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    position: relative;
+    width: 190px; 
+    
+  }
+  /* Focus state for the dropdown */
+  .hospital-dropdown:focus-within {
+    border-color: #a7a7a7; 
+    box-shadow: 0 0 5px #818181(1, 61, 156, 0.5); 
+    outline: none; 
+  }
+  
+  
+  .hospital-dropdown-placeholder {
+    color: #818181;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    pointer-events: none; 
+  }
+  
+  /* Icon for Filter by: */
+  .hospital-filter-icon img {
+    width: 20px;
+    height: 20px;
+    margin-left: 8px;
+  }
+  
+  /* Dropdown Content Styles */
+  .hospital-dropdown-content {
+    display: none; 
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 200px; 
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 4px;
+    padding: 10px;
+    margin-top: 25px;
+    margin-left: -17px;
+  }
+  
+  /* Title above left and right columns */
+  .hospital-dropdown-title {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
+    text-align: left;
+  }
+  
+  /* Left and right column styles */
+  .hospital-left, .hospital-right {
+    font-size: 15px;
+    display: inline-block;
+    width: 48%; 
+    vertical-align: top;
+  }
+  
+  .hospital-left {
+    border-right: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .hospital-right {
+    text-align: right;
+  }
+  
+  /* Hover and click effect for left column items */
+  .hospital-item {
+    color: #333;
+    cursor: pointer;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+  }
+  
+  .hospital-item:hover, .hospital-item:active {
+    background-color: #c4c4c4;
+    color: #013d9c;
+  }
+  
+  /* Show the dropdown content on click */
+  .hospital-dropdown.active .hospital-dropdown-content {
+    display: block;
+  }
+  
+  /* Hover and click effect for right column items */
+  .hospital-right p {
+    color: #333;
+    cursor: pointer;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+  }
+  
+  .hospital-right p:hover, .hospital-right p:active {
+    background-color: #c4c4c4;
+    color: #012d74;
+  }
+  
+
+/* Hospital Patients Table CSS */
+.hospital-patients-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    background-color: #fff;
+}
+
+.hospital-patients-table th, 
+.hospital-patients-table td {
+    color: black;
+    padding: 15px 15px;
+    text-align: center;
+    border: 1px solid #b8b8b8;
+}
+
+.hospital-patients-table th {
+    background-color: #d9d9d9;
+    font-weight: bold;
+    text-align: center;
+}
+
+.hospital-patients-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+.hospital-patients-table td:nth-child(2) {
+    text-align: left;
+}
+.hospital-patients-table td:nth-child(6) {
+    text-align: center;
+}
+/* Styling for Generate Invoice Link */
+.btn-generate-invoice {
+    background-color: white;
+    color: #012d74;
+    border: 1px solid #012d74;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 18px;
+    text-decoration: none; 
+    display: inline-block; 
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-generate-invoice:hover {
+    color: white;
+    background-color: #012d74;
+}
+

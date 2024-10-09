@@ -1,0 +1,150 @@
+{% extends "base.html" %}
+
+{% block title %}Invoice Management{% endblock %}
+{% block header_title %}Invoice Management{% endblock %}
+
+{% block additional_css %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/invoice_management.css') }}"/>
+{% endblock %}
+
+{% block content %}
+<div class="invoice-management-content">
+    <h2>Invoice Management</h2>
+
+    <!-- Invoice Search Bar -->
+    <div class="invoice-search">
+        <span class="invoice-search-icon-left">
+            <img src="{{ url_for('static', filename='images/search_icon.png') }}" alt="Search Icon">
+        </span>
+        <input type="text" placeholder="Search Invoices..." class="invoice-search-input">
+        <span class="invoice-search-icon-right">
+            <img src="{{ url_for('static', filename='images/updown_icon.png') }}" alt="Right Icon">
+        </span>
+
+        <!-- Dropdown Container -->
+        <div class="invoice-dropdown" onclick="toggleDropdown()">
+            <div class="invoice-dropdown-placeholder" id="invoice-dropdown-placeholder">
+                <span>Filter by:</span> <!-- Placeholder text -->
+                <span class="invoice-filter-icon">
+                    <img src="{{ url_for('static', filename='images/filter_icon.png') }}" alt="Filter Icon">
+                </span>
+            </div>
+            <div class="invoice-dropdown-content" onclick="preventDropdownClose(event)">
+                <!-- Filter by title -->
+                <div class="invoice-dropdown-title">Filter by:</div>
+                
+                <div class="invoice-left">
+                    <!-- Content for the left column -->
+                    <p class="invoice-item" onclick="showRightColumnContent('Approval Status')">Approval Status</p>
+                    <p class="invoice-item" onclick="showRightColumnContent('Status')">Status</p>
+                </div>
+                <div class="invoice-right" id="invoice-right-content">
+                    <!-- Content for the right column -->
+                    <p>Select a filter</p>
+                </div>
+            </div>
+        </div>
+        <input type="hidden" id="status-filter" name="status_filter" value="">
+        <input type="hidden" id="approval-status-filter" name="approval_status_filter" value="">
+    </div>
+
+    <!-- Invoice Management Table -->
+    <table class="invoice-table">
+        <thead>
+            <tr>
+                <th>Invoice ID</th>
+                <th>Patient Name</th>
+                <th>Date Issued</th>
+                <th>Status</th>
+                <th>Approval Status</th> 
+                <th>Total Amount</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for invoice in invoices %}
+            <!-- Each invoice row -->
+            <tr>
+                <td>{{ invoice['invoice_id'] }}</td>
+                <td>{{ invoice['customer_name'] }}</td>
+                <td>{{ invoice['invoice_date'] }}</td>
+                <td>{{ invoice['payment_status'] }}</td>
+                <td>{{ invoice['approval_status'] }}</td>
+                <td>₱{{ invoice['amount'] | round(2) }}</td>
+                <td>
+                    <a href="{{ url_for('invoice_view', invoice_id=invoice['invoice_id']) }}" class="btn-view">View</a>
+                    <a href="{{ url_for('invoice_edit', invoice_id=invoice['invoice_id']) }}" class="btn-edit">Edit</a>
+                    <a href="{{ url_for('payment', invoice_id=invoice['invoice_id']) }}" class="btn-payment" 
+                       data-status="{{ invoice['payment_status'] }}" 
+                       data-approval="{{ invoice['approval_status'] }}">Make Payment</a>
+                    <a href="#" class="btn-insurance" 
+                       data-status="{{ invoice['payment_status'] }}" 
+                       data-approval="{{ invoice['approval_status'] }}" 
+                       onclick="toggleInsuranceBox('{{ invoice['invoice_id'] }}')">Apply Insurance</a>
+                
+                    <!-- Hidden insurance box for this specific invoice -->
+                    <div id="insurance-box-{{ invoice['invoice_id'] }}" class="insurance-box">
+                        <h3>Apply Insurance</h3>
+                        <a href="{{ url_for('invoice_coverage', invoice_id=invoice['invoice_id']) }}" 
+                           class="insurance-option" onclick="handleCoverage()">Coverage</a>
+                        <a href="{{ url_for('invoice_reimbursement', invoice_id=invoice['invoice_id']) }}" 
+                           class="insurance-option reimbursement-option" 
+                           onclick="handleReimbursement()">Reimbursement</a>
+                    </div>
+                
+                    <a href="#" class="btn-void" onclick="openVoidModal()">Void</a>
+                </td>                             
+            </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+    
+<!-- Confirmation Modal for Void -->
+<div id="void-confirmation-modal" class="void-confirmation-modal" style="display:none;">
+    <div class="void-confirmation-content">
+        <p id="void-confirmation-message">Are you sure you want to void this invoice? This action cannot be undone.</p>
+        <button class="void-confirmation-confirm" onclick="confirmVoid()">Yes, Void</button>
+        <button class="void-confirmation-cancel" onclick="closeVoidModal()">Cancel</button>
+    </div>
+  </div>
+    <!-- Generate Report Button -->
+    <div class="generate-report-container">
+        <button class="btn-generate-report" onclick="togglePopup()">Generate Report</button>
+        
+        <!-- Pop-up Box -->
+        <div class="invoice-popup" id="popupBox">
+            <h3 class="invoice-popup-title">Print as:</h3>
+
+            <!-- Dropdown for Format -->
+            <div class="invoice-popup-dropdown-container">
+                <label for="format" class="invoice-popup-label">Format:</label>
+                <select id="format" class="invoice-popup-dropdown">
+                    <option value="pdf">PDF</option>
+                    <option value="excel">Excel File</option>
+                    <option value="jpg">Jpg</option>
+                </select>
+            </div>
+
+            <!-- Dropdown for Criteria -->
+            <div class="invoice-popup-dropdown-container">
+                <label for="criteria" class="invoice-popup-label">Criteria:</label>
+                <select id="criteria" class="invoice-popup-dropdown">
+                    <option value="date">Date</option>
+                    <option value="status">Status</option>
+                    <option value="amount">Total Amount</option>
+                </select>
+            </div>
+
+            <!-- Generate Button -->
+            <div class="invoice-popup-generate-container">
+                <a href="#" class="invoice-popup-generate">Generate</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/invoice_management.js') }}"></script>
+{% endblock %}

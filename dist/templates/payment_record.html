@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block title %}Patients Information{% endblock %}
+{% block header_title %}Patients Information{% endblock %}
+
+{% block additional_css %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/payment_record.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="payrec-content">
+    <div class="payrec-title">
+        <a href="{{ url_for('invoice_management') }}">
+            <span class="back-patient-btn">
+                <img src="{{ url_for('static', filename='images/left_icon.png') }}" alt="Back">
+            </span>
+        </a>
+        Patient List / <span class="record-patients"> Hospital Patients </span>
+    </div>
+    
+    <!-- PayRec Search Bar -->
+    <div class="payrec-search">
+        <span class="payrec-search-icon-left">
+            <img src="{{ url_for('static', filename='images/search_icon.png') }}" alt="Search Icon">
+        </span>
+        <input type="text" placeholder="Search Hospitals..." class="payrec-search-input">
+        <span class="payrec-search-icon-right">
+            <img src="{{ url_for('static', filename='images/updown_icon.png') }}" alt="Right Icon">
+        </span>
+
+        <!-- Dropdown Container -->
+        <div class="payrec-dropdown" onclick="toggleDropdown()">
+            <div class="payrec-dropdown-placeholder" id="payrec-dropdown-placeholder">
+                <span>Filter by:</span> <!-- Placeholder text -->
+                <span class="payrec-filter-icon">
+                    <img src="{{ url_for('static', filename='images/filter_icon.png') }}" alt="Filter Icon">
+                </span>
+            </div>
+            <div class="payrec-dropdown-content" onclick="preventDropdownClose(event)">
+                <!-- Filter by title -->
+                <div class="payrec-dropdown-title">Filter by:</div>
+                
+                <div class="payrec-left">
+                    <!-- Content for the left column -->
+                    <p class="payrec-item" onclick="showRightColumnContent('Patient Type')">Patient Type</p>
+                </div>
+                <div class="payrec-right" id="payrec-right-content">
+                    <!-- Content for the right column -->
+                    <p>Select a filter</p>
+                </div>
+            </div>
+        </div>
+    </div>
+ <!-- PayRec Table -->
+ <table class="payrec-table">
+    <thead>
+        <tr>
+            <th>Invoice ID</th>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Payment Method</th>
+            <th>Paid By</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>INV001</td>
+            <td>2024-09-15</td>
+            <td>PHP 3,500</td>
+            <td>Cash</td>
+            <td>Patient</td>
+        </tr>
+        <tr>
+            <td>INV002</td>
+            <td>2024-09-18</td>
+            <td>PHP 12,000</td>
+            <td>Insurance Coverage</td>
+            <td>Insurance Provider</td>
+        </tr>
+    </tbody>
+</table>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/payment_record.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}Payment Process{% endblock %}
+{% block header_title %}Payment Process{% endblock %}
+
+{% block additional_css %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/invoice_reimbursement.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="payment-container">
+    <h2>
+        <a href="{{ url_for('invoice_management') }}" class="back-reimbursement-btn">
+            <img src="{{ url_for('static', filename='images/left_icon.png') }}" class="back-btn-reimbursement" alt="Back">
+        </a>
+        <span class="invoice-management-title">Invoice Management </span> /
+        <span class="invoice-reimbursement-title">Apply Insurance Reimbursement</span>
+    </h2>
+
+    <div class="reimbursement-columns">
+        <!-- Left Column -->
+        <div class="left-reimbursement-column">
+            <h3 class="reimburse-summary-title">Insurance Summary</h3>
+
+            <!-- Patient/Customer ID Field -->
+            <div class="reimbursement-form-group">
+                <label for="patientId" class="reimburse-label">Patient/Customer ID</label>
+                <input type="text" id="patientId" class="reimburse-patient-field" name="patient_id" placeholder="Enter Patient/Customer ID">
+            </div>
+
+            <!-- Amount Paid by Patient Field -->
+            <div class="reimbursement-form-group">
+                <label for="amountPaid" class="reimburse-label">Amount Paid by Patient</label>
+                <input type="text" id="amountPaid" class="reimburse-paid-field" name="amount_paid" placeholder="Enter Amount Paid">
+            </div>
+        </div>
+
+<!-- Right Column -->
+<div class="right-reimbursement-column">
+    <hr class="reimburse-divider">
+
+    <!-- Patient/Customer Name Field -->
+    <div class="reimbursement-form-group">
+        <label for="patientName" class="reimburse-label">Patient/Customer Name</label>
+        <input type="text" id="patientName" class="reimburse-name-field" name="patient_name" placeholder="Enter Patient/Customer Name">
+    </div>
+
+    <!-- Insurance Coverage Amount to be refunded Field -->
+    <div class="reimbursement-form-group">
+        <label for="refundAmount" class="reimburse-label">Insurance Coverage Amount to be refunded</label>
+        <input type="text" id="refundAmount" class="reimburse-refund-field" name="refund_amount" placeholder="Enter Amount to be refunded">
+    </div>
+    
+    <!-- Apply Button -->
+    <div class="reimburse-btn-container">
+        <button class="reimburse-apply-btn">Apply</button>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/payment.js') }}"></script>
+{% endblock %}

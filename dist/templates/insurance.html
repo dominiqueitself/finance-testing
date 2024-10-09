@@ -1,0 +1,371 @@
+{% extends "base.html" %}
+
+{% block title %}Insurance Processing{% endblock %}
+{% block header_title %}Insurance Processing{% endblock %}
+
+{% block additional_css %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/insurance.css') }}">
+{% endblock %}
+
+{% block compact_sidebar %}
+<div class="compact-sidebar-item">
+    <a href="{{ url_for('dashboard') }}">
+        <img src="{{ url_for('static', filename='images/dashboard_icon.png') }}" alt="Dashboard Icon">
+        <span>Dashboard</span>
+    </a>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="insurance-processing-content">
+    <div class="insurance-title">
+        <h2>Invoices / <strong>Insurance Claims</strong></h2>
+        <button class="insurance-btn">+ Insurance Claim</button>
+    </div>
+<!-- Insurance Modal content -->
+<div id="insurance-modal" class="insurance-modal">
+    <div class="insurance-modal-content">
+        <div class="insurance-modal-header">
+            <img src="{{ url_for('static', filename='images/left_icon.png') }}" alt="Close" class="insurance-close-icon">
+            <h2>Submit New Insurance Claim</h2>
+        </div>
+        <p class="insurance-description">Enter details to submit a new insurance claim</p>
+        
+        <!-- Centered Invoice Id Field with Left-Aligned Label -->
+        <div class="insurance-invoice-field-container">
+            <label for="invoice-id" class="in-invoice-label">Invoice Id</label>
+            <input type="text" id="invoice-id" class="in-invoice-textfield" placeholder="Enter Invoice Id">
+        </div>
+
+        <!-- Centered Patient Name Field with Left-Aligned Label -->
+        <div class="insurance-invoice-field-container">
+            <label for="patient-name" class="in-invoice-label">Patient Name</label>
+            <input type="text" id="patient-name" class="in-patient-textfield" placeholder="Enter Patient Name">
+        </div>
+
+        <!-- Centered Insurance Provider Field with Left-Aligned Label -->
+        <div class="insurance-invoice-field-container">
+            <label for="insurance-provider" class="in-invoice-label">Insurance Provider</label>
+            <input type="text" id="insurance-provider" class="in-provider-textfield" placeholder="Enter Insurance Provider">
+        </div>
+
+        <!-- Centered Insurance Provided Contact Field with Left-Aligned Label -->
+        <div class="insurance-invoice-field-container">
+            <label for="insurance-contact" class="in-invoice-label">Insurance Provided Contact</label>
+            <input type="text" id="insurance-contact" class="in-contact-textfield" placeholder="Enter Insurance Provided Contact">
+        </div>
+
+        <!-- Centered Services/Treatment Field with Left-Aligned Label -->
+        <div class="insurance-invoice-field-container">
+            <label for="treatment" class="in-invoice-label">Services/Treatment for Potential Coverage</label>
+            <input type="text" id="treatment" class="in-treatment-textfield" placeholder="Enter Services/Treatment for Potential Coverage">
+        </div>
+
+        <!-- Editable Claims Summary Table -->
+        <div class="insurance-claims-summary">
+            <h3>Claims Summary</h3>
+            <table class="new-insurance-table">
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Quantity</th>
+                        <th>Unit Price</th>
+                        <th>Amount Covered</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" placeholder="Enter Description"></td>
+                        <td><input type="number" placeholder="Enter Quantity"></td>
+                        <td><input type="number" placeholder="Enter Unit Price"></td>
+                        <td><input type="number" placeholder="Enter Amount Covered"></td>
+                    </tr>
+                    <!-- Add more rows as needed -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="insurance-invoice-field-container" style="display: flex; justify-content: flex-end;">
+            <button class="in-submit-btn">Submit</button>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- View-Only Modal (View Insurance Claim) -->
+<div id="view-modal" class="insurance-modal">
+    <div class="insurance-modal-content">
+        <div class="insurance-modal-header">
+            <img src="{{ url_for('static', filename='images/left_icon.png') }}" alt="Close" class="insurance-close-icon" onclick="closeViewModal()">
+            <h2>Insurance Claim</h2>
+        </div>
+        <p class="insurance-description">View the details of the insurance claim</p>
+
+        <!-- View-Only Invoice Id Field -->
+        <div class="insurance-invoice-field-container">
+            <label for="view-invoice-id" class="in-invoice-label">Invoice Id</label>
+            <input type="text" id="view-invoice-id" class="in-invoice-textfield" value="0010003" readonly>
+        </div>
+
+        <!-- View-Only Patient Name Field -->
+        <div class="insurance-invoice-field-container">
+            <label for="view-patient-name" class="in-invoice-label">Patient Name</label>
+            <input type="text" id="view-patient-name" class="in-patient-textfield" value="Kyle Mendoza" readonly>
+        </div>
+
+        <!-- View-Only Insurance Provider Field -->
+        <div class="insurance-invoice-field-container">
+            <label for="view-insurance-provider" class="in-invoice-label">Insurance Provider</label>
+            <input type="text" id="view-insurance-provider" class="in-provider-textfield" value="Philhealth" readonly>
+        </div>
+
+        <!-- View-Only Insurance Provided Contact Field -->
+        <div class="insurance-invoice-field-container">
+            <label for="view-insurance-contact" class="in-invoice-label">Insurance Provided Contact</label>
+            <input type="text" id="view-insurance-contact" class="in-contact-textfield" value="876-236-760" readonly>
+        </div>
+
+        <!-- View-Only Services/Treatment Field -->
+        <div class="insurance-invoice-field-container">
+            <label for="view-treatment" class="in-invoice-label">Services/Treatment for Potential Coverage</label>
+            <input type="text" id="view-treatment" class="in-treatment-textfield" value="Chemotherapy" readonly>
+        </div>
+
+        <!-- Claims Summary Table -->
+        <div class="insurance-claims-summary">
+            <h3>Claims Summary</h3>
+            <table class="claims-summary-table">
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Quantity</th>
+                        <th>Unit Price</th>
+                        <th>Amount Covered</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Chemotherapy Session</td>
+                        <td>5</td>
+                        <td>₱10,000</td>
+                        <td>₱50,000</td>
+                    </tr>
+                    <!-- You can add more rows here as needed -->
+                    <tr>
+                        <td>Chemotherapy Session</td>
+                        <td>5</td>
+                        <td>₱10,000</td>
+                        <td>₱50,000</td>
+                    </tr>
+                    <!-- You can add more rows here as needed -->
+                    <tr>
+                        <td>Chemotherapy Session</td>
+                        <td>5</td>
+                        <td>₱10,000</td>
+                        <td>₱50,000</td>
+                    </tr>
+                    <!-- You can add more rows here as needed -->
+                     
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+    
+
+<!-- Edit Content Modal -->
+<div id="edit-modal" class="insurance-modal">
+    <div class="insurance-modal-content">
+        <div class="insurance-modal-header">
+            <img src="{{ url_for('static', filename='images/left_icon.png') }}" alt="Close" class="insurance-close-icon" onclick="closeEditModal()">
+            <h2>Edit Insurance Claim</h2>
+        </div>
+        <p class="insurance-description">Edit the details of the insurance claim</p>
+
+        <!-- Editable Invoice Id Field -->
+        <div class="insurance-invoice-field-container">
+            <label for="edit-invoice-id" class="in-invoice-label">Invoice Id</label>
+            <input type="text" id="edit-invoice-id" class="in-invoice-textfield">
+        </div>
+
+        <!-- Editable Patient Name Field -->
+        <div class="insurance-invoice-field-container">
+            <label for="edit-patient-name" class="in-invoice-label">Patient Name</label>
+            <input type="text" id="edit-patient-name" class="in-patient-textfield">
+        </div>
+
+        <!-- Editable Insurance Provider Field -->
+        <div class="insurance-invoice-field-container">
+            <label for="edit-insurance-provider" class="in-invoice-label">Insurance Provider</label>
+            <input type="text" id="edit-insurance-provider" class="in-provider-textfield">
+        </div>
+
+        <!-- Editable Insurance Provided Contact Field -->
+        <div class="insurance-invoice-field-container">
+            <label for="edit-insurance-contact" class="in-invoice-label">Insurance Provided Contact</label>
+            <input type="text" id="edit-insurance-contact" class="in-contact-textfield">
+        </div>
+
+        <!-- Editable Services/Treatment Field -->
+        <div class="insurance-invoice-field-container">
+            <label for="edit-treatment" class="in-invoice-label">Services/Treatment for Potential Coverage</label>
+            <input type="text" id="edit-treatment" class="in-treatment-textfield">
+        </div>
+
+        <!-- Editable Claims Summary Table -->
+        <div class="insurance-claims-summary">
+            <h3>Claims Summary</h3>
+            <table class="claims-summary-table">
+                <thead>
+                    <tr>
+                        <th>Description</th>
+                        <th>Quantity</th>
+                        <th>Unit Price</th>
+                        <th>Amount Covered</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="text" value="Chemotherapy Session"></td>
+                        <td><input type="number" value="5"></td>
+                        <td><input type="number" value="10000"></td>
+                        <td><input type="number" value="50000"></td>
+                    </tr>
+                    <!-- Add more rows as needed -->
+                    <tr>
+                        <td><input type="text" value="Chemotherapy Session"></td>
+                        <td><input type="number" value="5"></td>
+                        <td><input type="number" value="10000"></td>
+                        <td><input type="number" value="50000"></td>
+                    </tr>
+                    <!-- Add more rows as needed -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Save Changes Button -->
+        <div class="insurance-invoice-field-container" style="display: flex; justify-content: flex-end;">
+            <button class="in-save-changes-btn">Save Changes</button>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Insurance Search Bar -->
+<div class="insurance-search">
+    <span class="insurance-search-icon-left">
+        <img src="{{ url_for('static', filename='images/search_icon.png') }}" alt="Search Icon">
+    </span>
+    <input type="text" placeholder="Search Insurance..." class="insurance-search-input">
+    <span class="insurance-search-icon-right">
+        <img src="{{ url_for('static', filename='images/updown_icon.png') }}" alt="Right Icon">
+    </span>
+  
+    <!-- Dropdown Container -->
+    <div class="insurance-dropdown" onclick="toggleDropdown()">
+        <div class="insurance-dropdown-placeholder" id="insurance-dropdown-placeholder">
+            <span>Filter by:</span> <!-- Placeholder text -->
+            <span class="insurance-filter-icon">
+                <img src="{{ url_for('static', filename='images/filter_icon.png') }}" alt="Filter Icon">
+            </span>
+        </div>
+        <div class="insurance-dropdown-content" onclick="preventDropdownClose(event)">
+            <!-- Filter by title -->
+            <div class="insurance-dropdown-title">Filter by:</div>
+            
+            <div class="insurance-left">
+                <!-- Content for the left column -->
+                <p class="insurance-item" onclick="showRightColumnContent('Insurance Provider')">Insurance Provider</p>
+                <p class="insurance-item" onclick="showRightColumnContent('Month Issued')">Month Issued</p>
+                <p class="insurance-item" onclick="showRightColumnContent('Status')">Status</p>
+            </div>
+            <div class="insurance-right" id="insurance-right-content">
+                <!-- Content for the right column -->
+                <p>Select a filter</p>
+            </div>
+        </div>
+    </div>
+  </div>
+  
+
+    <!-- Insurance List Table -->
+    <table class="insurance-table">
+        <thead>
+            <tr>
+                <th>Insurance Claim ID</th>
+                <th>Patient Name</th>
+                <th>Insurance Provider</th>
+                <th>Date Issued</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>CLM20240901</td>
+                <td>Maria Santos</td>
+                <td>Manila Life Insurance</td>
+                <td>2024-09-01</td>
+                <td>Pending</td>
+                <td>
+                    <button class="ins-btn-view" onclick="openViewModal()">View</button>
+                    <a href="#" class="ins-btn-edit">Edit</a>
+                    <a href="#" class="ins-btn-approve" onclick="openApproveModal()">Approve</a>
+                    <a href="#" class="ins-btn-delete" onclick="openRejectModal()">Reject</a>
+                </td>
+            </tr>
+            <tr>
+                <td>CLM20240902</td>
+                <td>Juan Dela Cruz</td>
+                <td>PhilHealth</td>
+                <td>2024-09-02</td>
+                <td>Approved</td>
+                <td>
+                    <a href="{{ url_for('insurance_view', claim_id='CLM20240902') }}" class="ins-btn-view">View</a>
+                    <a href="#" class="ins-btn-edit">Edit</a>
+                    <a href="#" class="ins-btn-approve" onclick="openApproveModal()">Approve</a>
+                    <a href="#" class="ins-btn-delete" onclick="openRejectModal()">Reject</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Confirmation Modal for Approve -->
+<div id="insurance-approve-modal" class="insurance-approve-modal" style="display:none;">
+    <div class="insurance-approve-content">
+        <p id="approve-confirmation-message">Are you sure you want to approve this Insurance Claim?</p>
+        <button class="insurance-approve-confirm" onclick="confirmApprove()">Yes, Approve</button>
+        <button class="insurance-approve-cancel" onclick="closeApproveModal()">Cancel</button>
+    </div>
+</div>
+<!-- Confirmation Modal for Reject -->
+<div id="submit-reject-modal" class="submit-reject-modal" style="display:none;">
+    <div class="submit-reject-content">
+        <p id="reject-confirmation-message">Are you sure you want to reject this Insurance Claim?</p>
+        <button class="submit-reject-confirm" onclick="openReasonModal()">Yes, Reject</button>
+        <button class="submit-reject-cancel" onclick="closeRejectModal()">Cancel</button>
+    </div>
+</div>
+
+<!-- Reason for Rejection Modal -->
+<div id="reason-reject-modal" class="reason-reject-modal" style="display:none;">
+    <div class="reason-reject-content">
+        <p>Please provide a reason for rejecting the invoice:</p>
+        <textarea id="rejection-reason" class="reject-reason-textarea" rows="4"></textarea>
+        <button class="reason-reject-confirm" onclick="confirmReasonReject()">Reject</button>
+        <button class="reason-reject-cancel" onclick="closeReasonModal()">Cancel</button>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/insurance.js') }}"></script>
+{% endblock %}

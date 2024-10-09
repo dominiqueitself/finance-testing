@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+
+{% block title %}Payment Process{% endblock %}
+{% block header_title %}Payment Process{% endblock %}
+
+{% block additional_css %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/invoice_coverage.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="coverage-container">
+    <h2>
+        <a href="{{ url_for('invoice_management') }}" class="back-btn-coverage">
+            <img src="{{ url_for('static', filename='images/left_icon.png') }}" class="back-coverage-btn" alt="Back">
+        </a>
+        <span class="invoice-management-title">Invoice Management </span> /
+        <span class="invoice-coverage-title">Apply Insurance Coverage</span>
+    </h2>
+
+    <div class="coverage-columns">
+        <!-- Left Column -->
+        <div class="left-coverage-column">
+            <!-- Insurance Summary Title -->
+            <h3 class="coverage-summary-title">Insurance Summary</h3>
+
+            <!-- Patient/Customer ID Field -->
+            <div class="form-group">
+                <label for="patientId" class="coverage-label">Patient/Customer ID</label>
+                <input type="text" id="patientId" class="coverage-patient-field" name="patient_id" placeholder="Enter Patient/Customer ID">
+            </div>
+
+            <!-- Patient/Customer Name Field -->
+            <div class="form-group">
+                <label for="patientName" class="coverage-label">Patient/Customer Name</label>
+                <input type="text" id="patientName" class="coverage-name-field" name="patient_name" placeholder="Enter Patient/Customer Name">
+            </div>
+
+            <!-- Insurance Provider Field -->
+            <div class="form-group">
+                <label for="insuranceProvider" class="coverage-label">Insurance Provider</label>
+                <input type="text" id="insuranceProvider" class="coverage-provider-field" name="insurance_provider" placeholder="Enter Insurance Provider">
+            </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="right-coverage-column">
+            <!-- Coverage Table -->
+            <table class="coverage-table">
+                <thead>
+                    <tr>
+                        <th>Items</th>
+                        <th>Coverage Percentage</th>
+                        <th>Covered Amount</th>
+                        <th>Remaining Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>MRI Scan</td>
+                        <td>50%</td>
+                        <td>P34,000</td>
+                        <td>P1,137.15</td>
+                    </tr>
+                    <tr>
+                        <td>Surgery (Appendectomy)</td>
+                        <td>90%</td>
+                        <td>P179,101.12</td>
+                        <td>P2,842.88</td>
+                    </tr>
+                    <tr>
+                        <td>Hospital Room Charge (1day)</td>
+                        <td>75%</td>
+                        <td>P179,101.12</td>
+                        <td>P7,107.19 </td>
+                    </tr>
+                </tbody>
+            </table>
+            <!-- Apply Insurance Button -->
+            <div class="button-container">
+                <button class="coverage-apply-btn">Apply Insurance</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/payment.js') }}"></script>
+{% endblock %}

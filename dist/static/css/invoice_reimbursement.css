@@ -1,0 +1,165 @@
+.payment-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Container Title CSS */
+.invoice-management-title {
+    font-size: 24px;
+    font-weight: 400;
+}
+.invoice-reimbursement-title {
+    font-size: 24px;
+    font-weight: 700;
+}
+/* Back Button Link Style */
+.back-reimbursement-btn {
+    display: inline-block; 
+    text-decoration: none; /
+}
+/* Back Button Icon Style */
+.back-btn-reimbursement {
+    width: 22px; 
+    height: 22px; 
+    vertical-align: middle; 
+    cursor: pointer;
+    margin-right: 7px; 
+}
+.back-btn-reimbursement:hover{
+    transform: scale(1.1); 
+}
+
+/* Layout for the two columns */
+.reimbursement-columns {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.left-reimbursement-column {
+    width: 46%; 
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.left-reimbursement-column h3 {
+    color: black;
+    font-size: 20px;
+    margin-top: 0;
+    margin-bottom: 25px;
+}
+
+/* Style for the form group */
+.reimbursement-form-group {
+    margin-bottom: 15px;
+}
+
+/* Style for the label */
+.reimburse-label {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: black;
+}
+
+/* Style for the Patient/Customer ID field */
+.reimburse-patient-field {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+    margin-bottom: 15px;
+}
+.reimburse-paid-field {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+
+
+
+
+
+
+/* reimbursement right column */
+.right-reimbursement-column {
+    width: 46%; 
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+/* Style for the divider */
+.reimburse-divider {
+    border: none;
+    border-top: 1px solid #f9f9f9; 
+    margin: 10px 0; 
+    margin-bottom: 39px;
+}
+
+/* Style for the form group */
+.reimbursement-form-group {
+    margin-bottom: 15px;
+}
+/* Style for the label */
+.reimburse-label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+/* Style for the Patient/Customer Name field */
+.reimburse-name-field {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+        margin-bottom: 15px;
+}
+.reimburse-refund-field {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+/* Style for the button container */
+.reimburse-btn-container {
+    display: flex; 
+    justify-content: flex-end; 
+}
+
+/* Style for the Apply button */
+.reimburse-apply-btn {
+    padding: 10px 35px;
+    border: 1px solid #ff914d;
+    color: #ff914d;
+    border-radius: 18px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for the button */
+.reimburse-apply-btn:hover {
+    color: white;
+    background-color:#ff914d;
+}

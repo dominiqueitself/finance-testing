@@ -1,0 +1,261 @@
+{% extends "base.html" %}
+
+{% block title %}Insurance Providers{% endblock %}
+{% block header_title %}Insurance Providers{% endblock %}
+
+{% block additional_css %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/insurance_providers.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="providers-content">
+    <div class="providers-title">
+        Insurance / <span class="providers-patients"> Insurance Providers </span>
+        <button class="insurance-btn" onclick="openProviderModal()">+ Insurance Provider</button>
+    </div>
+
+
+<!-- Insurance Provider Button Modal -->
+<div id="provider-modal" class="provider-modal">
+    <div class="provider-modal-content">
+        <div class="provider-modal-header">
+            <span class="close-provider-modal" onclick="closeProviderModal()">
+                <img src="{{ url_for('static', filename='images/left_icon.png') }}" alt="Close Icon">
+            </span>
+            <h2 class="provider-modal-title">Add Insurance Provider</h2>
+        </div>
+
+        <div class="provider-fields-container">
+            <!-- Labeled Text Field for Insurance Provider -->
+            <div class="provider-field">
+                <label for="insurance-provider" class="provider-label">Insurance Provider</label>
+                <input type="text" id="insurance-provider" class="provider-textfield" placeholder="Enter provider name">
+            </div>
+
+            <!-- Labeled Text Field for Type -->
+            <div class="provider-field">
+                <label for="type" class="provider-label">Type</label>
+                <input type="text" id="type" class="provider-type-textfield" placeholder="Enter type">
+            </div>
+
+            <!-- Labeled Text Field for Contact Details -->
+            <div class="provider-field">
+                <label for="contact-details" class="provider-label">Contact Details</label>
+                <input type="text" id="contact-details" class="provider-contact-textfield" placeholder="Enter contact details">
+            </div>
+
+            <!-- Provider Status  -->
+            <div class="provider-field">
+                <label for="status" class="provider-label">Status</label>
+                <select id="status" class="provider-status-textfield">
+                    <option value="">Select Status</option>
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+                </select>
+            </div>
+
+                <!-- Submit and Cancel Buttons -->
+               <div class="provider-buttons-container">
+              <button class="provider-submit-btn">Submit</button>
+             <button class="provider-cancel-btn" onclick="closeProviderModal()">Cancel</button>
+           </div>
+        </div>
+    </div>
+</div>
+
+    
+<!-- Providers Search Bar -->
+<div class="providers-search">
+    <span class="providers-search-icon-left">
+        <img src="{{ url_for('static', filename='images/search_icon.png') }}" alt="Search Icon">
+    </span>
+    <input type="text" placeholder="Search Providers..." class="providers-search-input">
+    <span class="providers-search-icon-right">
+        <img src="{{ url_for('static', filename='images/updown_icon.png') }}" alt="Right Icon">
+    </span>
+
+  
+<!-- Dropdown Container -->
+<div class="providers-dropdown" onclick="toggleDropdown()">
+    <div class="providers-dropdown-placeholder" id="providers-dropdown-placeholder">
+        <span>Filter by:</span> <!-- Placeholder text -->
+        <span class="providers-filter-icon">
+            <img src="{{ url_for('static', filename='images/filter_icon.png') }}" alt="Filter Icon">
+        </span>
+    </div>
+    <div class="providers-dropdown-content" onclick="preventDropdownClose(event)">
+        <!-- Filter by title -->
+        <div class="providers-dropdown-title">Filter by:</div>
+        
+        <div class="providers-left">
+            <!-- Content for the left column -->
+            <p class="providers-item" onclick="showRightColumnContent('Type of Insurance')">Type of Insurance</p>
+            <p class="providers-item" onclick="showRightColumnContent('Accreditation Status')">Accreditation Status</p>
+        </div>
+        <div class="providers-right" id="providers-right-content">
+            <!-- Content for the right column -->
+              <p>Select a filter</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Providers Table -->
+<table class="providers-table">
+    <thead>
+        <tr>
+            <th>Insurance Provider ID</th>
+            <th>Insurance Provider Name</th>
+            <th>Type of Insurance</th>
+            <th>Contact Information</th>
+            <th>Accreditation Status</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <!-- Sample Row -->
+        <tr>
+            <td>IP001</td>
+            <td>HealthFirst HMO</td>
+            <td>HMO</td>
+            <td>0917-123-4567</td>
+            <td>Active</td>
+            <td>
+                <button class="providers-action-view" onclick="openProviderModalReadOnly()">View</button>
+                <button class="providers-action-edit" onclick="openProviderModalEdit()">Edit</button>
+                <button class="providers-action-btn deactivate-btn" onclick="openDeactivatebutton()">Deactivate</button>
+        </tr>
+        <tr>
+            <td>IP002</td>
+            <td>PhilHealth</td>
+            <td>Public</td>
+            <td>0928-234-56787</td>
+            <td>Active</td>
+            <td>
+                <button class="providers-action-view" onclick="openProviderModalReadOnly()">View</button>
+                <button class="providers-action-edit" onclick="openProviderModalEdit()">Edit</button>
+                <button class="providers-action-btn deactivate-btn" onclick="openDeactivatebutton()">Deactivate</button>
+        </tr>
+        <tr>
+            <td>IP003</td>
+            <td>MaxCare Insurance</td>
+            <td>Private</td>
+            <td>0918-345-6789</td>
+            <td>Inactive</td>
+            <td>
+                <button class="providers-action-view" onclick="openProviderModalReadOnly()">View</button>
+                <button class="providers-action-edit" onclick="openProviderModalEdit()">Edit</button>
+                <button class="providers-action-btn deactivate-btn" onclick="openDeactivatebutton()">Deactivate</button>
+        </tr>
+        <!-- Add more rows as needed -->
+    </tbody>
+</table>
+
+
+<!-- Confirmation Modal for Deactivate -->
+<div id="provider-empty-modal" class="provider-empty-modal" style="display:none;">
+    <div class="provider-empty-content">
+        <p id="provider-confirmation-message">Are you sure you want to discharge patient from this bed? This action cannot be undone.</p>
+        <button class="provider-empty-confirm" onclick="providerconfirmDischarge()">Yes, Deactivate</button>
+        <button class="provider-empty-cancel" onclick="closeProviderModalDeactivate()">Cancel</button>
+    </div>
+</div>
+
+
+<!-- Insurance Provider Button Modal (View Only) -->
+<div id="provider-modal-view" class="provider-modal" style="display: none;">
+    <div class="provider-modal-content">
+        <div class="provider-modal-header">
+            <span class="close-provider-modal" onclick="closeProviderModalModalReadOnly()">
+                <img src="{{ url_for('static', filename='images/left_icon.png') }}" alt="Close Icon" style="pointer-events: none;">
+            </span>
+            <h2 class="provider-modal-title">View Insurance Provider</h2>
+        </div>
+
+        <div class="provider-fields-container">
+            <!-- Labeled Text Field for Insurance Provider (Read Only) -->
+            <div class="provider-field">
+                <label for="insurance-provider" class="provider-label">Insurance Provider</label>
+                <input type="text" id="insurance-provider" class="provider-textfield" placeholder="Enter provider name" value="HealthFirst HMO" readonly>
+            </div>
+
+            <!-- Labeled Text Field for Type (Read Only) -->
+            <div class="provider-field">
+                <label for="type" class="provider-label">Type</label>
+                <input type="text" id="type" class="provider-type-textfield" placeholder="Enter type of insurance" readonly>
+            </div>
+
+            <!-- Labeled Text Field for Contact Details (Read Only) -->
+            <div class="provider-field">
+                <label for="contact-details" class="provider-label">Contact Details</label>
+                <input type="text" id="contact-details" class="provider-contact-textfield" placeholder="Enter contact details" readonly>
+            </div>
+
+            <!-- Provider Status (Disabled) -->
+            <div class="provider-field">
+                <label for="status" class="provider-label">Status</label>
+                <select id="status" class="provider-status-textfield" disabled>
+                    <option value="">Select Status</option>
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+                </select>
+              </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Insurance Provider Modal (Edit) -->
+<div id="provider-modal-edit" class="provider-modal">
+    <div class="provider-modal-content">
+        <div class="provider-modal-header">
+            <span class="close-provider-modal" onclick="closeProviderModalEdit()">
+                <img src="{{ url_for('static', filename='images/left_icon.png') }}" alt="Close Icon">
+            </span>
+            <h2 class="provider-modal-title">Edit Insurance Provider</h2>
+        </div>
+
+        <div class="provider-fields-container">
+            <!-- Labeled Text Field for Insurance Provider -->
+            <div class="provider-field">
+                <label for="insurance-provider" class="provider-label">Insurance Provider</label>
+                <input type="text" id="insurance-provider" class="provider-textfield" placeholder="Enter provider name">
+            </div>
+
+            <!-- Labeled Text Field for Type -->
+            <div class="provider-field">
+                <label for="type" class="provider-label">Type</label>
+                <input type="text" id="type" class="provider-type-textfield" placeholder="Enter type">
+            </div>
+
+            <!-- Labeled Text Field for Contact Details -->
+            <div class="provider-field">
+                <label for="contact-details" class="provider-label">Contact Details</label>
+                <input type="text" id="contact-details" class="provider-contact-textfield" placeholder="Enter contact details">
+            </div>
+
+            <!-- Provider Status  -->
+            <div class="provider-field">
+                <label for="status" class="provider-label">Status</label>
+                <select id="status" class="provider-status-textfield">
+                    <option value="">Select Status</option>
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+                </select>
+            </div>
+
+                <!-- Submit and Cancel Buttons -->
+               <div class="provider-buttons-container-edit">
+              <button class="edit-provider-save-btn">Save</button>
+             <button class="edit-provider-deact-btn" onclick="closeProviderModal()">Deactivate</button>
+           </div>
+        </div>
+    </div>
+</div>
+
+  
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/insurance_providers.js') }}"></script>
+{% endblock %}

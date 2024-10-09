@@ -1,0 +1,313 @@
+/* CSS for Services Management */
+.services-title {
+    font-size: 24px;
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-left: -1%;
+
+}
+/* Hospital Title */
+.services-title .hospital-services {
+    font-weight: bold;
+    margin-top: 20px;
+    margin-left: 5px;
+}
+
+/* Back Button Styles */
+.back-services-btn {
+    margin-top: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.back-services-btn img {
+    width: 24px;
+    height: auto;
+}
+
+/* Services Search Bar Styles */
+.services-search {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-bottom: 20px;
+  }
+  .services-search-icon-left {
+    position: absolute;
+    left: 10px;
+    top: 54%;
+    transform: translateY(-50%);
+  }
+  .services-search-icon-right {
+    position: absolute;
+    right: 272px; 
+    top: 53%;
+    transform: translateY(-50%);
+    opacity: 0.5;
+  }
+  .services-search-icon-left img,
+  .services-search-icon-right img {
+    width: 20px;
+    height: 20px;
+  }
+  .services-search-input {
+    width: 77%;
+    padding: 19px 30px 19px 30px; 
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 15px;
+  }
+  .services-search-input:focus{
+    border-width: 1px;
+    border-color: #a7a7a7;
+    box-shadow: 0 0 3px #818181;
+    outline: none;
+  }
+  
+
+/* Styles for the table */
+.services-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px; 
+    margin-bottom: 80px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+    background-color: #fff;
+}
+
+.services-table th, .services-table td {
+    color: black;
+    padding: 20px;
+    border: 1px solid #b8b8b8;
+    text-align: center;
+}
+
+.services-table th {
+    color: black;
+    background-color: #d9d9d9;
+}
+
+.services-table td {
+    font-size: 15px;
+}
+
+.services-table td:nth-child(1){
+    width: 7%;
+}
+
+.services-table td:nth-child(2){
+    width: 20%;
+}
+
+.services-table td:nth-child(4){
+    text-align: left;
+    width: 13%;
+}
+
+.services-table td:nth-child(3){
+    width: 20%;
+}
+
+.services-table tbody tr:hover{
+    background-color: #f1f1f1;
+}
+
+/* Styles for the clickable department links (button-like) */
+
+.department-link {
+    display: inline-block;
+    color: #012d74;
+    border: 1px solid #012d74;
+    padding: 8px 17px; 
+    border-radius: 18px; 
+    text-decoration: none; 
+    font-size: 14px;
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.3s ease; 
+}
+.department-link:hover {
+    background-color: #011d5a;
+    transform: scale(1.05); 
+    text-decoration: none; 
+    color: white; 
+}
+
+
+/* CSS Ford Services Modal */
+.services-modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1003; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 103%; 
+    overflow: hidden; 
+    background-color: rgba(0, 0, 0, 0.4); 
+    margin-left: 0; 
+}
+
+.services-modal-content {
+    background-color: #fefefe;
+    margin: auto; 
+    padding: 15px;
+    border: 1px solid #999999c5;
+    width: 72%; 
+    max-height: 80vh; 
+    overflow-y: auto; 
+    scroll-behavior: smooth; 
+    scroll-snap-type: y mandatory; 
+    scroll-padding: 10px; 
+    display: flex; 
+    flex-direction: column; 
+    position: relative; 
+    top: 50%; 
+    transform: translateY(-50%); 
+}
+
+/* Modal header styling */
+.services-modal-header {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-top: -10px;
+    margin-bottom: -12px;
+    margin-left: 10px;
+}
+
+.services-close {
+    color: #aaa;
+    font-size: 29px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.services-close:hover,
+.services-close:focus {
+    color: black;
+    text-decoration: none;
+}
+
+/* Styles for the divider */
+.services-modal-divider {
+    border: 1;
+    height: 1px;
+    background: #ddd; 
+    margin: 10px 0; 
+}
+
+/* Modal body styling */
+.services-modal-body {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: flex-start; 
+    flex: 1; 
+}
+
+/* Left column styles */
+.services-left-column {
+    margin-top: 3%;
+    margin-left: 60px;
+    display: flex;
+    align-items: center; 
+    flex: 1; 
+}
+
+.icon-container {
+    margin-right: 20px; 
+}
+
+.services-modal-icon {
+    width: 60px;
+    height: 60px; 
+}
+
+.department-details {
+    display: flex;
+    flex-direction: column; 
+}
+
+.department-name {
+    color: rgb(46, 46, 46);
+    font-size: 23px;
+    font-weight: bold; 
+    margin-bottom: 5px; 
+}
+
+.department-code {
+    color: #555;
+}
+
+/* Right column styles */
+.services-right-column {
+    display: flex;
+    flex-direction: column; 
+    margin-right: 6%;
+    margin-top: 2%;
+    margin-bottom: -4%;
+    padding-left: 20px; 
+}
+
+/* Flexbox layout for fields in a row */
+.services-fields-row {
+    display: flex; 
+    align-items: center; 
+    gap: 35px; 
+    margin-bottom: 10px; 
+}
+
+/* Ensure the fields row can handle horizontal alignment */
+.services-field-container {
+    display: flex;
+    flex-direction: column; 
+}
+
+.services-field-container label {
+    color: black;
+    font-size: 14px;
+    font-weight: bold; 
+    margin-bottom: 5px; 
+}
+
+.services-field-container input {
+    margin-bottom: 10px;
+    width: 114%; 
+    padding: 8px; 
+    border: 1px solid #ccc; 
+    border-radius: 4px; 
+    box-sizing: border-box; 
+}
+
+/* Service Information Column */
+.service-information-column {
+    margin: 20px; 
+    padding: 10px;
+    border-radius: 4px; 
+}
+
+/* Table Styles */
+.service-information-column table {
+    width: 100%;
+    border-collapse: collapse; 
+    border: 1px solid #2e2e2e; 
+    text-align: center;
+}
+
+.service-information-column th, 
+.service-information-column td {
+    color: black;
+    padding: 15px; 
+    text-align: center; 
+}
+
+.service-information-column th {
+    background-color: #f2f2f2;
+    font-weight: bold; 
+}
+
+/* CSS to disable scrolling with additional class */
+body.services-modal-open {
+    overflow: hidden;
+}

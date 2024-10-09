@@ -1,0 +1,500 @@
+/* Main container background */
+.emp_view-background {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 1150px;
+/*  
+    overflow-y: auto; /* Enable vertical scrolling */
+/* max-height: 80vh; /* Limit the height for scrollability */
+
+}
+
+/* emp-profile-container column stylings */
+.emp_view-back-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 12px;
+    color: black;
+    border: none;
+    border-radius: 7px;
+    text-decoration: none;
+    font-size: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.emp_view-back-button img {
+    margin-right: 8px;
+    width: 23px;
+    height: 23px;
+    transition: transform 0.3s ease; 
+}
+
+.emp_view-back-button:hover img {
+    transform: scale(1.1); 
+}
+
+/* Personal Information Title Style */
+.emp_view-title-text {
+    font-size: 24px;
+    margin-left: 5px;
+    color:  #012d74;
+}
+
+/* Style for 'View /' part of the title */
+.view-text {
+    font-weight: normal;
+}
+
+/* Style for 'Personal Information' part of the title */
+.personal-info-text {
+    font-weight: bold; 
+}
+
+
+.emp_view-custom-divider {
+    height: 1px;
+    background-color: #a8a8a8; 
+    margin: 20px 0; 
+    border: none;
+}
+
+.emp_view-profile-wrapper {
+    display: flex;
+    align-items: center;
+    margin-top: 30px; 
+    margin-bottom: 30px;
+    margin-left: 20px;
+}
+
+.emp_view-profile-icon img {
+    width: 90px;
+    height: 90px;
+   
+    border: 2px solid #ccc;
+}
+
+.emp_view-profile-info {
+    margin-left: 20px; 
+}
+
+.emp_view-profile-name,
+.emp_view-profile-position {
+    font-size: 18px;
+    color: #333; 
+}
+
+.emp_view-profile-name {
+    font-weight: bold;
+}
+
+.emp_view-profile-position {
+    margin-top: 5px; 
+    font-weight: normal; 
+    color: #666; 
+}
+
+
+/*CSS for Edit and Delete buttons on View Employee*/
+.emp_view-buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px; 
+}
+.emp-view {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 24px;
+    border-radius: 18px;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+.edit-employee.emp-view {
+    color:  #012d74;
+    border: 1px solid  #012d74;
+}
+.edit-employee.emp-view:hover {
+    color: white;
+    background-color: #01254b; 
+}
+.delete.emp-view {
+    color: #9a2424;
+    border: 1px solid #9a2424;
+}
+.delete.emp-view:hover {
+    color: white;
+    background-color: #641919; 
+}
+/* Button style when in editing mode */
+.emp-view.edit-employee.editing {
+    background-color: rgb(2, 163, 2);
+    border: 1px solid rgb(2, 163, 2);
+    color: white; 
+}
+
+
+
+/* emp-name-column CSS stylings*/
+
+.emp_view-name-column {
+    display: inline-flex;
+    flex-wrap: wrap; 
+    gap: 50px; 
+    margin-top: 30px; 
+}
+.emp_view-field {
+    flex: 1; 
+    min-width: 120px; 
+    box-sizing: border-box; 
+}
+.emp_view-field label {
+    display: block;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px; 
+}
+.emp_view-field input {
+    width: 110%; 
+    padding: 9px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+.emp_view-field input:focus {
+    border-width: 1px;
+    border-color: #0056b3; 
+    outline: none; 
+    box-shadow: 0 0 3px rgba(0, 86, 179, 0.5); 
+}
+.ext_view-name-field {
+    flex: 0 0 50px; 
+}
+
+/*for emp-contact-column CSS stylings */
+.emp_view-contact-column {
+    display: inline-flex;
+    flex-wrap: wrap; 
+    gap: 75px; 
+    margin-top: 30px; 
+}
+.emp_view-field-contact {
+    flex: 1; 
+    min-width: 124px; 
+    box-sizing: border-box; 
+}
+.emp_view-field-contact label {
+    display: block;
+    font-size: 14px;
+    color: #333; 
+    margin-bottom: 5px; 
+}
+.emp_view-field-contact input {
+    width: 124%; 
+    padding: 9px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+.emp_view-field-contact input:focus{
+    border-width: 1px;
+    border-color: #0056b3; 
+    outline: none; 
+    box-shadow: 0 0 3px rgba(0, 86, 179, 0.5); 
+}
+
+/*emp_view-address-column CSS stylings*/
+.emp_view-address-column {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 21px; 
+    margin-top: 30px; 
+}
+.emp_view-field-address {
+    flex: 1;
+    min-width: 120px;
+    box-sizing: border-box;
+}
+.emp_view-field-address label {
+    display: block;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+}
+.emp_view-field-address input {
+    width: 95%;
+    padding: 9px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+.emp_view-field-address input:focus{
+    border-width: 1px;
+    border-color: #0056b3; 
+    outline: none; 
+    box-shadow: 0 0 3px rgba(0, 86, 179, 0.5); 
+}
+/* Birthdate and Sex column */
+.emp_view-birthsex-column {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 47px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.emp_view-field-birth {
+    flex: 1;
+    min-width: 51%;
+    box-sizing: border-box;
+}
+
+.emp_view-field-birth label {
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.emp_view-field-birth input {
+    width: 109%;
+    padding: 9px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+.emp_view-field-birth input:focus {
+    border-width: 1px;
+    border-color: #0056b3; 
+    outline: none; 
+    box-shadow: 0 0 3px rgba(0, 86, 179, 0.5); 
+}
+
+/* Sex dropdown with distinct CSS */
+.emp_view-field-sex {
+    flex: 1;
+    min-width: 100px;
+    box-sizing: border-box;
+}
+
+.emp_view-field-sex label {
+    display: block;
+    font-size: 14px;
+    color: #333;
+    margin-bottom: 3px;
+}
+
+.emp_view-field-sex select {
+    width: 140%;
+    padding: 9px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #333;
+}
+.emp_view-field-sex select:focus{
+    border-width: 1px;
+    border-color: #0056b3; 
+    outline: none; 
+    box-shadow: 0 0 3px rgba(0, 86, 179, 0.5); 
+}
+/* Css Adjustments for emp-left-column */
+
+.emp_view-employ-columns-wrapper {
+    display: flex;
+    gap: 20px; 
+    margin-top: 20px;
+}
+/* Left Column */
+.emp_view-employ-left-column {
+    flex: 1; 
+    padding: 20px; 
+}
+
+/* Fields Row */
+.emp_view-employ-fields-row {
+    display: flex; 
+    gap: 20px; 
+    margin-bottom: 20px; 
+}
+
+/* Position and Date Fields Row */
+.emp_view-employ-position-date-row {
+    display: flex;
+    gap: 20px; 
+    margin-bottom: 20px; 
+}
+
+/* Department and Termination Date Fields Row */
+.emp_view-employ-department-termination-row {
+    display: flex; 
+    gap: 20px; 
+    margin-bottom: 20px; 
+}
+
+/* Status Row */
+.emp_view-employ-status-row {
+    margin-bottom: 20px; 
+}
+
+/* Employment Type Row */
+.emp_view-employ-type-row {
+    margin-bottom: 20px; 
+}
+
+/* Date Fields Row */
+.emp_view-employ-date-fields-row {
+    display: flex; 
+    gap: 10px; 
+    flex: 1; 
+}
+
+/* Field Styling */
+.emp_view-employ-field {
+    flex: 1; 
+}
+
+.emp_view-employ-field label {
+    display: block;
+    font-size: 14px;
+    color: #333; 
+    margin-bottom: 5px; 
+}
+
+.emp_view-employ-field input,
+.emp_view-employ-field select {
+    width: 93%; 
+    padding: 9px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+.emp_view-employ-field input:focus{
+    border-width: 1px;
+    border-color: #0056b3; 
+    outline: none; 
+    box-shadow: 0 0 3px rgba(0, 86, 179, 0.5); 
+}
+
+/* Date Fields Specific Styling */
+.emp_view-employ-date-fields-row .emp_view-employ-date-field {
+    flex: 1; 
+}
+
+.emp_view-employ-date-field input {
+    margin-top: 2px;
+    width: 85%; 
+    padding: 9px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+.emp_view-employ-date-field input:focus{
+    border-width: 1px;
+    border-color: #0056b3; 
+    outline: none; 
+    box-shadow: 0 0 3px rgba(0, 86, 179, 0.5);
+}
+
+/* Date Fields Wrapper */
+.emp_view-hired-date-fields, .emp_view-termination-date-fields {
+    display: flex; 
+    gap: 8px; 
+}
+
+/* Label Styling for Date Fields */
+.emp_view-employ-date-field label {
+    font-size: 14px; 
+    color: #333; 
+}
+
+/* Dropdown Styling */
+.emp_view-employ-field select {
+    width: 47%; 
+    padding: 9px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+.emp_view-employ-field select:focus {
+    border-width: 1px;
+    border-color: #0056b3;
+    outline: none;
+    box-shadow: 0 0 3px rgba(0, 86, 179, 0.5); 
+}
+
+/* Right Column */
+.emp_view-employ-right-column {
+    background-color: #e2e2e298;
+    border: 1px solid #a0a0a098;
+    flex: 1; 
+    padding: 20px; 
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); 
+}
+
+/* Schedule Title */
+.emp_view-employ-schedule-title {
+    color: #333;
+    font-size: 20px; 
+    font-weight: bold; 
+    margin-bottom: 20px; 
+}
+
+/* Labels for Date and Time */
+.emp_view-employ-date-time-labels {
+    text-align: left;
+    display: flex;
+    gap: 238px;
+    margin-bottom: 5px;
+}
+
+/* Label Styling */
+.emp_view-employ-date-label label, .emp_view-employ-time-label label {
+    color: #333;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* Daily Fields */
+.emp_view-employ-daily-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; 
+}
+
+/* Daily Field Row */
+.emp_view-employ-daily-field-row {
+    display: flex; 
+    gap: 15px; 
+}
+
+/* Daily Field */
+.emp_view-employ-daily-field {
+    flex: 1; 
+}
+
+.emp_view-employ-daily-field input {
+    width: 85%; 
+    padding: 9px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+.emp_view-employ-daily-field input:focus {
+    border-width: 1px;
+    border-color: #0056b3; 
+    outline: none; 
+    box-shadow: 0 0 3px rgba(0, 86, 179, 0.5); 
+}
+
+/* Button style when in editing mode */
+.emp-view.edit-employee.editing {
+    background-color: rgb(2, 163, 2);
+    color: white; 
+}
+
+
+
+

@@ -1,0 +1,136 @@
+{% extends "base.html" %}
+
+{% block title %}Services Management{% endblock %}
+{% block header_title %}Services Management{% endblock %}
+
+{% block additional_css %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/services_management.css') }}">
+{% endblock %}
+
+{% block compact_sidebar %}
+<div class="compact-sidebar-item">
+    <a href="{{ url_for('dashboard') }}">
+        <img src="{{ url_for('static', filename='images/dashboard_icon.png') }}" alt="Dashboard Icon">
+        <span>Dashboard</span>
+    </a>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="services-content">
+    <div class="services-title">
+        <span class="back-services-btn">
+            <!-- <img src="{{ url_for('static', filename='images/left_icon.png') }}">-->
+        </span>
+        <span class="hospital-services"> Services Management </span>
+    </div>
+
+    <!-- Services Search Bar -->
+    <div class="services-search">
+        <span class="services-search-icon-left">
+            <img src="{{ url_for('static', filename='images/search_icon.png') }}" alt="Search Icon">
+        </span>
+        <input type="text" placeholder="Search Services..." class="services-search-input">
+        <span class="services-search-icon-right">
+            <img src="{{ url_for('static', filename='images/updown_icon.png') }}" alt="Right Icon">
+        </span>
+    </div>
+</div>
+
+  
+
+
+<!-- Column for departments table -->
+<div class="column services-table-column">
+    <table class="services-table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Department</th>
+                <th>Head</th>
+                <th>Location</th>
+                <th>Contact</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for department in departments %}
+            <tr>
+                <td>{{ department.department_id }}</td>
+                <td>
+                    <a href="#" class="department-link" data-department="{{ department.department_name }}" data-id="{{ department.department_id }}" data-head="{{ department.dept_head }}" data-contact="{{ department.contact }}" data-location="{{ department.dept_location }}" data-email="{{ department.email }}">
+                        {{ department.department_name }}
+                    </a>
+                </td>
+                <td>{{ department.dept_head }}</td>
+                <td>{{ department.dept_location }}</td>
+                <td>{{ department.contact }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>        
+    </table>
+</div>
+
+<!-- Modal HTML for viewing services by department -->
+<div id="services-modal" class="services-modal">
+    <div class="services-modal-content">
+        <div class="services-modal-header">
+            <h2 id="modal-title">Service Information</h2>
+            <span class="services-close">&times;</span>
+        </div>
+        <hr class="services-modal-divider"> 
+        <div class="services-modal-body">
+            <div class="services-left-column">
+                <div class="icon-container">
+                    <img src="{{ url_for('static', filename='images/medical_icon.png') }}" alt="Icon" class="services-modal-icon">
+                </div>
+                <div class="department-details">
+                    <div class="department-name" id="department-name"></div>
+                    <div class="department-code" id="department-code"></div>
+                </div>
+            </div>
+            <div class="services-right-column">
+                <div class="services-fields-row">
+                    <div class="services-field-container">
+                        <label for="head-field">Head:</label>
+                        <input type="text" id="head-field" readonly>
+                    </div>
+                    <div class="services-field-container">
+                        <label for="contact-field">Contact Information:</label>
+                        <input type="text" id="contact-field" readonly>
+                    </div>
+                </div>
+                <div class="services-fields-row">
+                    <div class="services-field-container">
+                        <label for="location-field">Location:</label>
+                        <input type="text" id="location-field" readonly>
+                    </div>
+                    <div class="services-field-container">
+                        <label for="email-field">Email:</label>
+                        <input type="text" id="email-field" readonly>
+                    </div>
+                </div>
+            </div>                    
+        </div>
+
+        <!-- Services table (filtered by department) -->
+        <div class="service-information-column">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Service/Procedure Name</th>
+                        <th>Description</th>
+                        <th>Cost (PHP)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Services data will be dynamically injected here via JavaScript -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/services_management.js') }}"></script>
+{% endblock %}

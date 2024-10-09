@@ -1,0 +1,525 @@
+/* Improved Styles for Patients Table */
+.providers-content {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0px;
+    background-color: #ffffff00;
+    border: 1px solid #dddddd00;
+    border-radius: 1px;
+ 
+}
+
+/* Patient Title */
+.providers-title {
+    font-size: 24px;
+    font-weight: normal;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+/* Hospital Title */
+.providers-title .providers-patients {
+    font-weight: bold;
+    margin-left: 5px;
+}
+/* Insurance Button */
+.insurance-btn {
+    background-color: #E5E9F0;
+    color: #012d74;
+    border: 1px solid #012d74;
+    padding: 12px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-left: auto; 
+    margin-right: 10px;
+    font-size: 16px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.insurance-btn:hover {
+    color: white;
+    background-color: #012d74;
+}
+
+/* Modal Background */
+.provider-modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1003; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 103%; 
+    overflow: hidden; 
+    background-color: rgba(0, 0, 0, 0.4); 
+    margin-left: 0; 
+}
+
+/* Modal Content */
+.provider-modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 35px;
+    border: 1px solid #999999c5;
+    border-radius: 5px;
+    width: 40%;
+    max-height: 95vh;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+    scroll-padding: 10px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Modal Header: Flexbox for Title and Close Button */
+.provider-modal-header {
+    margin-left: -5px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; 
+}
+
+/* Title Style */
+.provider-modal-title {
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+/* Close button as an icon */
+.close-provider-modal img {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.close-provider-modal:hover img,
+.close-provider-modal:focus img {
+    filter: brightness(0.7); /* Darken on hover */
+}
+
+/* Provider Fields Container */
+.provider-fields-container {
+    width: 100%; /* You can adjust this value as needed */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Field container */
+.provider-field {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Label style */
+.provider-label {
+    margin-left: 5%;
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #333;
+}
+
+/* Text Field Style */
+.provider-textfield,
+.provider-type-textfield,
+.provider-contact-textfield,
+.provider-status-textfield {
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 90%; /* Set width to 90% */
+    margin: 0 auto; /* Centers the field with auto margins */
+    box-sizing: border-box;
+}
+
+.provider-textfield:focus,
+.provider-type-textfield:focus,
+.provider-contact-textfield:focus,
+.provider-status-textfield:focus {
+    border-color: #0056b3;
+    outline: none;
+}
+
+/* Button Container Style */
+.provider-buttons-container {
+    display: flex; /* Use flexbox for alignment */
+    justify-content: flex-end; /* Align buttons to the right */
+    margin-top: 20px; /* Optional: Add space above the buttons */
+    margin-right: 5%;
+}
+
+/* Button Styles */
+.provider-submit-btn,
+.provider-cancel-btn {
+    border-radius: 18px;
+    padding: 8px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 10px; /* Optional: Add space between buttons */
+}
+
+.provider-submit-btn {
+    background-color: #fefefe;
+    color: #012d74;
+    border: 1px solid #012d74;
+}
+.provider-submit-btn:hover{
+    color: white;
+    background-color: #012d74;
+}
+.provider-cancel-btn{
+    background-color: #fefefe;
+    color: #535353;
+    border: 1px solid #535353;
+}
+.provider-cancel-btn:hover {
+    color: white;
+    background-color:#535353;
+
+}
+
+/* Button Container Style */
+.provider-buttons-container-edit {
+    display: flex; 
+    justify-content: flex-end; 
+    margin-top: 20px; 
+    margin-right: 5%;
+}
+
+/* Providers Modal (Edit) */
+.edit-provider-save-btn,
+.edit-provider-deact-btn {
+    border-radius: 18px;
+    padding: 8px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-left: 10px; /* Optional: Add space between buttons */
+}
+
+.edit-provider-save-btn {
+    background-color: #fefefe;
+    color: #012d74;
+    border: 1px solid #012d74;
+}
+.edit-provider-save-btn:hover{
+    color: white;
+    background-color: #012d74;
+}
+.edit-provider-deact-btn{
+    background-color: #fefefe;
+    color: #ff3131;
+    border: 1px solid #ff3131;
+}
+.edit-provider-deact-btn:hover {
+    color: white;
+    background-color:#ff3131;
+
+}
+
+/* Styles for the provider-empty modal */
+.provider-empty-modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1200;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden; 
+    background-color: rgba(0, 0, 0, 0.5); 
+}
+
+.provider-empty-content {
+    color: black;
+    font-size: 16px;
+    background-color: #fff;
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    padding: 40px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 300px; 
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.provider-empty-confirm,
+.provider-empty-cancel {
+    margin-top: 10px;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    border-radius: 18px;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.provider-empty-confirm {
+    color: #ff3131;
+    border: 1px solid #ff3131;
+}
+
+.provider-empty-confirm:hover {
+    color: white;
+    background-color: #f44336;
+}
+
+.provider-empty-cancel {
+    color: #00bf63;
+    border: 1px solid  #00bf63;
+}
+
+.provider-empty-cancel:hover {
+    color: white;
+    background-color:  #00bf63;
+}
+
+
+
+
+/* Providers Search Bar Styles */
+.providers-search {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.providers-search-icon-left {
+    position: absolute;
+    left: 10px;
+    top: 54%;
+    transform: translateY(-50%);
+}
+
+.providers-search-icon-right {
+    position: absolute;
+    right: 272px; 
+    top: 53%;
+    transform: translateY(-50%);
+    opacity: 0.5;
+}
+
+.providers-search-icon-left img,
+.providers-search-icon-right img {
+    width: 20px;
+    height: 20px;
+}
+
+.providers-search-input {
+    width: 75%;
+    padding: 19px 30px 19px 30px; 
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 15px;
+}
+
+.providers-search-input:focus {
+    border-width: 1px;
+    border-color: #a7a7a7;
+    box-shadow: 0 0 3px #818181;
+    outline: none;
+}
+
+  
+ /* Dropdown Filter CSS */
+.providers-dropdown {
+    padding: 16px;
+    margin-left: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    position: relative;
+    width: 190px; 
+}
+
+/* Focus state for the dropdown */
+.providers-dropdown:focus-within {
+    border-color: #a7a7a7; 
+    box-shadow: 0 0 5px rgba(1, 61, 156, 0.5); 
+    outline: none; 
+}
+
+.providers-dropdown-placeholder {
+    color: #818181;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    pointer-events: none; 
+}
+
+/* Icon for Filter by: */
+.providers-filter-icon img {
+    width: 20px;
+    height: 20px;
+    margin-left: 8px;
+}
+
+/* Dropdown Content Styles */
+.providers-dropdown-content {
+    display: none; 
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 200px; 
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 4px;
+    padding: 10px;
+    margin-top: 25px;
+    margin-left: -17px;
+}
+
+/* Title above left and right columns */
+.providers-dropdown-title {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
+    text-align: left;
+}
+
+/* Left and right column styles */
+.providers-left, .providers-right {
+    font-size: 15px;
+    display: inline-block;
+    width: 48%; 
+    vertical-align: top;
+}
+
+.providers-left {
+    border-right: 1px solid #ddd;
+    text-align: left;
+}
+
+.providers-right {
+    text-align: right;
+}
+
+/* Hover and click effect for left column items */
+.providers-item {
+    color: #333;
+    cursor: pointer;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+.providers-item:hover, .providers-item:active {
+    background-color: #c4c4c4;
+    color: #013d9c;
+}
+
+/* Show the dropdown content on click */
+.providers-dropdown.active .providers-dropdown-content {
+    display: block;
+}
+
+/* Hover and click effect for right column items */
+.providers-right p {
+    color: #333;
+    cursor: pointer;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+}
+
+.providers-right p:hover, .providers-right p:active {
+    background-color: #c4c4c4;
+    color: #012d74;
+}
+
+/* Providers Table Styles */
+.providers-table {
+    width: 100%;
+    border-collapse: collapse; /* Ensure no gaps between cells */
+    margin-top: 20px;
+    background-color: #fff;
+}
+
+.providers-table th, .providers-table td {
+    color: black;
+    border: 1px solid #b8b8b8;
+    padding: 15px 15px;
+    text-align: center;
+    font-size: 14px;
+}
+
+.providers-table th {
+    background-color: #d9d9d9;
+    font-weight: bold;
+    text-align: center;
+}
+
+.providers-table td {
+    font-size: 16px;
+    background-color: #fff;
+}
+/* Insurance Provider ID alignment */
+.providers-table td:nth-child(2) {
+    text-align: left;
+}
+/*Contact alignment */
+.providers-table td:nth-child(4) {
+    text-align: left;
+}
+
+/* Action Button Styles */
+.providers-action-view {
+    background-color: #fff;
+    color: #012d74;
+    border: 1px solid #012d74;
+    border-radius: 18px;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 13px;
+    margin-right: 5px; 
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.providers-action-view:hover{
+    color: white;
+    background-color: #012d74;
+}
+.providers-action-edit {
+    background-color: #fff;
+    color: #012d74;
+    border: 1px solid #012d74;
+    border-radius: 18px;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 13px;
+    margin-right: 5px; 
+    transition: background-color 0.3s ease, transform 0.3s ease; 
+}
+.providers-action-edit:hover{
+    color: white;
+    background-color: #012d74;
+}
+.providers-action-btn.deactivate-btn  {
+    background-color: #fff;
+    color: #ff3131;
+    border: 1px solid #ff3131;
+    border-radius: 18px;
+    padding: 8px 15px;
+    cursor: pointer;
+    font-size: 13px;
+    margin-right: 5px; 
+    transition: background-color 0.3s ease, transform 0.3s ease; 
+}
+.deactivate-btn:hover {
+    color: white;
+    background-color: #ff3131; 
+}
+

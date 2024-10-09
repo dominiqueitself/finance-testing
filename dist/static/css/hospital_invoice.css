@@ -1,0 +1,464 @@
+/* Css for 1st container */
+.invoice-view-content {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* CSS for Title */
+.invoice-header {
+    display: flex;
+   /* justify-content: space-between; */
+    align-items: left;
+    margin-bottom: 20px;
+    margin-top: 15px;
+}
+
+.invoice-back-btn {
+    margin-top: 5px;
+   /*margin-right: -40%; */
+   margin-right: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease; 
+    display: inline-block; 
+}
+
+.invoice-back-btn img {
+    width: 24px;
+    height: auto;
+    transition: transform 0.3s ease; 
+}
+.invoice-back-btn:hover img {
+    transform: scale(1.1); 
+}
+
+
+.invoice-title {
+    font-size: 24px;
+    font-weight: normal;
+    margin: 0;
+}
+
+/* Make 'View' bolder */
+.invoice-view-bold {
+    font-size: 24px; 
+    font-weight: bold;
+}
+
+/* Css for Save, Submit, Void button */
+.invoice-view-button-group {
+    display: flex;
+    gap: 10px;
+}
+
+.hospital-invoice-save {
+    background-color: white;
+    color: #012d74;
+    border-radius: 18px;
+    border: 1px solid #012d74;
+    padding: 10px 30px;
+}
+
+.hospital-invoice-save:hover {
+    color: #fff;
+    background-color: #012d74;
+}
+
+.hospital-invoice-submit {
+    background-color: #fff;
+    color: #00bf63;
+    border: 1px solid #00bf63;
+    border-radius: 18px;
+    padding: 10px 20px;
+}
+
+.hospital-invoice-submit:hover {
+    color: white;
+    background-color: #00bf63;
+}
+
+
+/* Css for Additional view Container */
+.additional-view-container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+/* Css for Additional Title */
+.additional-title {
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 0px;
+}
+/* Css for Columns Container */
+.in-columns-container {
+    display: flex;
+    gap: 20px;
+    margin-top: 20px;
+}
+/* Css for Left Column and Right Column */
+.in-left-column, .in-right-column {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+/* Css for Invoice View Text Field and Dropdown */
+.invoice-view-field {
+    width: 90%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.invoice-view-field:focus{
+    border-width: 1px;
+    border-color: #0056b3; 
+    outline: none; 
+    box-shadow: 0 0 3px rgba(0, 86, 179, 0.5); 
+}
+/* Css for Invoice View Label */
+.invoice-view-label {
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+}
+/* Css for Insurance and Patient type */
+.invoice-view-field select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+/* Css for Patient Type */
+.en-invoice-view-field{
+    width: 94%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+.en-invoice-view-field:focus{
+    border-width: 1px;
+    border-color: #0056b3; 
+    outline: none; 
+    box-shadow: 0 0 3px rgba(0, 86, 179, 0.5); 
+}
+/* Css for Divider */
+.in-divider {
+    height: 1px;
+    background-color: #ddd;
+    margin: 20px 0;
+}
+
+/* CSS for 2nd container */
+.invoice-view-container-two {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* CSS for 2nd container */
+.invoice-view-container-two {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* CSS for inner container inside 2nd container */
+.inner-container-two {
+    padding: 15px;
+    background-color: #f5f5f5;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    margin-top: 10px;
+}
+
+/* CSS for the title inside the inner container */
+.inner-container-title-two {
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    text-align: left;
+    margin: 0;
+}
+
+/* CSS for Table Titles */
+.in-table-title {
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+/* CSS for Services Rendered Table */
+.in-services-table,
+.in-medicines-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.in-services-table th, .in-services-table td,
+.in-medicines-table th, .in-medicines-table td {
+    color: black;
+    border: 1px solid #ccc;
+    padding: 12px;
+    text-align: left;
+}
+
+.in-services-table th, .in-medicines-table th {
+    background-color: #f0f0f0;
+    font-weight: bold;
+}
+
+.in-services-table td, .in-medicines-table td {
+    background-color: #fff;
+}
+
+.in-services-table tbody tr:nth-child(even),
+.in-medicines-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Css for 3rd container */
+.invoice-view-container-three {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* CSS for the title inside the 3rd container */
+.invoice-view-title-three {
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    text-align: left;
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+/* CSS for the label above the table */
+.in-table-three-label {
+    font-size: 14px;
+    font-weight: bold;
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+
+/* CSS for the table inside the 3rd container */
+.in-table-three {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    text-align: left;
+}
+
+.in-table-three th, .in-table-three td {
+    color: black;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.in-table-three th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+.in-table-three td {
+    background-color: #fff;
+}
+
+
+/* CSS for the 4th container */
+.invoice-view-container-fourth {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* CSS for the title inside the 4th container */
+.invoice-view-title-fourth {
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    text-align: left;
+    margin: 0;
+    padding-bottom: 10px;
+}
+
+/* CSS for the table label */
+.table-label-fourth {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* CSS for Insurance Coverage Table */
+.in-table-fourth {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.in-table-fourth th, .in-table-fourth td {
+    color: black;
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.in-table-fourth th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.in-table-fourth tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* CSS for Summary container */
+.invoice-view-container-summary {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 20px; 
+}
+
+/* CSS for Left Column (Summary) */
+.sum-left {
+    flex: 1;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+
+/* CSS for Invoice Summary Title */
+.in-summary-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+    margin: 0 0 10px 0;
+}
+
+/* CSS for Summary Table */
+.in-summary-table {
+    width: 100%;
+    border-collapse: collapse; /* Removes table borders */
+}
+
+.in-summary-table td {
+    color: black;
+    padding: 5px;
+    text-align: left;
+    border: none; /* No border for table cells */
+    font-size: 16px;
+}
+
+.in-summary-table td.amount {
+    text-align: right; /* Align numbers to the right */
+}
+
+/* CSS for Divider */
+.summary-divider {
+    margin: 20px 0;
+    border: 0;
+    border-top: 1px solid #ddd;
+}
+
+/* CSS for Total Amount Due */
+.total-amount-due {
+    color: black;
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.total-amount-due .amount {
+    text-align: right; /* Align the amount to the right */
+    margin-left: 63%;
+}
+
+/* CSS for Right Column (Summary) */
+.sum-right {
+    flex: 1;
+}
+
+/* CSS for Summary Buttons */
+.summary-hospital-group {
+    margin-top: 50%;
+    margin-left: 50%;
+    display: flex;
+    gap: 10px;  
+}
+.summary-hospital-save {
+    background-color: white;
+    color: #012d74;
+    border-radius: 18px;
+    border: 1px solid #012d74;
+    padding: 10px 30px;
+
+}
+.summary-hospital-save:hover {
+    color: #fff;
+    background-color: #012d74;
+}
+
+.summary-hospital-submit {
+    background-color: #fff;
+    color: #00bf63;
+    border: 1px solid #00bf63;
+    border-radius: 18px;
+    padding: 10px 20px;
+}
+.summary-hospital-submit:hover{
+    color: white;
+    background-color: #00bf63;
+}
+
+
+
+
+

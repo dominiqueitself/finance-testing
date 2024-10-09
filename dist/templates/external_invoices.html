@@ -1,0 +1,192 @@
+{% extends "base.html" %}
+
+{% block title %}Invoice Details{% endblock %}
+{% block header_title %}Invoice Details{% endblock %}
+
+{% block additional_css %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/external_invoices.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="invoice-view-content">
+    <div class="invoice-header">
+        <div class="invoice-back-btn">
+            <a href="{{ url_for('external_customers') }}">
+                <img src="{{ url_for('static', filename='images/left_icon.png') }}" alt="Back" />
+            </a>
+        </div>
+        <h1 class="invoice-title">
+            External Customers / <span class="invoice-view-bold">Generate Invoice</span>
+        </h1>
+        <div class="invoice-view-button-group">
+         <!--  <button class="external-invoice-save">Save Daft</button>-->
+          <!--  <button class="external-invoice-submit">Submit & Finalize</button>-->
+        </div>
+    </div>
+    
+    
+    <div class="additional-view-container">
+        <h2 class="additional-title">Patient Information</h2>
+        <!-- Add additional content here -->
+        
+        <div class="in-columns-container">
+            <div class="in-left-column">
+                <label for="name" class="invoice-view-label">Name:</label>
+                <input type="text" id="name" class="invoice-view-field" placeholder="Enter name" value="Shane Steven Servas">
+                
+                <label for="patient-id" class="invoice-view-label">Patient ID:</label>
+                <input type="text" id="patient-id" class="invoice-view-field" placeholder="Enter patient ID" value="INV00001">
+                
+                <div class="in-divider"></div>
+                
+                <label for="contact-person" class="invoice-view-label">Contact Person:</label>
+                <input type="text" id="contact-person" class="invoice-view-field" placeholder="Enter contact person" value="Song Eunseok">
+            </div>
+            <div class="in-right-column">
+                <label for="insurance" class="invoice-view-label">Insurance:</label>
+                <input type="text" id="insurance" class="invoice-view-field" placeholder="Enter insurance details" value="Manulife">
+                
+                <label for="patient-type" class="invoice-view-label">Patient Type:</label>
+                <select id="patient-type" class="en-invoice-view-field">
+                    <option value="inpatient">In-Patient</option>
+                    <option value="outpatient">Out-Patient</option>
+                </select>
+                
+                <div class="in-divider"></div>
+                
+                <label for="contact-number" class="invoice-view-label">Contact Number:</label>
+                <input type="text" id="contact-number" class="invoice-view-field" placeholder="Enter contact number" value="119">
+            </div>
+        </div>
+    </div>
+</div>
+    
+<!-- Second container -->
+<div class="invoice-view-container-two">
+    <!-- New inner container -->
+    <div class="inner-container-two">
+        <!-- Title on the left side -->
+        <h2 class="inner-container-title-two">Medical Bill</h2>
+
+        <!-- Table for Services Rendered -->
+        <h3 class="in-table-title">Services Rendered:</h3>
+        <table class="in-services-table">
+            <thead>
+                <tr>
+                    <th>Service</th>
+                    <th>Unit Price</th>
+                    <th>Quantity</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Medication</td>
+                    <td>$20.00</td>
+                    <td>10</td>
+                    <td>$200.00</td>
+                </tr>
+                <tr>
+                    <td>Surgery</td>
+                    <td>$3,500.00</td>
+                    <td>1</td>
+                    <td>$3,500.00</td>
+                </tr>
+                <tr>
+                    <td>Hospital Stay</td>
+                    <td>$500.00</td>
+                    <td>4</td>
+                    <td>$2,000.00</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Table for Medicines Rendered -->
+        <h3 class="in-table-title">Medicines Rendered:</h3>
+        <table class="in-medicines-table">
+            <thead>
+                <tr>
+                    <th>Medicine</th>
+                    <th>Unit Price</th>
+                    <th>Quantity</th>
+                    <th>Subtotal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Amoxicillin</td>
+                    <td>$15.00</td>
+                    <td>10</td>
+                    <td>$150.00</td>
+                </tr>
+                <tr>
+                    <td>Ibuprofen</td>
+                    <td>$8.00</td>
+                    <td>5</td>
+                    <td>$40.00</td>
+                </tr>
+                <tr>
+                    <td>Paracetamol</td>
+                    <td>$5.00</td>
+                    <td>20</td>
+                    <td>$100.00</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<!-- Summary container -->
+<div class="invoice-view-container-summary">
+    <!-- Left column -->
+    <div class="sum-left">
+        <h2 class="in-summary-title">Invoice Summary</h2>
+        <table class="in-summary-table">
+            <tbody>
+                <tr>
+                    <td>Total Services Cost</td>
+                    <td class="amount">500.00</td>
+                </tr>
+                <tr>
+                    <td>Total Medicines Cost</td>
+                    <td class="amount">150.00</td>
+                </tr>
+                <tr>
+                    <td>Professional Charges</td>
+                    <td class="amount">300.00</td>
+                </tr>
+                <tr>
+                    <td>Insurance Coverage Amount</td>
+                    <td class="amount">400.00</td>
+                </tr>
+                <tr>
+                    <td>Discounts</td>
+                    <td class="amount">50.00</td>
+                </tr>
+                <tr>
+                    <td>Total Medicines Cost</td>
+                    <td class="amount">45.00</td>
+                </tr>
+            </tbody>
+        </table>
+        <hr class="summary-divider">
+        <div class="total-amount-due">
+            <strong>Total Amount Due:</strong> <span class="amount">545.00</span>
+        </div>
+    </div>
+    
+    <!-- Right column -->
+    <div class="sum-right">
+        <div class="summary-external-group">
+            <button class="summary-external-save">Save Draft</button>
+           <button class="summary-external-submit">Submit & Finalize</button>
+        </div>
+    </div>
+</div>
+    
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/external_invoices.js') }}"></script>
+{% endblock %}

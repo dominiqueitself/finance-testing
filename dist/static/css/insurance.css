@@ -1,0 +1,793 @@
+/* Insurance Processing Styles */
+.insurance-processing-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff00;
+    border: 1px solid #dddddd00;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: normal;
+    margin-bottom: 10px;
+    text-align: left;
+    display: inline-block; 
+    margin-top: -7px;
+}
+h2 strong{
+    font-size: 24px;
+    font-weight: bold;
+
+}
+.insurance-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.insurance-btn {
+  background-color: #E5E9F0;
+    color: #012d74;
+    border: 1px solid #012d74;
+    padding: 12px 20px;
+    font-size: 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-right: 15px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.insurance-btn:hover {
+    color: white;
+    background-color: #012d74;
+}
+
+
+/* Insurance Search Bar Styles */
+.insurance-search {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-bottom: 20px;
+  }
+  .insurance-search-icon-left {
+    position: absolute;
+    left: 10px;
+    top: 54%;
+    transform: translateY(-50%);
+  }
+  .insurance-search-icon-right {
+    position: absolute;
+    right: 272px; 
+    top: 53%;
+    transform: translateY(-50%);
+    opacity: 0.5;
+  }
+  .insurance-search-icon-left img,
+  .insurance-search-icon-right img {
+    width: 20px;
+    height: 20px;
+  }
+  .insurance-search-input {
+    width: 75%;
+    padding: 19px 30px 19px 30px; 
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 15px;
+  }
+  .insurance-search-input:focus {
+    border-width: 1px;
+    border-color: #a7a7a7;
+    box-shadow: 0 0 3px #818181;
+    outline: none;
+  }
+  
+  /* Dropdown Filter CSS */
+  .insurance-dropdown {
+    padding: 16px;
+    margin-left: 10px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+    position: relative;
+    width: 193px; 
+  }
+  /* Focus state for the dropdown */
+  .insurance-dropdown:focus-within {
+    border-color: #a7a7a7; 
+    box-shadow: 0 0 5px rgba(1, 61, 156, 0.5); 
+    outline: none; 
+  }
+  
+  .insurance-dropdown-placeholder {
+    color: #818181;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    pointer-events: none; 
+  }
+  
+  /* Icon for Filter by: */
+  .insurance-filter-icon img {
+    width: 20px;
+    height: 20px;
+    margin-left: 8px;
+  }
+  
+  /* Dropdown Content Styles */
+  .insurance-dropdown-content {
+    display: none; 
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 200px; 
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 4px;
+    padding: 10px;
+    margin-top: 25px;
+    margin-left: -17px;
+  }
+  
+  /* Title above left and right columns */
+  .insurance-dropdown-title {
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #333;
+    text-align: left;
+  }
+  
+  /* Left and right column styles */
+  .insurance-left, .insurance-right {
+    font-size: 15px;
+    display: inline-block;
+    width: 48%; 
+    vertical-align: top;
+  }
+  
+  .insurance-left {
+    border-right: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .insurance-right {
+    text-align: right;
+  }
+  
+  /* Hover and click effect for left column items */
+  .insurance-item {
+    color: #333;
+    cursor: pointer;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+  }
+  
+  .insurance-item:hover, .insurance-item:active {
+    background-color: #c4c4c4;
+    color: #013d9c;
+  }
+  
+  /* Show the dropdown content on click */
+  .insurance-dropdown.active .insurance-dropdown-content {
+    display: block;
+  }
+  
+  /* Hover and click effect for right column items */
+  .insurance-right p {
+    color: #333;
+    cursor: pointer;
+    padding: 5px 0;
+    transition: color 0.3s ease;
+  }
+  
+  .insurance-right p:hover, .insurance-right p:active {
+    background-color: #c4c4c4;
+    color: #012d74;
+  }
+  
+
+
+.insurance-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.insurance-table th, .insurance-table td {
+    color: black;
+    border: 1px solid #b8b8b8;
+    padding: 10px;
+    text-align: center;
+}
+
+.insurance-table th {
+    background-color:#d9d9d9;
+    padding: 17px;
+}
+
+.insurance-table tr{
+    background-color: #f9f9f9;
+}
+.insurance-table td:nth-child(2) {
+    text-align: left;
+}
+
+.insurance-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.ins-btn-view, .ins-btn-edit, .ins-btn-delete, .ins-btn-approve {
+    display: inline-block;
+    padding: 9px 20px;
+    font-size: 14px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 18px;
+    margin: 2px;
+    background-color: white;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.ins-btn-view {
+    border: 1px solid #012d74;
+    color: #012d74;
+}
+.ins-btn-view:hover {
+    color: white;
+    background-color: #012d74;
+}
+.ins-btn-edit {
+    border: 1px solid #012d74;
+    color: #012d74;
+}
+.ins-btn-edit:hover {
+    color: white;
+    background-color: #012d74;
+}
+.ins-btn-approve {
+    border: 1px solid #00bf63;
+    color: #00bf63;
+}
+.ins-btn-approve:hover {
+    color: white;
+    background-color: #00bf63;
+}
+.ins-btn-delete {
+    color: #ff3131;
+    border: 1px solid #ff3131;
+}
+.ins-btn-delete:hover {
+    color: white;
+    background-color: #ff3131;
+}
+
+
+/* The Modal Css */
+.insurance-modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1003; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 103%; 
+  overflow: hidden; 
+  background-color: rgba(0, 0, 0, 0.4); 
+  margin-left: 0; 
+}
+
+/* The Modal (hidden by default) */
+.insurance-modal {
+  display: none;
+  position: fixed;
+  z-index: 1003;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 103%;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.4);
+  margin-left: 0;
+}
+
+/* Modal Content */
+.insurance-modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 15px;
+  border: 1px solid #999999c5;
+  border-radius: 5px;
+  width: 45%;
+  max-height: 90vh;
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+  scroll-padding: 10px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Modal Header */
+.insurance-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 15px;
+  margin-bottom: 10px;
+  margin-left: 0%;
+}
+
+/* Close Icon */
+.insurance-close-icon {
+  cursor: pointer;
+  margin-right: 10px;
+  width: 24px;
+  height: 24px;
+}
+
+/* Title beside Close Icon */
+.insurance-modal-header h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Description below Title */
+.insurance-description {
+  font-size: 16px;
+  color: #555;
+  margin-bottom: 20px;
+  margin-left: 9%;
+}
+
+/* Close icon hover effect */
+.insurance-close-icon:hover {
+  filter: brightness(0.7);
+}
+
+/* Input Group for Invoice Id */
+.insurance-input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+/* Label for the text field */
+.insurance-input-group label {
+  font-size: 14px;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+/* Centering container for the Invoice Id Field */
+.insurance-invoice-field-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Label aligned to the left of the text field */
+.in-invoice-label {
+  font-size: 16px;
+  margin-bottom: 5px;
+  width: 90%; 
+  color: black;
+  margin-left: 10%;
+}
+
+/* Invoice Id Field */
+.in-invoice-textfield {
+  width: 80%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.in-invoice-textfield:focus{
+  border-width: 1px;
+  border-color: #0056b3; 
+  outline: none; 
+  box-shadow: 0 0 3px rgba(0, 86, 179, 0.5); 
+}
+/* Patient Name Field */
+.in-patient-textfield {
+  width: 80%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.in-patient-textfield:focus{
+  border-width: 1px;
+  border-color: #0056b3; 
+  outline: none; 
+  box-shadow: 0 0 3px rgba(0, 86, 179, 0.5); 
+}
+/* Divider Style */
+.ins-divider {
+  width: 80%;
+  height: 1px; 
+  background-color: #ccc; 
+  margin: 20px auto; 
+}
+/* Insurance Provider Field */
+.in-provider-textfield {
+  width: 80%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.in-provider-textfield:focus{
+  border-width: 1px;
+  border-color: #0056b3; 
+  outline: none; 
+  box-shadow: 0 0 3px rgba(0, 86, 179, 0.5); 
+}
+/* Insurance Provided Contact Field */
+.in-contact-textfield {
+  width: 80%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.in-contact-textfield:focus{
+  border-width: 1px;
+  border-color: #0056b3; 
+  outline: none; 
+  box-shadow: 0 0 3px rgba(0, 86, 179, 0.5); 
+}
+/* Services/Treatment for Potential Coverage Field */
+.in-treatment-textfield {
+  width: 80%;
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.in-treatment-textfield:focus{
+  border-width: 1px;
+  border-color: #0056b3; 
+  outline: none; 
+  box-shadow: 0 0 3px rgba(0, 86, 179, 0.5); 
+}
+/* Submit Button Style */
+.in-submit-btn {
+  padding: 8px 30px;
+  font-size: 16px; 
+  color:#012d74;
+  background-color: white;
+  border: 1px solid #012d74;
+  border-radius: 18px; 
+  cursor: pointer; 
+  margin-top: 20px; 
+  margin-left: 77%;
+  transition: background-color 0.3s ease; 
+}
+
+/* Change button color on hover */
+.in-submit-btn:hover {
+  color: white;
+  background-color: #012d74; 
+}
+/* Styles for the Save Changes Button */
+.in-save-changes-btn {
+  color: #28a745; 
+  border-radius: 18px; 
+  border: 1px solid #28a745;
+  padding: 8px 20px;
+  font-size: 16px; 
+  cursor: pointer; 
+  transition: background-color 0.3s ease; 
+  background-color: white;
+  margin-top: 20px;
+  margin-left: 70%;
+}
+
+.in-save-changes-btn:hover {
+  color: white;
+  background-color: #218838; 
+}
+
+
+
+/* Styles for the New Insurance Table */
+.new-insurance-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  background-color: #fff;
+  border: 1px solid #b8b8b8;
+}
+
+.new-insurance-table th, .new-insurance-table td {
+  color: black;
+  border: 1px solid #b8b8b8;
+  padding: 8px;
+}
+
+.new-insurance-table th {
+  background-color: #d9d9d9;
+  text-align: center;
+}
+
+.new-insurance-table td input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.new-insurance-table td input:focus{
+  border-width: 1px;
+  border-color: #0056b3; 
+  outline: none; 
+  box-shadow: 0 0 3px rgba(0, 86, 179, 0.5); 
+}
+
+
+/* Styles for the Claims Summary Table (View-Modal)*/
+.insurance-claims-summary {
+  margin-top: 5px;
+  margin-left: 5%;
+}
+
+.claims-summary-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  border: 1px solid #b8b8b8;
+  background-color: #fff;
+}
+
+.claims-summary-table th, .claims-summary-table td {
+  border: 1px solid #b8b8b8;
+  color: black;
+  padding: 8px;
+  text-align: left;
+}
+
+.claims-summary-table th {
+  text-align: center;
+  background-color: #d9d9d9;
+  font-weight: bold;
+}
+
+.claims-summary-table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.claims-summary-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* Styles for the Claims Summary Table (Edit Modal) */
+.claims-summary-table td input {
+  color: #5a5a5a;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #5a5a5a;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.claims-summary-table td input:focus{
+  border-width: 1px;
+  border-color: #0056b3; 
+  outline: none; 
+  box-shadow: 0 0 3px rgba(0, 86, 179, 0.5); 
+}
+
+
+/* Css for the insurance-approve modal */
+.insurance-approve-modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1200;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; 
+  background-color: rgba(0, 0, 0, 0.5); 
+}
+
+.insurance-approve-content {
+  color: black;
+  font-size: 16px;
+  background-color: #fff;
+  position: absolute; 
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  padding: 40px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 300px; 
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.insurance-approve-confirm,
+.insurance-approve-cancel {
+  margin-top: 10px;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 18px;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.insurance-approve-confirm {
+  color: #00bf63;
+  border: 1px solid #00bf63;
+}
+
+.insurance-approve-confirm:hover {
+  color: white;
+  background-color: #00bf63;
+}
+
+.insurance-approve-cancel {
+  color: #ff3131;
+  border: 1px solid #ff3131;
+}
+
+.insurance-approve-cancel:hover {
+  color: white;
+  background-color: #ff3131;
+}
+
+/* Css for the submit-reject modal */
+.submit-reject-modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1200;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; 
+  background-color: rgba(0, 0, 0, 0.5); 
+}
+
+.submit-reject-content {
+  color: black;
+  font-size: 16px;
+  background-color: #fff;
+  position: absolute; 
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  padding: 40px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 300px; 
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.submit-reject-confirm,
+.submit-reject-cancel {
+  margin-top: 10px;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 18px;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.submit-reject-confirm {
+  color: #ff3131;
+  border: 1px solid #ff3131;
+}
+
+.submit-reject-confirm:hover {
+  color: white;
+  background-color: #ff3131;
+}
+
+.submit-reject-cancel {
+  color: #00bf63;
+  border: 1px solid #00bf63;
+}
+
+.submit-reject-cancel:hover {
+  color: white;
+  background-color: #00bf63;
+}
+
+/* Css for the reason-reject modal */
+.reason-reject-modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1200;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; 
+  background-color: rgba(0, 0, 0, 0.5); 
+}
+
+.reason-reject-content {
+  color: black;
+  font-size: 16px;
+  background-color: #fff;
+  position: absolute; 
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  padding: 40px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 400px; 
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+
+.reason-reject-confirm,
+.reason-reject-cancel {
+  margin-top: 10px;
+  padding: 10px;
+  width: 100%;
+  border: none;
+  border-radius: 18px;
+  cursor: pointer;
+  background-color: #fff;
+}
+
+.reject-reason-textarea {
+  width: 95%; 
+  height: 80px; 
+  padding: 10px; 
+  border: 1px solid #b8b8b8; 
+  border-radius: 4px; 
+  resize: vertical; 
+  font-size: 14px; 
+  color: #333; 
+}
+
+.reject-reason-textarea:focus {
+  border-color: #007BFF; 
+  outline: none; 
+}
+
+.reason-reject-confirm {
+  color: #ff3131;
+  border: 1px solid #ff3131;
+}
+
+.reason-reject-confirm:hover {
+  color: white;
+  background-color: #ff3131;
+}
+
+.reason-reject-cancel {
+  color: #00bf63;
+  border: 1px solid #00bf63;
+}
+
+.reason-reject-cancel:hover {
+  color: white;
+  background-color: #00bf63;
+}
