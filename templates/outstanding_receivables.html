@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+
+{% block additional_css %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/outstanding_receivables.css') }}">
+{% endblock %}
+
+{% block compact_sidebar %}
+<div class="compact-sidebar-item">
+    <a href="{{ url_for('dashboard') }}">
+        <img src="{{ url_for('static', filename='images/dashboard_icon.png') }}" alt="Dashboard Icon">
+        <span>Dashboard</span>
+    </a>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="receivables-content">
+    <!-- Flowchart Content -->
+    <h2>Outstanding Receivables Management Flowchart</h2>
+    <svg width="100%" height="500" xmlns="http://www.w3.org/2000/svg">
+        <!-- Define styles -->
+        <style>
+            .node { fill: #f9f9f9; stroke: #000; stroke-width: 1px; }
+            .text { font-family: Arial, sans-serif; font-size: 14px; }
+            .arrow { stroke: #000; stroke-width: 2px; marker-end: url(#arrowhead); }
+        </style>
+
+        <!-- Define arrowhead marker -->
+        <defs>
+            <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="0" refY="3" orient="auto" fill="#000">
+                <path d="M0,0 L0,6 L9,3 z"/>
+            </marker>
+        </defs>
+
+        <!-- Nodes -->
+        <rect x="50" y="50" width="150" height="50" class="node"/>
+        <text x="125" y="80" text-anchor="middle" class="text">Start</text>
+
+        <rect x="50" y="150" width="150" height="50" class="node"/>
+        <text x="125" y="180" text-anchor="middle" class="text">Check Receivables</text>
+
+        <rect x="50" y="250" width="150" height="50" class="node"/>
+        <text x="125" y="280" text-anchor="middle" class="text">Action Required?</text>
+
+        <rect x="50" y="350" width="150" height="50" class="node"/>
+        <text x="125" y="380" text-anchor="middle" class="text">Resolve Receivables</text>
+
+        <rect x="50" y="450" width="150" height="50" class="node"/>
+        <text x="125" y="480" text-anchor="middle" class="text">End</text>
+
+        <!-- Arrows -->
+        <line x1="125" y1="100" x2="125" y2="150" class="arrow"/>
+        <line x1="125" y1="200" x2="125" y2="250" class="arrow"/>
+        <line x1="125" y1="300" x2="125" y2="350" class="arrow"/>
+        <line x1="125" y1="400" x2="125" y2="450" class="arrow"/>
+
+        <!-- Decision Arrows -->
+        <line x1="200" y1="250" x2="300" y2="250" class="arrow"/>
+        <line x1="300" y1="275" x2="300" y2="275" class="arrow"/>
+    </svg>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/outstanding_receivables.js') }}"></script>
+{% endblock %}

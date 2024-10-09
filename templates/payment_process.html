@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+
+{% block title %}Payment Process{% endblock %}
+{% block header_title %}Payment Process{% endblock %}
+
+{% block additional_css %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/payment.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="payment-container">
+    <h2>
+        <a href="{{ url_for('invoice_management') }}" class="back-pay-link">
+            <img src="{{ url_for('static', filename='images/left_icon.png') }}" class="back-pay-btn" alt="Back">
+        </a>
+        <span class="invoice-management-title">Invoice Management </span> /
+        <span class="payment-processing-title">Payment Processing</span>
+    </h2>
+
+    
+    <div class="payment-columns">
+        <!-- Left Column -->
+        <div class="left-payment-column">
+            <h3>Customer Information</h3>
+            <table class="customer-info-table">
+                <tr>
+                    <td>Name</td>
+                    <td>Shane Steven Servas</td>
+                </tr>
+                <tr>
+                    <td>Patient Type</td>
+                    <td>Inpatient</td>
+                </tr>
+                <tr>
+                    <td>Contact No.</td>
+                    <td>123-456-7890</td>
+                </tr>
+            </table>
+            <!-- Divider -->
+            <div class="payment-divider"></div>
+            <!-- Invoice Summary Title -->
+            <h4 class="invoice-summary-title">Invoice Summary</h4>
+            <!-- Invoice Summary Table -->
+            <table class="invoice-summary-table">
+                <tr>
+                    <td>Invoice ID:</td>
+                    <td>IN-00123</td>
+                </tr>
+                <tr>
+                    <td>Total Amount:</td>
+                    <td>$1,000</td>
+                </tr>
+                <tr>
+                    <td>Amount Already Paid:</td>
+                    <td>$500</td>
+                </tr>
+                <tr>
+                    <td>Remaining Balance:</td>
+                    <td>$500</td>
+                </tr>
+                <tr>
+                    <td>Status:</td>
+                    <td>Partially Paid</td>
+                </tr>
+            </table>
+            <!-- Summary Divider -->
+            <div class="sum-divider"></div>
+            <!-- Submit a New Payment Title -->
+            <h4 class="submit-payment-title">Submit a New Payment</h4>
+            <!-- Payment Method and Amount to Pay Fields -->
+            <div class="submit-new-field">
+                <label for="payment-method">Payment Method:</label>
+                <select id="payment-method" name="payment-method">
+                    <option value="credit-card">Credit Card</option>
+                    <option value="debit-card">Debit Card</option>
+                    <option value="paypal">PayPal</option>
+                    <option value="bank-transfer">Bank Transfer</option>
+                    <option value="cash">Cash</option>
+                </select>
+            </div>
+            <div class="submit-new-field">
+                <label for="amount-to-pay">Amount to Pay:</label>
+                <input type="text" id="amount-to-pay" name="amount-to-pay">
+            </div>
+            <!-- Submit Payment Button -->
+            <button class="sub-pay-btn">Submit Payment</button>
+        </div>
+
+<!-- Right Column -->
+<div class="right-payment-column">
+    <div class="payment-header">
+        <h3>Payment History</h3>
+        <a href="{{ url_for('payment_record') }}" class="pay-rec-btn">Payment Record</a>
+
+    </div>
+    <p>This is the right column content.</p>
+    <!-- Payment History Table -->
+    <table class="payment-history-table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Amount</th>
+                <th>Payment Method</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>2024-09-01</td>
+                <td>$200</td>
+                <td>Credit Card</td>
+                <td>Processed</td>
+            </tr>
+            <tr>
+                <td>2024-08-15</td>
+                <td>$150</td>
+                <td>Cash</td>
+                <td>Processed</td>
+            </tr>
+            <tr>
+                <td>2024-07-30</td>
+                <td>$100</td>
+                <td>Bank Transfer</td>
+                <td>Pending</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/payment.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}Audit Trails{% endblock %}
+{% block header_title %}Audit Trails{% endblock %}
+
+{% block additional_css %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/audit.css') }}">
+{% endblock %}
+
+{% block compact_sidebar %}
+<div class="compact-sidebar-item">
+    <a href="{{ url_for('dashboard') }}">
+        <img src="{{ url_for('static', filename='images/dashboard_icon.png') }}" alt="Dashboard Icon">
+        <span>Dashboard</span>
+    </a>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="audit-content">
+    <h2>Audit Trails</h2>
+
+    <div class="filters">
+        <input type="text" id="auditSearch" placeholder="Search audit logs...">
+        <select id="auditUser">
+            <option value="">All Users</option>
+            <option value="user1">User 1</option>
+            <option value="user2">User 2</option>
+        </select>
+        <select id="auditAction">
+            <option value="">All Actions</option>
+            <option value="create">Create</option>
+            <option value="edit">Edit</option>
+            <option value="delete">Delete</option>
+            <option value="void">Void</option>
+            <option value="payment">Payment</option>
+        </select>
+    </div>
+
+    <table class="audit-table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>User</th>
+                <th>Action</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Example Audit Logs -->
+            <tr>
+                <td>2024-09-06 10:00</td>
+                <td>John Doe</td>
+                <td>Create</td>
+                <td>Created invoice INV12345 for ₱11,500.00</td>
+            </tr>
+            <tr>
+                <td>2024-09-06 12:30</td>
+                <td>Jane Smith</td>
+                <td>Payment</td>
+                <td>Processed payment for invoice INV12345</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/audit.js') }}"></script>
+{% endblock %}

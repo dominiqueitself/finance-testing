@@ -1,0 +1,78 @@
+{% extends "base.html" %}
+
+{% block title %}Customers Information{% endblock %}
+{% block header_title %}Customers Information{% endblock %}
+
+{% block additional_css %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/external_customers.css') }}">
+{% endblock %}
+
+{% block content %}
+<!-- External Customers Page -->
+<div class="external-customers">
+    <h2>
+        <span class="ext-back-button">
+        </span>
+        <span class="ext-patient-list"> Patient List </span> / 
+        <span class="external-customers-bold"> External Customers</span>
+    </h2>
+<!-- External Search Bar -->
+<div class="external-search">
+    <span class="external-search-icon-left">
+        <img src="{{ url_for('static', filename='images/search_icon.png') }}" alt="Search Icon">
+    </span>
+    <input type="text" placeholder="Search External..." class="external-search-input">
+    <span class="external-search-icon-right">
+        <img src="{{ url_for('static', filename='images/updown_icon.png') }}" alt="Right Icon">
+    </span>
+    <!-- Filter Dropdown with Icon -->
+    <div class="external-filter-wrapper">
+        <select class="external-filter-dropdown">
+            <option value="" disabled selected>Filter</option>
+            <option value="all">All External</option>
+            <option value="active">Active</option>
+            <option value="discharged">Discharged</option>
+            <option value="resigned">Resigned</option>
+        </select>
+        <span class="external-filter-icon">
+            <img src="{{ url_for('static', filename='images/filter_icon.png') }}" alt="Filter Icon">
+        </span>
+    </div>
+</div>
+
+
+
+
+
+
+    <table>
+        <thead>
+            <tr>
+                <th>Customer ID</th>
+                <th>Name</th>
+                <th>Contact</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for customer in external_customers %}
+            <tr>
+                <td>{{ customer.id }}</td>
+                <td>{{ customer.full_name }}</td>
+                <td>{{ customer.contact_number }}</td>
+                <td><a href="{{ url_for('external_invoices', customer_id=customer.id) }}" class="btn-generate-invoice">Generate Invoice</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+
+
+
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/external_customers.js') }}"></script>
+{% endblock %}

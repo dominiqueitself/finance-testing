@@ -1,0 +1,96 @@
+/* Insurance View Styles */
+.insurance-view-content {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-family: Arial, sans-serif;
+}
+
+.insurance-header {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.insurance-header h1 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.insurance-section {
+    margin-bottom: 20px;
+}
+
+.insurance-section h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.insurance-section p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.insurance-summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.insurance-summary-table th, .insurance-summary-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+.insurance-summary-table th {
+    background-color: #f5f5f5;
+}
+
+.insurance-summary-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.insurance-summary-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.total-amount {
+    text-align: right;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.insurance-actions {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.insurance-actions .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    margin: 5px;
+}
+
+.btn-back {
+    background-color: #007bff;
+}
+
+.btn-back:hover {
+    background-color: #0056b3;
+}
+
+.btn-print {
+    background-color: #28a745;
+}
+
+.btn-print:hover {
+    background-color: #218838;
+}

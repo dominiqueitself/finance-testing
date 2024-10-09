@@ -1,0 +1,260 @@
+.payment-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Container Title CSS */
+.invoice-management-title {
+    font-size: 24px;
+    font-weight: 400;
+}
+.payment-processing-title {
+    font-size: 24px;
+    font-weight: 700;
+}
+/* Back Button Link Style */
+.back-pay-link {
+    display: inline-block; 
+    text-decoration: none; /
+}
+/* Back Button Icon Style */
+.back-pay-btn {
+    width: 22px; 
+    height: 22px; 
+    vertical-align: middle; 
+    cursor: pointer;
+    margin-right: 7px; 
+}
+.back-pay-btn:hover{
+    transform: scale(1.1); 
+}
+
+/* Layout for the two columns */
+.payment-columns {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.left-payment-column{
+    width: 46%; 
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.payment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.left-payment-column h3 {
+    color: black;
+    font-size: 20px;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+/* Customer Table CSS */
+.customer-info-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.customer-info-table td {
+    color: black;
+    padding: 4px 0;
+    font-size: 17px; 
+    text-align: right;
+}
+
+.customer-info-table td:first-child {
+    color: black;
+    width: 30%;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: left;
+}
+
+/* Style for the payment-divider */
+.payment-divider {
+    margin: 20px 0; 
+    border-top: 1px solid #ddd; 
+}
+
+/* Style for the Invoice Summary title */
+.invoice-summary-title {
+    color: black;
+    font-size: 18px; 
+    font-weight: bold; 
+    margin-top: 20px; 
+}
+/* Css for Invoice Summary Table */
+.invoice-summary-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px; 
+}
+
+.invoice-summary-table td {
+    color: black;
+    padding: 8px 0;
+    font-size: 17px;
+    text-align: right;
+}
+
+.invoice-summary-table td:first-child {
+    color: black;
+    width: 40%; 
+    font-weight: bold;
+    font-size: 14px;
+    text-align: left;
+}
+
+/* Style for the Summary Divider */
+.sum-divider {
+    margin: 20px 0;
+    border-top: 1px solid #ddd; /* Light gray line */
+}
+/* Style for the Submit a New Payment title */
+.submit-payment-title {
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+/* Style for the Submit New Field container */
+.submit-new-field {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.submit-new-field label {
+    color: black;
+    display: block;
+    font-size: 14px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+/* Amoutn to pay css */
+.submit-new-field input{
+    width: 90%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.submit-new-field input:focus{
+    border-width: 1px;
+    border-color: #0056b3; 
+    outline: none; 
+    box-shadow: 0 0 3px rgba(0, 86, 179, 0.5);
+}
+/* Payment Method Css*/
+.submit-new-field select{
+    width: 93%;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+.submit-new-field select:focus{
+    border-width: 1px;
+    border-color: #0056b3; 
+    outline: none; 
+    box-shadow: 0 0 3px rgba(0, 86, 179, 0.5); 
+}
+/* Style for the Submit Payment Button */
+.sub-pay-btn {
+    display: block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #f9f9f9;
+    color: #00bf63;
+    border: 1px solid #00bf63;
+    border-radius: 18px;
+    font-size: 16px;
+    cursor: pointer;
+    float: right; 
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.sub-pay-btn:hover {
+    color: white;
+    background-color:#00bf63; 
+}
+
+
+/* Right Column CSS  */
+.right-payment-column {
+    width: 46%; 
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+.right-payment-column h3 {
+    color: black;
+    font-size: 20px;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+/* Payment Record Button CSS  */
+.pay-rec-btn { 
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    color:#007BFF;
+    border: 1px solid #007BFF;
+    border-radius: 18px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.pay-rec-btn:hover {
+    color: white;
+    background-color: #007BFF; 
+}
+
+/* Style for Payment History Table */
+.payment-history-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.payment-history-table th, .payment-history-table td {
+    color: black;
+    border: 1px solid #b8b8b8;
+    padding: 20px;
+    text-align: center;
+}
+
+.payment-history-table th {
+    color: black;
+    background-color: #d9d9d9;
+    font-weight: bold;
+    text-align: center;
+}
+
+.payment-history-table tr:nth-child(even) {
+    color: black;
+    background-color: #f9f9f9;
+}
+/* Align the Amount column to the right */
+.payment-history-table td:nth-child(2) {
+    text-align: right;
+}
+
+.payment-history-table tr:hover {
+    background-color: #f1f1f1c7;
+}
+

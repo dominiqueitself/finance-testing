@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Search Invoices{% endblock %}
+{% block header_title %}Search Invoices{% endblock %}
+
+{% block additional_css %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/search-invoices.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="search-invoices-cointainer">
+
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/search-invoices.js') }}"></script>
+{% endblock %}

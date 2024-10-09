@@ -1,0 +1,226 @@
+/* General styles for Submitted Invoices page */
+.submitted-invoices-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+h2 strong {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Container for the search bar and icons */
+.submitted-search-bar {
+    position: relative;
+    display: inline-block;
+    margin-right: 21px;
+    width: 80%;
+    margin-bottom: 20px;
+  }
+  /* Search Icon */
+  .submitted-search-bar .submitted-search-icon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 20px;
+    width: 20px;
+    padding-right: 0px;
+  }
+  /* Up Down Icon */
+  .submitted-search-bar .submitted-updown-icon {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 20px;
+    width: 20px;
+    opacity: 0.5;
+  }
+  /* Css for input */
+  .submitted-search-bar input {
+    padding-left: 35px;
+    padding-right: 35px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 50px;
+    width: 95%;
+  }
+  /* Css for Focus Color in Search bar */
+  .submitted-search-bar input:focus {
+    border-width: 1px;
+    border-color: #a7a7a7;
+    box-shadow: 0 0 3px #818181;
+    outline: none;
+  }
+  /* Css for Dropdown filter */
+  .submitted-dropdown {
+    position: relative;
+    display: inline-block;
+    margin-left: 10px;
+  }
+  
+  .submitted-dropdown-wrapper {
+    position: relative;
+  }
+  
+  .submitted-dropdown input {
+    text-align: left;
+    font-size: 15px;
+    padding: 17px 40px 18px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 150px;
+    appearance: none; 
+  }
+  .submitted-dropdown input:focus {
+    border-width: 1px;
+    border-color: #a7a7a7;
+    box-shadow: 0 0 3px #818181;
+    outline: none;
+  }
+  
+  .submitted-filter-icon {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+  }
+  
+  .submitted-dropdown-content {
+    font-size: 15px;
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    min-width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    z-index: 1;
+    margin-top: 5px;
+  }
+  
+  .submitted-dropdown-columns {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+  }
+  
+  .submitted-left,
+  .submitted-right {
+    width: 48%;
+  }
+  
+  .submitted-left {
+    background-color: #e0e0e052;
+    padding: 5px;
+  }
+  
+  .submitted-right {
+    padding: 5px;
+  }
+  
+
+
+.submitted-invoices-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.submitted-invoices-table th, .submitted-invoices-table td {
+    border: 1px solid #b8b8b8;
+    padding: 15px;
+    text-align: left;
+    text-align: center;
+}
+
+.submitted-invoices-table th {
+    background-color:#d9d9d9;
+    color: #333;
+    font-weight: bold;
+}
+
+.submitted-invoices-table td {
+    background-color: #fff;
+    color: black;
+}
+
+
+.submitted-invoices-table td:nth-child(2)  {
+    text-align: left;
+    
+}
+
+.submitted-invoices-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Button Styles */
+.sub-btn-action {
+    display: inline-block;
+    padding: 8px 19px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 15px;
+    text-decoration: none;
+    margin-right: 5px;
+    margin-left: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.sub-btn-view {
+    color: #012d74;
+    border: 1px solid #012d74;
+}
+
+.sub-btn-view:hover {
+    background-color: #012d74;
+    color: #fff;
+}
+
+.sub-btn-accept {
+    color: #00bf63;
+    border: 1px solid #00bf63;
+}
+
+.sub-btn-accept:hover {
+    background-color: #00bf63;
+    color: #fff;
+}
+
+.sub-btn-reject {
+    color: #ff3131;
+    border: 1px solid #ff3131;
+}
+
+.sub-btn-reject:hover {
+    background-color: #ff3131;
+    color: #fff;
+}
+
+.sub-btn-action.disabled {
+    pointer-events: none; /* Disable clickability */
+    color: gray; /* Visual feedback for disabled state */
+    border-color: gray;
+}
+
+/* Mobile View Adjustments */
+@media (max-width: 768px) {
+    .submitted-invoices-table {
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}Insurance Claim Details{% endblock %}
+{% block header_title %}Insurance Claim Details{% endblock %}
+
+{% block additional_css %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/insurance_view.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="insurance-view-content">
+    <div class="insurance-header">
+        <h1>Insurance Claim #CLM123456</h1>
+        <p>Date Submitted: 2024-09-06</p>
+    </div>
+
+    <div class="insurance-section">
+        <h2>Patient Information</h2>
+        <p><strong>Name:</strong> Juan Dela Cruz</p>
+        <p><strong>Contact:</strong> +63 912 345 6789</p>
+        <p><strong>Address:</strong> 1234 Main Street, Metro Manila, Philippines</p>
+    </div>
+
+    <div class="insurance-section">
+        <h2>Insurance Details</h2>
+        <p><strong>Provider:</strong> PhilHealth</p>
+        <p><strong>Policy Number:</strong> PH123456789</p>
+        <p><strong>Coverage:</strong> Full Coverage</p>
+        <p><strong>Claim Status:</strong> Approved</p>
+    </div>
+
+    <div class="insurance-section">
+        <h2>Claim Summary</h2>
+        <table class="insurance-summary-table">
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Quantity</th>
+                    <th>Unit Price</th>
+                    <th>Amount Covered</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Consultation Fee</td>
+                    <td>1</td>
+                    <td>₱1,000.00</td>
+                    <td>₱1,000.00</td>
+                </tr>
+                <tr>
+                    <td>Medication</td>
+                    <td>3</td>
+                    <td>₱500.00</td>
+                    <td>₱1,500.00</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="insurance-section">
+        <h2>Total Amount Covered</h2>
+        <p class="total-amount">₱2,500.00</p>
+    </div>
+
+    <div class="insurance-actions">
+        <a href="{{ url_for('insurance') }}" class="btn btn-back">Back to Insurance Management</a>
+        <a href="#" class="btn btn-print">Print Claim</a>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/insurance_view.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block title %}Payment Record{% endblock %}
+{% block header_title %}Payment Record{% endblock %}
+
+{% block additional_css %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/payment_record.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="payment-record-container">
+    <h2>Payment Record for Patient #12345</h2>
+
+    <table class="payment-record-table">
+        <thead>
+            <tr>
+                <th>Invoice ID</th>
+                <th>Date</th>
+                <th>Amount</th>
+                <th>Payment Method</th>
+                <th>Paid By</th> <!-- Classification: Patient or Insurance Provider -->
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>INV-1001</td>
+                <td>2024-09-01</td>
+                <td>₱5,000.00</td>
+                <td>Cash</td>
+                <td>Patient</td>
+            </tr>
+            <tr>
+                <td>INV-1002</td>
+                <td>2024-09-10</td>
+                <td>₱6,500.00</td>
+                <td>Insurance Coverage</td>
+                <td>Insurance Provider</td>
+            </tr>
+            <tr>
+                <td>INV-1003</td>
+                <td>2024-09-15</td>
+                <td>₱2,500.00</td>
+                <td>Bank Transfer</td>
+                <td>Patient</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ url_for('payment') }}" class="btn-back">Back to Payment Process</a>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/payment_record.js') }}"></script>
+{% endblock %}

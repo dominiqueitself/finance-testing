@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Insurance Providers{% endblock %}
+{% block header_title %}Insurance Providers{% endblock %}
+
+{% block additional_css %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/insurance_providers.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="provider-container">
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/insurance_providers.js') }}"></script>
+{% endblock %}

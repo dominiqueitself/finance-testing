@@ -1,0 +1,214 @@
+{% extends "base.html" %}
+
+{% block title %}Patient Billing{% endblock %}
+{% block header_title %}
+   <h1 class="pb-header"> Patient Billing</h1> 
+{% endblock %}
+
+{% block additional_css %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/patient_billing.css') }}">
+{% endblock %}
+
+{% block compact_sidebar %}
+<div class="compact-sidebar-item">
+    <a href="{{ url_for('dashboard') }}">
+        <img src="{{ url_for('static', filename='images/dashboard_icon.png') }}" alt="Dashboard Icon">
+        <span>Dashboard</span>
+    </a>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="billing-content">
+    <div class="billing-header">
+        <h2>Patient Billing Statements</h2>
+    </div>
+    
+    <div class="billing-list">
+        <table>
+            <thead>
+                <tr>
+                    <th>Statement Date</th>
+                    <th>Patient ID</th>
+                    <th>Total Amount Due</th>
+                    <th>Payments Made</th>
+                    <th>Outstanding Balance</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>August 31, 2024</td>
+                    <td>OUTPNT-001</td>
+                    <td>₱2300</td>
+                    <td>₱1500</td>
+                    <td>₱800</td>
+                    <td>
+                        <button class="btn-view-details" onclick="toggleDetails('bill1')">View Details</button>
+                    </td>
+                </tr>
+                <tr id="bill1-details" class="billing-details-row">
+                    <td colspan="5">
+                        <div class="billing-details">
+                            <h3>Billing Details</h3>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Description</th>
+                                        <th>Details</th>
+                                        <th>Quantity</th>
+                                        <th>Unit Cost</th>
+                                        <th>Total Cost</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Room Charges</td>
+                                        <td>Room 203, Bed A</td>
+                                        <td>3 days</td>
+                                        <td>₱500/day</td>
+                                        <td>₱1500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Doctor Fee</td>
+                                        <td>Dr. Juan Dela Cruz (Cardiologist)</td>
+                                        <td>3 days</td>
+                                        <td>₱300/day</td>
+                                        <td>₱900</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Medical Procedure</td>
+                                        <td>Cardiac Stress Test</td>
+                                        <td>1 procedure</td>
+                                        <td>₱1500/procedure</td>
+                                        <td>₱1500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Medicines</td>
+                                        <td>Aspirin 100mg</td>
+                                        <td>10 tablets</td>
+                                        <td>₱20/tablet</td>
+                                        <td>₱200</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Medicines</td>
+                                        <td>Losartan 50mg</td>
+                                        <td>5 tablets</td>
+                                        <td>₱30/tablet</td>
+                                        <td>₱150</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="billing-actions">
+                            <button class="btn-print" onclick="printReceipt('bill1')">Print</button>
+                        </div>                        
+                    </td>
+                </tr>
+                <!-- Repeat for other bills -->
+                <tr>
+                    <td>July 25, 2024</td>
+                    <td>INPTN-001</td>
+                    <td>₱1800</td>
+                    <td>₱1800</td>
+                    <td>₱0</td>
+                    <td>
+                        <button class="btn-view-details" onclick="toggleDetails('bill2')">View Details</button>
+                    </td>
+                </tr>
+                <tr id="bill2-details" class="billing-details-row">
+                    <td colspan="5">
+                        <div class="billing-details">
+                            <h3>Billing Details</h3>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Description</th>
+                                        <th>Details</th>
+                                        <th>Quantity</th>
+                                        <th>Unit Cost</th>
+                                        <th>Total Cost</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Room Charges</td>
+                                        <td>Room 102, Bed B</td>
+                                        <td>2 days</td>
+                                        <td>₱500/day</td>
+                                        <td>₱1000</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Doctor Fee</td>
+                                        <td>Dr. Maria Santos (General Practitioner)</td>
+                                        <td>2 days</td>
+                                        <td>₱400/day</td>
+                                        <td>₱800</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Medical Procedure</td>
+                                        <td>X-ray</td>
+                                        <td>1 procedure</td>
+                                        <td>₱500/procedure</td>
+                                        <td>₱500</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Medicines</td>
+                                        <td>Paracetamol 500mg</td>
+                                        <td>20 tablets</td>
+                                        <td>₱10/tablet</td>
+                                        <td>₱200</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="billing-actions">
+                            <button class="btn-print" onclick="printReceipt('bill2')">Print</button>
+                        </div>                        
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<!-- Receipt Container for Print -->
+<div id="receipt-container" class="receipt-container">
+    <div class="receipt-header">
+        <h2>Rosario Maclang Bautista General Hospital</h2>
+        <h4>Powered by Syncore</h4>
+        <p id="receipt-date">Date: August 31, 2024</p>
+    </div>
+
+    <div class="receipt-body">
+        <h3>Patient Billing Receipt</h3>
+        <table id="receipt-details">
+            <!-- The receipt details will be dynamically filled by JavaScript -->
+        </table>
+        <div class="receipt-summary">
+            <p>Total Amount Due: <strong id="total-due">₱</strong></p>
+            <p>Payments Made: <strong id="payments-made">₱</strong></p>
+            <p>Outstanding Balance: <strong id="outstanding-balance">₱</strong></p>
+        </div>
+    </div>
+
+    <div class="receipt-footer">
+        <p>Thank you for choosing Rosario Maclang Bautista General Hospital.</p>
+        <p>For inquiries, please contact us at (02) 123-4567.</p>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/patient_billing.js') }}"></script>
+<script>
+function toggleDetails(id) {
+    var row = document.getElementById(id + '-details');
+    if (row.style.display === 'none' || row.style.display === '') {
+        row.style.display = 'table-row';
+    } else {
+        row.style.display = 'none';
+    }
+}
+</script>
+{% endblock %}

@@ -1,0 +1,151 @@
+{% extends "base.html" %}
+
+{% block title %}Invoice Creation{% endblock %}
+{% block header_title %}Invoice Creation{% endblock %}
+
+{% block additional_css %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/hospital_invoice.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="invoice-content">
+    <form id="invoice-form" method="post">
+        <div class="invoice-top">
+            <!-- Patient Information Section -->
+            <div class="patient-info">
+                <h3>Patient Information</h3>
+                <label for="patient-id">Patient ID:</label>
+                <input type="text" id="patient-id" name="patient_id" value="{{ patient.patient_id }}" readonly>
+                
+                <label for="patient-name">Patient Name:</label>
+                <input type="text" id="patient-name" name="patient_name" value="{{ patient.name }}" readonly>
+                
+                <label for="contact-details">Contact Details:</label>
+                <input type="text" id="contact-details" name="contact_details" value="{{ patient.contact_number }}" readonly>
+                
+                <label for="billing-address">Billing Address:</label>
+                <input type="text" id="billing-address" name="billing_address" placeholder="123 Mabini St, Manila">
+                
+                <label for="insurance-info">Insurance Information:</label>
+                <input type="text" id="insurance-info" name="insurance_info" placeholder="PhilHealth">
+            </div>
+
+            <!-- Invoice Summary Section -->
+            <div class="invoice-summary">
+                <h3 class="receipt-title">Invoice Summary</h3>
+                <div class="receipt-summary">
+                    <div class="receipt-item">
+                        <span class="label">Subtotal:</span>
+                        <span class="value" id="subtotal">200</span>
+                    </div>
+                    <div class="receipt-item">
+                        <span class="label">Discounts:</span>
+                        <span class="value" id="discounts">0</span>
+                    </div>
+                    <div class="receipt-item">
+                        <span class="label">Insurance Coverage:</span>
+                        <span class="value" id="insurance-coverage">0</span>
+                    </div>
+                    <div class="receipt-item">
+                        <span class="label">Tax:</span>
+                        <span class="value" id="tax">10</span>
+                    </div>
+                    <div class="receipt-item total">
+                        <span class="label">Total Amount Due:</span>
+                        <span class="value" id="total-amount">210</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service Details Section -->
+        <h3>Service Details</h3>
+        <table id="services-table">
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Quantity</th>
+                    <th>Cost per Item</th>
+                    <th>Total Cost</th>
+                    <!-- <th>Action</th> -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" name="service_description[]" placeholder="Consultation"></td>
+                    <td><input type="number" name="service_quantity[]" placeholder="1"></td>
+                    <td><input type="number" name="service_cost[]" placeholder="100"></td>
+                    <td><input type="number" name="service_total[]" placeholder="100" readonly></td>
+                    <!-- <td><button type="button" onclick="removeRow(this)">Remove</button></td> -->
+                </tr>
+            </tbody>
+        </table>
+        <!-- <button type="button" onclick="addRow('services-table')">Add Service</button> -->
+
+        <!-- Logistics Details Section -->
+        <h3>Logistics Details</h3>
+        <table id="logistics-table">
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Quantity</th>
+                    <th>Cost per Item</th>
+                    <th>Total Cost</th>
+                    <!-- <th>Action</th> -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><input type="text" name="logistics_description[]" placeholder="Medical Supplies"></td>
+                    <td><input type="number" name="logistics_quantity[]" placeholder="2"></td>
+                    <td><input type="number" name="logistics_cost[]" placeholder="50"></td>
+                    <td><input type="number" name="logistics_total[]" placeholder="100" readonly></td>
+                    <!-- <td><button type="button" onclick="removeRow(this)">Remove</button></td> -->
+                </tr>
+            </tbody>
+        </table>
+        <!-- <button type="button" onclick="addRow('logistics-table')">Add Logistics Item</button> -->
+
+        <!-- Additional Details Section
+        <h3>Additional Details</h3>
+        <label for="room-ward-bed">Room/Ward/Bed:</label>
+        <input type="text" id="room-ward-bed" name="room_ward_bed" placeholder="Room 101">
+
+        <label for="doctor-rate">Doctor's Rate:</label>
+        <input type="number" id="doctor-rate" name="doctor_rate" placeholder="1500"> -->
+
+        <!-- Action Buttons -->
+        <div class="actions">
+            <button type="submit" class="actionbts">Save Invoice as Draft</button>
+            <button type="submit" class="actionbts">Submit and Finalize Invoice</button>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/hospital_invoice.js') }}"></script>
+<script>
+    // JavaScript to handle dynamic table rows
+    function addRow(tableId) {
+        var table = document.getElementById(tableId);
+        var newRow = table.insertRow(-1);
+        var cells = table.rows[0].cells;
+        for (var i = 0; i < cells.length; i++) {
+            var cell = newRow.insertCell(i);
+            var input = document.createElement('input');
+            input.type = 'text';
+            input.name = tableId + '_description[]';
+            input.placeholder = 'New Item';
+            cell.appendChild(input);
+        }
+        var removeCell = newRow.insertCell(cells.length);
+        removeCell.innerHTML = '<button type="button" onclick="removeRow(this)">Remove</button>';
+    }
+
+    function removeRow(button) {
+        var row = button.parentNode.parentNode;
+        row.parentNode.removeChild(row);
+    }
+</script>
+{% endblock %}

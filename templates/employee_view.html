@@ -1,0 +1,296 @@
+{% extends "base.html" %}
+
+{% block title %}Employment Management View{% endblock %}
+{% block header_title %}Employment Management View{% endblock %}
+
+{% block additional_css %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/employee_view.css') }}">
+{% endblock %}
+
+{% block compact_sidebar %}
+<div class="compact-sidebar-item">
+    <a href="{{ url_for('dashboard') }}">
+        <img src="{{ url_for('static', filename='images/dashboard_icon.png') }}" alt="Dashboard Icon">
+        <span>Dashboard</span>
+    </a>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="emp_view-background">
+    <div class="employee_view-content">
+        <!-- Left Arrow Button with Title -->
+        <a href="{{ url_for('employee') }}" class="emp_view-back-button">
+            <img src="{{ url_for('static', filename='images/left_icon.png') }}" alt="Back Arrow">
+            <span class="emp_view-title-text">Personal Information</span>
+        </a>
+
+        <!-- Divider -->
+        <div class="emp_view-custom-divider"></div>
+
+        <!-- Profile Icon Container with Name, Position, and Buttons -->
+        <div class="emp_view-profile-wrapper">
+            <div class="emp_view-profile-icon">
+                <img src="{{ url_for('static', filename='images/profile_icon2.png') }}" alt="Profile Icon">
+            </div>
+            <div class="emp_view-profile-info">
+                <div class="emp_view-profile-name">
+                    <span>New Employee</span>
+                </div>
+                <div class="emp_view-profile-position">
+                    <span>New Position</span>
+                </div>
+                <div class="emp_view-buttons">
+                    <a href="#" class="emp-view edit-employee" id="editButton">Edit</a>
+                    <a href="#" class="emp-view delete">Delete</a>
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- New Column for Employee Information -->
+        <div class="emp_view-name-column">
+            <div class="emp_view-field">
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" name="last_name">
+            </div>
+            <div class="emp_view-field">
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" name="first_name">
+            </div>
+            <div class="emp_view-field">
+                <label for="middle-name">Middle Name</label>
+                <input type="text" id="middle-name" name="middle_name">
+            </div>
+            <div class="emp_view-field ext_view-name-field">
+                <label for="ext-name">Ext. Name</label>
+                <input type="text" id="ext-name" name="ext_name">
+            </div>
+        </div>
+
+        <!-- New Contact Column for Home Number, Phone Number, Contact Number, and Email -->
+        <div class="emp_view-contact-column">
+            <div class="emp_view-field-contact">
+                <label for="home-number">Home Number</label>
+                <input type="text" id="home-number" name="home_number">
+            </div>
+            <div class="emp_view-field-contact">
+                <label for="phone-number">Phone Number</label>
+                <input type="text" id="phone-number" name="phone_number">
+            </div>
+            <div class="emp_view-field-contact">
+                <label for="contact-number">Contact Number</label>
+                <input type="text" id="contact-number" name="contact_number">
+            </div>
+            <div class="emp_view-field-contact">
+                <label for="email-address">Email Address</label>
+                <input type="email" id="email-address" name="email_address">
+            </div>
+        </div>
+
+        <!-- Address Column -->
+        <div class="emp_view-address-column">
+            <div class="emp_view-field-address">
+                <label for="house-no">House No.</label>
+                <input type="text" id="house-no" name="house_no">
+            </div>
+            <div class="emp_view-field-address">
+                <label for="street">Street</label>
+                <input type="text" id="street" name="street">
+            </div>
+            <div class="emp_view-field-address">
+                <label for="barangay">Barangay</label>
+                <input type="text" id="barangay" name="barangay">
+            </div>
+            <div class="emp_view-field-address">
+                <label for="city">City</label>
+                <input type="text" id="city" name="city">
+            </div>
+            <div class="emp_view-field-address">
+                <label for="province">Province</label>
+                <input type="text" id="province" name="province">
+            </div>
+        </div>
+
+        <div class="emp_view-birthsex-column">
+            <!-- Hired Date Field -->
+            <div class="emp_view-field-birth">
+                <label for="hired-date">Birthday</label>
+                <input type="date" id="hired-date" name="hired_date">
+            </div>
+        
+            <!-- Sex Dropdown Field -->
+            <div class="emp_view-field-sex">
+                <label for="sex">Sex</label>
+                <select id="sex" name="sex">
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                </select>
+            </div>
+        </div>
+
+<!-- New Divider -->
+<div class="emp_view-custom-divider"></div>
+
+<!-- Employment Information Title -->
+<div class="emp_view-employment-info-title">
+    <span>Employment Information</span>
+</div>
+
+<!-- Left and Right Columns -->
+<div class="emp_view-employ-columns-wrapper">
+    <!-- Left Column -->
+    <div class="emp_view-employ-left-column">
+        <!-- Existing Fields Row -->
+        <div class="emp_view-employ-fields-row">
+            <div class="emp_view-employ-field">
+                <label for="employee-id">Employee ID</label>
+                <input type="text" id="employee-id" name="employee_id">
+            </div>
+            <div class="emp_view-employ-field">
+                <label for="rate-per-hour">Rate (Per Hour)</label>
+                <input type="text" id="rate-per-hour" name="rate_per_hour">
+            </div>
+        </div>
+<!-- New Fields Row for Position and Hired Date -->
+<div class="emp_view-employ-position-date-row">
+    <div class="emp_view-employ-field">
+        <label for="position">Position</label>
+        <input type="text" id="position" name="position">
+    </div>
+    <div class="emp_view-employ-date-fields-row">
+        <div class="emp_view-employ-date-field">
+            <label for="hired-date">Hired Date</label>
+            <input type="date" id="hired-date" name="hired-date">
+        </div>
+    </div>
+</div>
+
+<!-- New Fields Row for Department and Termination Date -->
+<div class="emp_view-employ-department-termination-row">
+    <div class="emp_view-employ-field">
+        <label for="department">Department</label>
+        <input type="text" id="department" name="department">
+    </div>
+    <div class="emp_view-employ-date-fields-row">
+        <div class="emp_view-employ-date-field">
+            <label for="termination-date">Termination Date</label>
+            <input type="date" id="termination-date" name="termination-date">
+        </div>
+    </div>
+</div>
+
+
+
+        <!-- New Row for Status -->
+        <div class="emp_view-employ-status-row">
+            <div class="emp_view-employ-field">
+                <label for="status">Status</label>
+                <select id="status" name="status">
+                    <option value="active">Active</option>
+                    <option value="resigned">Resigned</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- New Row for Employment Type -->
+        <div class="emp_view-employ-type-row">
+            <div class="emp_view-employ-field">
+                <label for="employment-type">Employment Type</label>
+                <select id="employment-type" name="employment_type">
+                    <option value="part-time">Part-Time</option>
+                    <option value="full-time">Full-Time</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+<!-- Right Column -->
+<div class="emp_view-employ-right-column">
+    <!-- Schedule Title -->
+    <div class="emp_view-employ-schedule-title">
+        <span>Schedule</span>
+    </div>
+
+    <!-- Single Date and Time Labels with Fields for Each Day -->
+    <div class="emp_view-employ-daily-fields">
+        <!-- Labels for Date and Time -->
+        <div class="emp_view-employ-date-time-labels">
+            <div class="emp_view-employ-date-label">
+                <label for="monday-date">Date:</label>
+            </div>
+            <div class="emp_view-employ-time-label">
+                <label for="monday-time">Time:</label>
+            </div>
+        </div>
+
+        <!-- Monday -->
+        <div class="emp_view-employ-daily-field-row">
+            <div class="emp_view-employ-daily-field">
+                <input type="text" id="monday-date" name="monday_date" placeholder="Monday">
+            </div>
+            <div class="emp_view-employ-daily-field">
+                <input type="text" id="monday-time" name="monday_time" placeholder="Time">
+            </div>
+        </div>
+        <!-- Tuesday -->
+        <div class="emp_view-employ-daily-field-row">
+            <div class="emp_view-employ-daily-field">
+                <input type="text" id="tuesday-date" name="tuesday_date" placeholder="Tuesday">
+            </div>
+            <div class="emp_view-employ-daily-field">
+                <input type="text" id="tuesday-time" name="tuesday_time" placeholder="Time">
+            </div>
+        </div>
+        <!-- Wednesday -->
+        <div class="emp_view-employ-daily-field-row">
+            <div class="emp_view-employ-daily-field">
+                <input type="text" id="wednesday-date" name="wednesday_date" placeholder="Wednesday">
+            </div>
+            <div class="emp_view-employ-daily-field">
+                <input type="text" id="wednesday-time" name="wednesday_time" placeholder="Time">
+            </div>
+        </div>
+        <!-- Thursday -->
+        <div class="emp_view-employ-daily-field-row">
+            <div class="emp_view-employ-daily-field">
+                <input type="text" id="thursday-date" name="thursday_date" placeholder="Thursday">
+            </div>
+            <div class="emp_view-employ-daily-field">
+                <input type="text" id="thursday-time" name="thursday_time" placeholder="Time">
+            </div>
+        </div>
+        <!-- Friday -->
+        <div class="emp_view-employ-daily-field-row">
+            <div class="emp_view-employ-daily-field">
+                <input type="text" id="friday-date" name="friday_date" placeholder="Friday">
+            </div>
+            <div class="emp_view-employ-daily-field">
+                <input type="text" id="friday-time" name="friday_time" placeholder="Time">
+            </div>
+        </div>
+        <!-- Saturday -->
+        <div class="emp_view-employ-daily-field-row">
+            <div class="emp_view-employ-daily-field">
+                <input type="text" id="saturday-date" name="saturday_date" placeholder="Saturday">
+            </div>
+            <div class="emp_view-employ-daily-field">
+                <input type="text" id="saturday-time" name="saturday_time" placeholder="Time">
+            </div>
+        </div>
+        <!-- Sunday -->
+        <div class="emp_view-employ-daily-field-row">
+            <div class="emp_view-employ-daily-field">
+                <input type="text" id="sunday-date" name="sunday_date" placeholder="Sunday">
+            </div>
+            <div class="emp_view-employ-daily-field">
+                <input type="text" id="sunday-time" name="sunday_time" placeholder="Time">
+            </div>
+        </div>
+    </div>
+</div>     
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/employee_view.js') }}"></script>
+{% endblock %}

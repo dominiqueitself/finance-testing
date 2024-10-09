@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block title %}Submitted Invoices{% endblock %}
+{% block header_title %}Submitted Invoices{% endblock %}
+
+{% block additional_css %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/submitted_invoices.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="submitted-invoices-container">
+    <h2>Invoices / <strong>Submitted Invoices</strong></h2>
+
+
+
+    <div class="submitted-search-bar">
+        <img
+          src="{{ url_for('static', filename='images/search_icon.png') }}"
+          alt="Left Icon"
+          class="submitted-search-icon" />
+        <input type="text" id="submittedSearch" placeholder=" Search..." />
+        <img
+          src="{{ url_for('static', filename='images/updown_icon.png') }}"
+          alt="Right Icon"
+          class="submitted-updown-icon" />
+      </div>
+      <!-- Clickable Filter Dropdown beside Search Bar -->
+      <div class="submitted-dropdown">
+        <div class="submitted-dropdown-wrapper">
+          <input type="text" id="submittedFilter" placeholder=" Filter" readonly onclick="toggleDropdown()" />
+          <img
+            src="{{ url_for('static', filename='images/filter_icon.png') }}"
+            alt="Filter Icon"
+            class="submitted-filter-icon" />
+        </div>
+        <div class="submitted-dropdown-content" id="dropdownContent">
+          <span>Filter by:</span>
+          <div class="submitted-dropdown-columns">
+            <div class="submitted-left">
+              <p>Insurance Provider</p>
+              <p>Status</p>
+              <p>Date</p>
+            </div>
+            <div class="submitted-right">
+              <p>Philhealth</p>
+              <p>Pru Life UK</p>
+              <p>Manulife</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    
+    
+
+    <table class="submitted-invoices-table">
+        <thead>
+            <tr>
+                <th>Invoice ID</th>
+                <th>Submitted By</th>
+                <th>Date Submitted</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>INV-001</td>
+                <td>Michael Johnson</td>
+                <td>2024-09-01</td>
+                <td>Pending Approval</td>
+                <td>
+                    <a href="#" class="sub-btn-action sub-btn-view">View</a>
+                    <a href="#" class="sub-btn-action sub-btn-accept" onclick="return false;">Accept</a>
+                    <a href="#" class="sub-btn-action sub-btn-reject" onclick="return false;">Reject</a>
+                </td>
+            </tr>
+            <tr>
+                <td>INV-002</td>
+                <td>Alice Williams</td>
+                <td>2024-09-03</td>
+                <td>Approved</td>
+                <td>
+                    <a href="#" class="sub-btn-action sub-btn-view">View</a>
+                    <a href="#" class="sub-btn-action sub-btn-accept" onclick="return false;">Accept</a>
+                    <a href="#" class="sub-btn-action sub-btn-reject" onclick="return false;">Reject</a>
+                </td>
+            </tr>
+            <tr>
+                <td>INV-003</td>
+                <td>David Brown</td>
+                <td>2024-09-05</td>
+                <td>Rejected</td>
+                <td>
+                    <a href="#" class="sub-btn-action sub-btn-view">View</a>
+                    <a href="#" class="sub-btn-action sub-btn-accept" onclick="return false;">Accept</a>
+                    <a href="#" class="sub-btn-action sub-btn-reject" onclick="return false;">Reject</a>
+                </td>
+            </tr>
+            <!-- Add more rows as needed -->
+        </tbody>
+    </table>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/submitted_invoices.js') }}"></script>
+{% endblock %}
