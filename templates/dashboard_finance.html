@@ -1,0 +1,168 @@
+{% extends "base.html" %}
+
+{% block title %}Finance Dashboard{% endblock %}
+{% block header_title %}Finance Dashboard{% endblock %}
+
+{% block additional_css %}
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/dashboard_finance.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="dash-finance-container">
+    <div class="dash_finance_left">         <!-- Left Column -->
+        <div class="welcome_container">
+            <h1 class="welcome_title">Welcome to Release 2024</h1>
+            <p class="welcome_content_one">You are using SYNCORE version 1.0.0.</p>
+            <p class="welcome_content_two">Updates will be notified as available.<br>Last update: October 12, 2024</p>
+        </div>
+        
+        <div class="notification_container"> <!-- Notification Container -->
+            <h1 class="notification_title">
+                <img src="{{ url_for('static', filename='images/notifications_icon.png') }}" class="notification_icon">
+                Notifications
+            </h1>
+            <p class="notification_content_one">
+                Invoice INV003 is overdue by 7 days. Amount: PHP 6,500.
+                Maria Santos registered on Oct 06, 2024. Invoice generated: PHP 5,000.
+                Payment of PHP 3,500 received for Invoice INV001 from John Dela Cruz via Cash.
+                Claim CLM012 submitted for MaxCare Insurance requires approval.
+                John Dela Cruz registered on Oct 05, 2024. Invoice pending.
+                Invoice INV005 is overdue by 3 days. Amount: PHP 2,300.
+                Payment of PHP 12,000 received for Invoice INV002 from MaxCare Insurance.
+                Claim CLM015 for PhilHealth is pending further review.
+            </p>
+        </div>
+
+        <div class="claims_container"> <!-- Claims Container -->
+            <h1 class="claims_title">Monthly Submitted Claims</h1>
+            <p class="claims_content_one">
+                content content content content content content
+                content content content content content content
+                content content content content content content
+                content content content content content content
+                content content content content content content
+                content content content content content content
+                content content content content content content
+                content content content content content content
+                content content content content content content
+                content content content content content content
+                content content content content content content
+                content content content content content content
+            </p>
+            
+        </div>
+        <div class="flow_container"> <!-- Flow Container -->
+            <h1 class="flow_title">Cash Flow Trends (Last Quarter)</h1>
+            <p class="flow_content_one">
+                content content content content content content
+                content content content content content content
+                content content content content content content
+                content content content content content content
+                content content content content content content
+                content content content content content content
+                content content content content content content
+                content content content content content content
+                content content content content content content
+                content content content content content content
+                content content content content content content
+                content content content content content content
+            </p>
+        </div>
+    </div>
+
+
+    <div class="dash_finance_right"> <!-- Right Column -->
+        <!-- Search Bar -->
+        <div class="finance-search">
+            <span class="finance-search-icon-left">
+                <img src="{{ url_for('static', filename='images/search_icon.png') }}" alt="Search Icon">
+            </span>
+            <input type="text" placeholder=" Search..." class="finance-search-input">
+        </div>
+    
+<!-- Blank Container in Right Column -->
+<div class="overview_container"> <!-- Overview Container -->
+    <!-- Row 1: Container 1 and Container 2 side by side -->
+    <div class="overview_row">
+        <div class="overview_item_container">
+            <h2 class="overview_item_title">5</h2>
+            <p class="overview_item_content">Submitted Claims <br>Needing Approval</p>
+        </div>
+        <div class="overview_item_container">
+            <h2 class="overview_item_title">10</h2>
+            <p class="overview_item_content">Outstanding <br>Invoices</p>
+        </div>
+    </div>
+    <!-- Row 2: Container 3 and Container 4 side by side -->
+    <div class="overview_row">
+        <div class="overview_item_container">
+            <h2 class="overview_item_title">10</h2>
+            <p class="overview_item_content">Patient Sent for <br>Invoicing</p>
+        </div>
+        <div class="overview_item_container">
+            <h2 class="overview_item_title">2</h2>
+            <p class="overview_item_content">Overdue <br>Invoices</p>
+        </div>
+    </div>
+</div>
+
+        <!-- Trend Container -->
+        <div class="trend_container">
+            <h1 class="trend_title">Invoice Payment trends (Last 6 Months)</h1>
+            <p class="trend_content_one">
+                content content content content content content
+                content content content content content content
+                content content content content content content
+                content content content content content content
+                content content content content content content
+                content content content content content content
+                content content content content content content
+                content content content content content content
+                content content content content content content
+                content content content content content content
+                content content content content content content
+                content content content content content content
+            </p>
+       </div>
+       <!-- Outstanding Container -->
+       <div class="outstanding_container">
+        <h1 class="outstanding_title">Outstanding Invoices<br>by Status</h1>
+        <p class="outstanding_content_one">
+            content content content content content content
+            content content content content content content
+            content content content content content content
+            content content content content content content
+            content content content content content content
+            content content content content content content
+            content content content content content content
+            content content content content content content
+            content content content content content content
+            content content content content content content
+            content content content content content content
+            content content content content content content
+        </p>
+   </div>
+          <!-- Approved vs. Rejected Claims Container -->
+          <div class="vs_container">
+            <h1 class="vs_title">Approved vs. Rejected Claims (Monthly)</h1>
+            <p class="vs_content_one">
+                content content content content content content
+                content content content content content content
+                content content content content content content
+                content content content content content content
+                content content content content content content
+                content content content content content content
+                content content content content content content
+                content content content content content content
+                content content content content content content
+                content content content content content content
+                content content content content content content
+                content content content content content content
+            </p>
+       </div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/dashboard_finance.js') }}"></script>
+{% endblock %}

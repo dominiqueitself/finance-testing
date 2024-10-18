@@ -1,0 +1,253 @@
+.dash-finance-container {
+    display: flex;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+ /* Css for left Container */
+.dash_finance_left {
+    width: 50%;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f5f5f5;
+    margin-bottom: 15px;
+}
+
+ /* Overall css for containers in left column : Can be seperated */
+.welcome_container,
+.notification_container,
+.claims_container,
+.flow_container {
+    color:  black;
+    background-color: #ffffff;
+    padding: 20px; 
+    max-width: 95%;
+    border-radius: 18px;
+    border: 1px solid #a6a6a6;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 30px auto 0 auto; 
+    text-align: left; 
+}
+ /* Css for Welcome Container */
+.welcome_title{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+}
+.welcome_content_one {
+    font-size: 16px;
+    color: black;
+    margin-top: 10px; 
+}
+.welcome_content_two {
+    font-size: 14px;
+    color: black;
+    margin-top: 8px;
+}
+
+/* CSS for notification container */
+.notification_title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+    display: flex;
+    align-items: center; 
+}
+.notification_content_one {
+    text-align: left;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    line-height: 1.4;
+    margin-top: 10px;
+    color: black;
+}
+.notification_icon {
+    width: 24px; 
+    height: 24px;
+    margin-right: 10px; 
+}
+
+/* Css for claims container  */
+.claims_title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+}
+.claims_content_one {
+    text-align: left;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    line-height: 1.4;
+    margin-top: 10px;
+    color: white;
+}
+
+/* Css for flow container  */
+.flow_title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+}
+.flow_content_one {
+    text-align: left;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    line-height: 1.4;
+    margin-top: 10px;
+    color: white;
+}
+
+ /* Css for right Container */
+.dash_finance_right {
+    width: 50%;
+    padding: 20px;
+    border-radius: 8px;
+    background-color: #f5f5f5;
+    margin-bottom: 15px;
+}
+
+/* Finance Search Bar Styles */
+.finance-search {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-top: 15px;
+}
+.finance-search-icon-left {
+    position: absolute;
+    left: 10px;
+    top: 70%;
+    transform: translateY(-50%);
+}
+
+.finance-search-icon-left img{
+    width: 20px;
+    height: 20px;
+}
+.finance-search-input {
+    margin-top: 15px;
+    width: 90%;
+    padding: 15px 30px 15px 30px; 
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 15px;
+}
+.finance-search-input:focus {
+    border-width: 1px;
+    border-color: #a7a7a7;
+    box-shadow: 0 0 3px #818181;
+    outline: none;
+}
+
+/* Css for overview container */
+.overview_container {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    border: 1px solid #a6a6a6;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 10px;
+    margin-top: 30px;
+}
+/* Css for ovewview row (rows containing 2 containers side by side) */
+.overview_row {
+    display: flex;
+    justify-content: space-between; 
+    margin-bottom: 20px; 
+}
+/* Css for overview item containers */
+.overview_item_container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex: 1; 
+    padding: 10px;
+    background-color: #d9d9d9;
+    border-radius: 8px;
+    border: 1px solid #a6a6a6;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-right: 25px; 
+    margin-top: 10px;
+}
+
+/* Remove margin from the last item in the row */
+.overview_row .overview_item_container:last-child {
+    margin-right: 0;
+}
+/* item title styles */
+.overview_item_title {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: left;
+    margin: auto;
+}
+/* item content styles */
+.overview_item_content {
+    font-size: 14px;
+    color: #012d74;
+    text-align: left;
+    margin-left: 65px;
+    margin-right: 20px;
+}
+/* Over all css container below overview */
+.trend_container, 
+.outstanding_container,
+.vs_container {
+    color: black;
+    flex: 1; 
+    padding: 15px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    border: 1px solid #a6a6a6;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+.trend_title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+}
+.trend_content_one {
+    text-align: left;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    line-height: 1.4;
+    margin-top: 10px;
+    color: white;
+}
+
+/* Css for oustranding invoices container */
+.outstanding_title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+}
+.outstanding_content_one {
+    text-align: left;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    line-height: 1.4;
+    margin-top: 10px;
+    color: white;
+}
+/* Css for Approved vs. Rejected Claims Containerr */
+.vs_title {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+}
+.vs_content_one {
+    text-align: left;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    line-height: 1.4;
+    margin-top: 10px;
+    color: white;
+}
+
+
+
+
+
+

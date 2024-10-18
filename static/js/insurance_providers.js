@@ -71,15 +71,13 @@ function closeProviderModalEdit() {
     document.getElementById('provider-modal-edit').style.display = 'none';
 }
 
-
-
 // Deactivate Button Modal for Deactivation confirmation
 function openDeactivatebutton() {
     const modal = document.getElementById('provider-empty-modal');
     const message = document.getElementById('provider-confirmation-message');
     message.textContent = `Are you sure you want to deactivate Insurance Provider? 
     This action will remove them from the list of active providers. 
-    You can reactivate them later if needed."`;
+    You can reactivate them later if needed.`;
     modal.style.display = 'block';  
 
     // Disable body scroll
@@ -89,7 +87,7 @@ function openDeactivatebutton() {
 // Function to confirm the discharge
 function providerconfirmDischarge() {
     // Handle the discharge logic here
-    alert('Patient has been discharged.');
+    alert('Insurance Provider has been deactivated.');
     closeProviderModalDeactivate();
 }
 

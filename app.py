@@ -172,5 +172,9 @@ def emp_edit():
 def logout():
     return redirect(url_for('login'))
 
+@app.route('/dash_finance')
+def dash_finance():
+    return render_template('dashboard_finance.html')
+
 if __name__ == '__main__':
     app.run(debug=True)

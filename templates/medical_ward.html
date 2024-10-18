@@ -20,21 +20,21 @@
 <div class="room-avail-content">
     <div class="room-cards-container">
         <div class="room-card">
-            <div class="room-card-number">100</div>
+            <div class="room-card-number">20</div>
             <div class="room-card-text">
-                <h3>Total Available Rooms</h3>
+                <h3>Total Available Beds</h3>
             </div>
         </div>
         <div class="room-card">
-            <div class="room-card-number">5</div>
+            <div class="room-card-number">1</div>
             <div class="room-card-text">
-                <h3>Room Under Maintenance</h3>
+                <h3>Beds Under Sanitation</h3>
             </div>
         </div>
         <div class="room-card">
-            <div class="room-card-number">95</div>
+            <div class="room-card-number">15</div>
             <div class="room-card-text">
-                <h3>Occupied Rooms</h3>
+                <h3>Occupied Beds</h3>
             </div>
         </div>
     </div>
@@ -104,7 +104,7 @@
                 <td>001</td>
                 <td>1</td>
                 <td class="room-type">Standard</td>
-                <td class="room-rate">PHP 300.00</td>
+                <td class="room-rate">₱300.00</td>
                 <td>Available</td>
                 <td class="actions-cell">
                     <button class="action-button room-view-button">View</button>
@@ -113,11 +113,11 @@
                 </td>
             </tr>
             <tr>
-                <td>1</td>
+                <td>2</td>
                 <td>001</td>
                 <td>1</td>
                 <td class="room-type">Standard</td>
-                <td class="room-rate">PHP 300.00</td>
+                <td class="room-rate">₱300.00</td>
                 <td>Available</td>
                 <td class="actions-cell">
                     <button class="action-button room-view-button">View</button>
@@ -126,11 +126,11 @@
                 </td>
             </tr>
             <tr>
-                <td>1</td>
+                <td>3</td>
                 <td>001</td>
                 <td>1</td>
                 <td class="room-type">Standard</td>
-                <td class="room-rate">PHP 300.00</td>
+                <td class="room-rate">₱300.00</td>
                 <td>Available</td>
                 <td class="actions-cell">
                     <button class="action-button room-view-button">View</button>
@@ -138,7 +138,71 @@
                     <button class="action-button room-delete-button" onclick="showConfirmationModal('001')">Empty</button>
                 </td>
             </tr>
-            <!-- Add more rows as needed -->
+            <tr>
+                <td>4</td>
+                <td>001</td>
+                <td>1</td>
+                <td class="room-type">Standard</td>
+                <td class="room-rate">₱300.00</td>
+                <td>Available</td>
+                <td class="actions-cell">
+                    <button class="action-button room-view-button">View</button>
+                    <button class="action-button room-edit-button" onclick="toggleEdit(this)">Edit</button>
+                    <button class="action-button room-delete-button" onclick="showConfirmationModal('001')">Empty</button>
+                </td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>001</td>
+                <td>1</td>
+                <td class="room-type">Standard</td>
+                <td class="room-rate">₱300.00</td>
+                <td>Available</td>
+                <td class="actions-cell">
+                    <button class="action-button room-view-button">View</button>
+                    <button class="action-button room-edit-button" onclick="toggleEdit(this)">Edit</button>
+                    <button class="action-button room-delete-button" onclick="showConfirmationModal('001')">Empty</button>
+                </td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>001</td>
+                <td>1</td>
+                <td class="room-type">Standard</td>
+                <td class="room-rate">₱300.00</td>
+                <td>Occupied</td>
+                <td class="actions-cell">
+                    <button class="action-button room-view-button">View</button>
+                    <button class="action-button room-edit-button" onclick="toggleEdit(this)">Edit</button>
+                    <button class="action-button room-delete-button" onclick="showConfirmationModal('001')">Empty</button>
+                </td>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>002</td>
+                <td>2</td>
+                <td class="room-type">Semi-Private</td>
+                <td class="room-rate">₱1,000.00</td>
+                <td>Occupied</td>
+                <td class="actions-cell">
+                    <button class="action-button room-view-button">View</button>
+                    <button class="action-button room-edit-button" onclick="toggleEdit(this)">Edit</button>
+                    <button class="action-button room-delete-button" onclick="showConfirmationModal('001')">Empty</button>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>002</td>
+                <td>2</td>
+                <td class="room-type">Semi-Private</td>
+                <td class="room-rate">₱1,000.00</td>
+                <td>Occupied</td>
+                <td class="actions-cell">
+                    <button class="action-button room-view-button">View</button>
+                    <button class="action-button room-edit-button" onclick="toggleEdit(this)">Edit</button>
+                    <button class="action-button room-delete-button" onclick="showConfirmationModal('001')">Empty</button>
+                </td>
+            </tr>
         </tbody>
     </table>
 </div>

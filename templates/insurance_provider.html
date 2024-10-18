@@ -155,7 +155,7 @@
 <!-- Confirmation Modal for Deactivate -->
 <div id="provider-empty-modal" class="provider-empty-modal" style="display:none;">
     <div class="provider-empty-content">
-        <p id="provider-confirmation-message">Are you sure you want to discharge patient from this bed? This action cannot be undone.</p>
+        <p id="provider-confirmation-message">Are you sure you want to deactivate this provider? This action will remove them from the list of active providers. You can reactivate them later if needed.</p>
         <button class="provider-empty-confirm" onclick="providerconfirmDischarge()">Yes, Deactivate</button>
         <button class="provider-empty-cancel" onclick="closeProviderModalDeactivate()">Cancel</button>
     </div>
@@ -247,7 +247,6 @@
                 <!-- Submit and Cancel Buttons -->
                <div class="provider-buttons-container-edit">
               <button class="edit-provider-save-btn">Save</button>
-             <button class="edit-provider-deact-btn" onclick="closeProviderModal()">Deactivate</button>
            </div>
         </div>
     </div>

@@ -69,7 +69,7 @@
             <td>2024-09-01</td>
             <td>Open</td>
             <td>Pending Approval</td>
-            <td>₱11,500.00</td>
+            <td class="tamount">₱11,500.00</td>
             <td>
                 <a href="{{ url_for('invoice_view') }}" class="btn-view">View</a>
                 <a href="#" class="btn-edit">Edit</a>
@@ -77,8 +77,8 @@
                 <a href="#" class="btn-insurance" data-status="Open" data-approval="Pending Approval" onclick="toggleInsuranceBox('INV12345', event)">Apply Insurance</a>
                 <div id="insurance-box-INV12345" class="insurance-box">
                     <h3>Apply Insurance</h3>
-                    <a href="#" class="insurance-option" onclick="handleCoverage()">Coverage</a>
-                    <a href="#" class="insurance-option reimbursement-option" onclick="handleReimbursement()">Reimbursement</a>
+                    <a href="#" class="insurance-option">Coverage</a>
+                    <a href="#" class="insurance-option reimbursement-option">Reimbursement</a>
                 </div>
                 <a href="#" class="btn-void" onclick="openVoidModal()">Void</a>
             </td>                             
@@ -89,7 +89,7 @@
             <td>2024-09-01</td>
             <td>Fully Paid</td>
             <td>Approved</td>
-            <td>₱11,500.00</td>
+            <td class="tamount">₱11,500.00</td>
             <td>
                 <a href="{{ url_for('invoice_view') }}" class="btn-view">View</a>
                 <a href="#" class="btn-edit">Edit</a>
@@ -97,8 +97,8 @@
                 <a href="#" class="btn-insurance" data-status="Partially Paid" data-approval="Approved" onclick="toggleInsuranceBox('INV12346', event)">Apply Insurance</a>
                 <div id="insurance-box-INV12346" class="insurance-box">
                     <h3>Apply Insurance</h3>
-                    <a href="{{ url_for('invoice_coverage') }}" class="insurance-option" onclick="handleCoverage()">Coverage</a>
-                    <a href="{{ url_for('invoice_reimbursement') }}" class="insurance-option reimbursement-option" onclick="handleReimbursement()">Reimbursement</a>
+                    <a href="{{ url_for('invoice_coverage') }}" class="insurance-option">Coverage</a>
+                    <a href="{{ url_for('invoice_reimbursement') }}" class="insurance-option reimbursement-option"">Reimbursement</a>
                 </div>  
                 <a href="#" class="btn-void" onclick="openVoidModal()">Void</a>
             </td>                             
@@ -109,7 +109,7 @@
             <td>2024-09-01</td>
             <td>Voided</td>
             <td>Rejected</td>
-            <td>₱11,500.00</td>
+            <td class="tamount">₱11,500.00</td>
             <td>
                 <a href="{{ url_for('invoice_view') }}" class="btn-view">View</a>
                 <a href="#" class="btn-edit">Edit</a>
@@ -117,8 +117,8 @@
                 <a href="#" class="btn-insurance" data-status="Voided" data-approval="Rejected" onclick="toggleInsuranceBox('INV12347', event)">Apply Insurance</a>
                 <div id="insurance-box-INV12347" class="insurance-box">
                     <h3>Apply Insurance</h3>
-                    <a href="#" class="insurance-option" onclick="handleCoverage()">Coverage</a>
-                    <a href="#" class="insurance-option reimbursement-option" onclick="handleReimbursement()">Reimbursement</a>
+                    <a href="#" class="insurance-option">Coverage</a>
+                    <a href="#" class="insurance-option reimbursement-option">Reimbursement</a>
                 </div>
                 <a href="#" class="btn-void" onclick="openVoidModal()">Void</a>
             </td>                             
@@ -129,7 +129,7 @@
             <td>2024-09-01</td>
             <td>Open</td>
             <td>Approved</td>
-            <td>₱20,000.00</td>
+            <td class="tamount">₱20,000.00</td>
             <td>
                 <a href="{{ url_for('invoice_view') }}" class="btn-view">View</a>
                 <a href="#" class="btn-edit">Edit</a>
@@ -137,8 +137,8 @@
                 <a href="#" class="btn-insurance" data-status="Partially Paid" data-approval="Approved" onclick="toggleInsuranceBox('INV12348', event)">Apply Insurance</a>
                 <div id="insurance-box-INV12348" class="insurance-box">
                     <h3>Apply Insurance</h3>
-                    <a href="{{ url_for('invoice_coverage') }}" class="insurance-option" onclick="handleCoverage()">Coverage</a>
-                    <a href="{{ url_for('invoice_reimbursement') }}" class="insurance-option reimbursement-option" onclick="handleReimbursement()">Reimbursement</a>
+                    <a href="{{ url_for('invoice_coverage') }}" class="insurance-option">Coverage</a>
+                    <a href="{{ url_for('invoice_reimbursement') }}" class="insurance-option reimbursement-option"">Reimbursement</a>
                 </div>  
                 <a href="#" class="btn-void" onclick="openVoidModal()">Void</a>
             </td>                             
@@ -149,7 +149,7 @@
             <td>2024-09-02</td>
             <td>Open</td>
             <td>Rejected</td>
-            <td>₱15,000.00</td>
+            <td class="tamount">₱15,000.00</td>
             <td>
                 <a href="{{ url_for('invoice_view') }}" class="btn-view">View</a>
                 <a href="{{ url_for('invoice_edit') }}" class="btn-edit">Edit</a>
@@ -157,8 +157,8 @@
                 <a href="#" class="btn-insurance" data-status="Open" data-approval="Rejected" onclick="toggleInsuranceBox('INV12349', event)">Apply Insurance</a>
                 <div id="insurance-box-INV12349" class="insurance-box">
                     <h3>Apply Insurance</h3>
-                    <a href="{{ url_for('invoice_coverage') }}" class="insurance-option" onclick="handleCoverage()">Coverage</a>
-                    <a href="{{ url_for('invoice_reimbursement') }}" class="insurance-option reimbursement-option" onclick="handleReimbursement()">Reimbursement</a>
+                    <a href="{{ url_for('invoice_coverage') }}" class="insurance-option">Coverage</a>
+                    <a href="{{ url_for('invoice_reimbursement') }}" class="insurance-option reimbursement-option">Reimbursement</a>
                 </div>
                 <a href="#" class="btn-void" onclick="openVoidModal()">Void</a>
             </td>                             
@@ -169,7 +169,7 @@
             <td>2024-09-03</td>
             <td>Partially Paid</td>
             <td>Approved</td>
-            <td>₱8,000.00</td>
+            <td class="tamount">₱8,000.00</td>
             <td>
                 <a href="{{ url_for('invoice_view') }}" class="btn-view">View</a>
                 <a href="#" class="btn-edit">Edit</a>
@@ -177,8 +177,8 @@
                 <a href="#" class="btn-insurance" data-status="Partially Paid" data-approval="Approved" onclick="toggleInsuranceBox('INV12350', event)">Apply Insurance</a>
                 <div id="insurance-box-INV12350" class="insurance-box">
                     <h3>Apply Insurance</h3>
-                    <a href="{{ url_for('invoice_coverage') }}" class="insurance-option" onclick="handleCoverage()">Coverage</a>
-                    <a href="{{ url_for('invoice_reimbursement') }}" class="insurance-option reimbursement-option" onclick="handleReimbursement()">Reimbursement</a>
+                    <a href="{{ url_for('invoice_coverage') }}" class="insurance-option">Coverage</a>
+                    <a href="{{ url_for('invoice_reimbursement') }}" class="insurance-option reimbursement-option"">Reimbursement</a>
                 </div>                
                 <a href="#" class="btn-void" onclick="openVoidModal()">Void</a>
             </td>                             
@@ -189,7 +189,7 @@
             <td>2024-09-06</td>
             <td>Voided</td>
             <td>Approved</td>
-            <td>₱5,000.00</td>
+            <td class="tamount">₱5,000.00</td>
             <td>
                 <a href="{{ url_for('invoice_view') }}" class="btn-view">View</a>
                 <a href="#" class="btn-edit">Edit</a>
@@ -197,8 +197,8 @@
                 <a href="#" class="btn-insurance" data-status="Voided" data-approval="Approved" onclick="toggleInsuranceBox('INV34512', event)">Apply Insurance</a>
                 <div id="insurance-box-INV34512" class="insurance-box">
                     <h3>Apply Insurance</h3>
-                    <a href="#" class="insurance-option" onclick="handleCoverage()">Coverage</a>
-                    <a href="#" class="insurance-option reimbursement-option" onclick="handleReimbursement()">Reimbursement</a>
+                    <a href="#" class="insurance-option">Coverage</a>
+                    <a href="#" class="insurance-option reimbursement-option"">Reimbursement</a>
                 </div>
                 <a href="#" class="btn-void" onclick="openVoidModal()">Void</a>
             </td>                             
