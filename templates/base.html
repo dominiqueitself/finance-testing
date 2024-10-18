@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Default Title{% endblock %}</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/base.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap" rel="stylesheet">
+    {% block additional_css %}{% endblock %}
+</head>
+<body>
+    <div class="dim-overlay"></div>
+    <header class="header">
+        <div class="menu-logo">
+            <img class="syncore-logo" src="{{ url_for('static', filename='images/syncore-main.png') }}" alt="Company Logo">
+        </div>
+        <div class="user-profile">
+            <div class="user-info">
+                <p>Admin</p>
+                <span>Finance Manager</span>
+            </div>            
+            <div class="user-dropdown">
+                <img src="{{ url_for('static', filename='images/user_icon.png') }}" alt="User Icon">
+                <div class="triangle"></div>
+                <div class="profile-dropdown-content">
+                    <a href="#">Profile <img src="{{ url_for('static', filename='images/profile_icon.png') }}" alt="Profile Icon" class="dropdown-icon"></a>
+                    <a href="{{ url_for('logout') }}">Logout<img src="{{ url_for('static', filename='images/logout_icon.png') }}" alt="Logout Icon" class="dropdown-icon"></a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+<!-- New Top Bar -->
+<div class="top-bar">
+    <div class="top-nav">
+        <a href="{{ url_for('dash_finance') }}">Dashboard</a>
+        <a href="{{ url_for('employee') }}">Employees</a>
+        <a href="{{ url_for('services') }}">Services</a>
+
+        <div class="dropdown">
+            <button class="dropbtn">Wards</button>
+            <div class="dropdown-content">
+                <a href="{{ url_for('medical_ward') }}">Medical Ward</a>
+                <a href="{{ url_for('radiology') }}">Radiology Ward</a>
+            </div>
+        </div>
+
+        <!-- Dropdown for Patients -->
+        <div class="dropdown">
+            <button class="dropbtn">Patients</button>
+            <div class="dropdown-content">
+                <a href="{{ url_for('hospital_patients') }}">Hospital Patients</a>
+                <a href="{{ url_for('external_customers') }}">External Customers</a> 
+            </div>
+        </div>
+
+        <!-- Dropdown for Invoices -->
+        <div class="dropdown">
+            <button class="dropbtn">Invoices</button>
+            <div class="dropdown-content">
+                <div class="submenu">
+                    <span class="submenu-title">Invoice Management <span class="submenu-icon">&gt;</span></span>
+                    <div class="submenu-content">
+                        <a href="{{ url_for('invoice_management') }}">Lists</a>
+                        <a href="#">Search</a>
+                    </div>
+                </div>
+                <a href="{{ url_for('submitted_invoices') }}">Submitted Invoices</a>
+            </div>
+        </div>
+
+        <!-- Dropdown for Insurance -->
+        <div class="dropdown">
+            <button class="dropbtn">Insurance</button>
+            <div class="dropdown-content">
+                <div class="submenu">
+                    <span class="submenu-title">Claims Management <span class="submenu-icon">&gt;</span></span>
+                    <div class="submenu-content">
+                        <a href="{{ url_for('insurance') }}">Lists</a>
+                        <a href="#">Search</a>
+                    </div>
+                </div>
+                <a href="{{ url_for('insurance_provider') }}">Insurance Providers</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+        <div class="content">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='js/base.js') }}"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>
