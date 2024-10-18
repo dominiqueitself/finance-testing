@@ -2,32 +2,48 @@
     display: flex;
     border-radius: 8px;
     box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
-
+    background-color: #f5f5f5;
+    overflow: hidden; /* Prevents content overflow */
 }
- /* Css for left Container */
+/* CSS for Left Container */
 .dash_finance_left {
     width: 50%;
     padding: 20px;
     border-radius: 8px;
-    background-color: #f5f5f5;
+    position: relative; 
+    background-color: transparent; 
+    overflow: hidden; 
     margin-bottom: 15px;
 }
-
- /* Overall css for containers in left column : Can be seperated */
-.welcome_container,
-.notification_container,
-.claims_container,
-.flow_container {
-    color:  black;
-    background-color: #ffffff;
-    padding: 20px; 
-    max-width: 95%;
-    border-radius: 18px;
-    border: 1px solid #a6a6a6;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin: 30px auto 0 auto; 
-    text-align: left; 
+/* Styling the Background Image */
+.dashboard_background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: -15px;
+    width: 70%;
+    height: auto;
+    object-fit: cover; 
+    z-index: 1; 
+    border-radius: 8px; 
 }
+ /* Overall css for containers in left column : Can be seperated */
+ .welcome_container,
+ .notification_container,
+ .claims_container,
+ .flow_container {
+     color:  black;
+     background-color: #ffffff;
+     padding: 20px; 
+     max-width: 95%;
+     border-radius: 18px;
+     border: 1px solid #a6a6a6;
+     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+     margin: 30px auto 0 auto; 
+     text-align: left; 
+     position: relative; 
+     z-index: 1; 
+ }
  /* Css for Welcome Container */
 .welcome_title{
     font-size: 20px;

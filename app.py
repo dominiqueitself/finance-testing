@@ -9,11 +9,11 @@ def login():
 
 @app.route('/login', methods=['POST'])
 def login_post():
-    return render_template('dashboard.html')
+    return render_template('dashboard_finance.html')
 
 @app.route('/dashboard')
 def dashboard():
-    return render_template('dashboard.html')
+    return render_template('dashboard_finance.html')
 
 # Serve  forgot password page
 @app.route('/forgot-password')

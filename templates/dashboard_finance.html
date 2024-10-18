@@ -10,14 +10,22 @@
 {% block content %}
 
 <div class="dash-finance-container">
-    <div class="dash_finance_left">         <!-- Left Column -->
+    <div class="dash_finance_left">         
+        <!-- Left Column -->
+
+        <!-- Background Image -->
+        <img src="{{ url_for('static', filename='images/dashboard_background.png') }}" 
+        alt="Dashboard Background" class="dashboard_background">
+
+        <!-- Welcome Content -->
         <div class="welcome_container">
             <h1 class="welcome_title">Welcome to Release 2024</h1>
             <p class="welcome_content_one">You are using SYNCORE version 1.0.0.</p>
             <p class="welcome_content_two">Updates will be notified as available.<br>Last update: October 12, 2024</p>
         </div>
-        
-        <div class="notification_container"> <!-- Notification Container -->
+
+        <!-- Notification Content -->
+        <div class="notification_container"> 
             <h1 class="notification_title">
                 <img src="{{ url_for('static', filename='images/notifications_icon.png') }}" class="notification_icon">
                 Notifications
