@@ -168,9 +168,10 @@ def invoice_reimbursement():
 def emp_edit():
     return render_template('employee_edit.html')
 
-@app.route('/logout')
+@app.route('/logout', methods=['POST'])
 def logout():
-    return redirect(url_for('login'))
+    # Clear session or token handling logic here if necessary
+    return jsonify({"redirect": "https://syncore.onrender.com"}), 200
 
 @app.route('/dash_finance')
 def dash_finance():
